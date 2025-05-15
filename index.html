@@ -42,13 +42,12 @@
     html, body { height: 100%; min-height: 100vh; }
     body {
       font-family: var(--font-main);
-      background: var(--blanco); /* Fondo blanco puro */
+      background: var(--blanco);
       color: var(--negro);
       margin: 0;
       padding-top: 90px;
       scroll-behavior: smooth;
     }
-    /* Header/Navbar con degradado original y fijo */
     .navbar {
       background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
       box-shadow: var(--shadow);
@@ -62,6 +61,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 2rem;
+      transition: min-height 0.2s, height 0.2s;
     }
     .navbar-logo {
       display: flex;
@@ -86,7 +86,7 @@
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       transition: background 0.2s, color 0.2s;
-      font-size: 1rem;
+      font-size: 1.05rem;
     }
     .nav-link:hover, .nav-link.active {
       background: var(--blanco);
@@ -105,7 +105,7 @@
     .header-logo-container {
       width: 100%;
       max-width: 900px;
-      height: 180px;
+      height: 280px;
       margin: 0 auto 1.5rem auto;
       display: flex;
       justify-content: center;
@@ -113,7 +113,6 @@
     }
     .header-logo-container img {
       width: 100%; height: 100%; object-fit: contain; display: block;
-      /* Sombra eliminada */
     }
     .main-title {
       font-size: 2.5rem;
@@ -131,8 +130,8 @@
     }
     .carousel-container {
       width: 100%;
-      max-width: 1100px;
-      height: 340px;
+      max-width: 900px;
+      height: 40px;
       margin: 0 auto 2.5rem auto;
       border-radius: var(--radius);
       overflow: hidden;
@@ -141,7 +140,7 @@
       position: relative;
     }
     .carousel-inner, .carousel-item, .carousel-item img {
-      width: 100%; height: 340px; min-height: 340px; object-fit: cover;
+      width: 100%; height: 400px; min-height: 400px; object-fit: cover;
       border-radius: var(--radius);
     }
     .carousel-controls {
@@ -210,7 +209,7 @@
       font-size: 1rem;
     }
     .about-section {
-      background: var(--blanco); /* Fondo blanco puro */
+      background: var(--blanco);
       padding: 2.5rem 0 2rem 0;
       text-align: center;
     }
@@ -251,7 +250,6 @@
       border: 3px solid var(--verde1);
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
-    /* Footer con degradado original */
     .footer {
       background: linear-gradient(to bottom, #014b01, #016101, green, #02b602, #18aa3d);
       background-size: 100% 100%;
@@ -279,7 +277,6 @@
       transform: scale(1.13) rotate(-6deg);
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
-    /* Menú hamburguesa responsive */
     .navbar-toggle {
       background: none;
       border: none;
@@ -290,6 +287,20 @@
       display: none;
       align-items: center;
       justify-content: center;
+    }
+    @media (min-width: 992px) {
+      .navbar {
+        min-height: 110px;
+        height: 110px;
+        padding: 0 2.5rem;
+      }
+      body {
+        padding-top: 110px;
+      }
+      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img {
+        height: 440px !important;
+        min-height: 440px !important;
+      }
     }
     @media (max-width: 991px) {
       body { padding-top: 70px; }
@@ -328,15 +339,10 @@
         display: flex !important;
       }
     }
-    @media (min-width: 992px) {
-      .navbar-toggle {
-        display: none !important;
-      }
-    }
     @media (max-width: 600px) {
       .header-logo-container { height: 60px; }
       .main-title { font-size: 1.3rem; }
-      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img { height: 110px; min-height: 110px; }
+      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img { height: 100px; min-height: 300px; min-width: 80%; margin: auto; }
       .servicios-title, .about-section h2 { font-size: 1.2rem; }
       .footer .footer-social { margin-top: 1.2rem; }
       .footer .list-inline-item img { width: 44px; height: 44px; }
@@ -402,15 +408,15 @@
     </p>
   </section>
 
-  <!-- Carrusel de imágenes (simple, sin Bootstrap JS) -->
+  <!-- Carrusel de imágenes (más alto) -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-inner">
-      <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp" alt="Desarrollo web e E-commerce Comunitega" width="1200" height="340" loading="eager" fetchpriority="high" style="display:block;">
-      <img class="carousel-item" src="Gestión-de-redes-sociales-Comunitega.webp" alt="Gestión de redes sociales Comunitega" width="1200" height="340" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Marketing-Digital-Comunitega.webp" alt="Marketing Digital Comunitega" width="1200" height="340" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="SEO-y-Posicionamiento-web-Comunitega.webp" alt="SEO y Posicionamiento web Comunitega" width="1200" height="340" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega" width="1200" height="340" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Automatización-y-Chatbots-Comunitega.webp" alt="Automatización y Chatbots Comunitega" width="1200" height="340" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp" alt="Desarrollo web e E-commerce Comunitega" width="1200" height="440" loading="eager" fetchpriority="high" style="display:block;">
+      <img class="carousel-item" src="Gestión-de-redes-sociales-Comunitega.webp" alt="Gestión de redes sociales Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Marketing-Digital-Comunitega.webp" alt="Marketing Digital Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="SEO-y-Posicionamiento-web-Comunitega.webp" alt="SEO y Posicionamiento web Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Automatización-y-Chatbots-Comunitega.webp" alt="Automatización y Chatbots Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
@@ -483,6 +489,47 @@
     </p>
   </section>
 
+  
+  <!-- Video YouTube (lazy load) -->
+  <div class="container-fluid mb-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div id="player" class="embed-responsive embed-responsive-16by9" style="height: 400px; margin-bottom: 10%;">
+          <div id="loader" class="text-center">Cargando...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Lazy load YouTube solo cuando es visible
+    let ytLoaded = false;
+    function loadYouTubeScript() {
+      if (ytLoaded) return;
+      ytLoaded = true;
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+    function onYouTubeIframeAPIReady() {
+      new YT.Player("player", {
+        videoId: "9QNUXxuwt1Y",
+        width: "100%",
+        height: "100%",
+        playerVars: { enablejsapi: 1, origin: window.location.origin, cookie: "none" }
+      });
+    }
+    window.addEventListener("load", function () {
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          loadYouTubeScript();
+          observer.unobserve(entries[0].target);
+        }
+      }, { rootMargin: "50px" });
+      observer.observe(document.getElementById("player"));
+    });
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+  </script>
+
   <!-- Equipo -->
   <div class="equipo-container">
     <div class="col">
@@ -522,45 +569,6 @@
     </div>
   </div>
 
-  <!-- Video YouTube (lazy load) -->
-  <div class="container-fluid mb-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6 col-xl-5">
-        <div id="player" class="embed-responsive embed-responsive-16by9" style="height: 340px;">
-          <div id="loader" class="text-center">Cargando...</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Lazy load YouTube solo cuando es visible
-    let ytLoaded = false;
-    function loadYouTubeScript() {
-      if (ytLoaded) return;
-      ytLoaded = true;
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
-    function onYouTubeIframeAPIReady() {
-      new YT.Player("player", {
-        videoId: "9QNUXxuwt1Y",
-        width: "100%",
-        height: "100%",
-        playerVars: { enablejsapi: 1, origin: window.location.origin, cookie: "none" }
-      });
-    }
-    window.addEventListener("load", function () {
-      const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          loadYouTubeScript();
-          observer.unobserve(entries[0].target);
-        }
-      }, { rootMargin: "50px" });
-      observer.observe(document.getElementById("player"));
-    });
-    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-  </script>
 
   <!-- Footer -->
   <footer class="footer">
