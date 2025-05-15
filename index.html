@@ -1,17 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comunitelga</title>
-  <meta name="description" content="Comunitega es una agencia de marketing digital que ayuda a las empresas a mejorar su presencia online, Posicionamiento web, Desarrollo Web e E-commerce, Gestión de Redes Social, Email Marketing, Automatización y Chatbots.">
-  <meta name="keywords" content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Gestión de Redes Sociales, Automatización, Chatbots">
+  <meta name="description"
+    content="Comunitega es una agencia de marketing digital que ayuda a las empresas a mejorar su presencia online, Posicionamiento web, Desarrollo Web e E-commerce, Gestión de Redes Social, Email Marketing, Automatización y Chatbots.">
+  <meta name="keywords"
+    content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Gestión de Redes Sociales, Automatización, Chatbots">
   <meta name="theme-color" content="#02b602">
   <link rel="icon" href="logo_circulo.webp">
 
   <!-- FontAwesome (no bloqueante) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </noscript>
@@ -21,7 +24,8 @@
     <link rel="stylesheet" href="diseño.css">
   </noscript>
   <!-- Bootstrap solo para grid y componentes, no bloqueante -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print"
+    onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   </noscript>
@@ -36,10 +40,16 @@
       --negro: #000;
       --blanco: #fff;
       --radius: 1.2rem;
-      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
       --font-main: 'Segoe UI', Arial, sans-serif;
     }
-    html, body { height: 100%; min-height: 100vh; }
+
+    html,
+    body {
+      height: 100%;
+      min-height: 100vh;
+    }
+
     body {
       font-family: var(--font-main);
       background: var(--blanco);
@@ -48,6 +58,7 @@
       padding-top: 90px;
       scroll-behavior: smooth;
     }
+
     .navbar {
       background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
       box-shadow: var(--shadow);
@@ -63,15 +74,21 @@
       padding: 0 2rem;
       transition: min-height 0.2s, height 0.2s;
     }
+
     .navbar-logo {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
+
     .navbar-logo img {
-      width: 56px; height: 56px; border-radius: 50%; background: var(--blanco);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--blanco);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
+
     .navbar-links {
       display: flex;
       align-items: center;
@@ -79,6 +96,7 @@
       flex-wrap: wrap;
       transition: max-height 0.3s;
     }
+
     .nav-link {
       color: var(--blanco) !important;
       font-weight: 600;
@@ -88,20 +106,29 @@
       transition: background 0.2s, color 0.2s;
       font-size: 1.05rem;
     }
-    .nav-link:hover, .nav-link.active {
+
+    .nav-link:hover,
+    .nav-link.active {
       background: var(--blanco);
       color: var(--verde2) !important;
     }
+
     .lang-btn img {
-      width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--blanco);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--blanco);
       margin-left: 0.5rem;
       transition: border 0.2s;
       cursor: pointer;
     }
-    .lang-btn img.active, .lang-btn img:focus {
+
+    .lang-btn img.active,
+    .lang-btn img:focus {
       border: 2px solid var(--verde1);
       outline: none;
     }
+
     .header-logo-container {
       width: 100%;
       max-width: 900px;
@@ -111,9 +138,15 @@
       justify-content: center;
       align-items: center;
     }
+
     .header-logo-container img {
-      width: 100%; height: 100%; object-fit: contain; display: block;margin-top: 10%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      margin-top: 10%;
     }
+
     .main-title {
       font-size: 2.5rem;
       font-weight: 800;
@@ -122,12 +155,14 @@
       letter-spacing: -1px;
       text-align: center;
     }
+
     .main-desc {
       font-size: 1.25rem;
       color: #222;
       margin-bottom: 2.5rem;
       text-align: center;
     }
+
     .carousel-container {
       width: 100%;
       max-width: 900px;
@@ -139,34 +174,54 @@
       background: var(--blanco);
       position: relative;
     }
-    .carousel-inner, .carousel-item, .carousel-item img {
-      width: 100%; height: 400px; min-height: 400px; object-fit: cover;
+
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      width: 100%;
+      height: 400px;
+      min-height: 400px;
+      object-fit: cover;
       border-radius: var(--radius);
     }
+
     .carousel-controls {
       position: absolute;
-      top: 50%; left: 0; right: 0;
-      display: flex; justify-content: space-between; align-items: center;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       pointer-events: none;
     }
+
     .carousel-btn {
       background: var(--verde2);
       color: var(--blanco);
       border: none;
       border-radius: 50%;
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       font-size: 1.5rem;
       cursor: pointer;
       pointer-events: all;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background 0.2s;
     }
-    .carousel-btn:hover { background: var(--verde1); }
+
+    .carousel-btn:hover {
+      background: var(--verde1);
+    }
+
     .servicios-section {
       background: var(--blanco);
       padding: 3rem 0 2rem 0;
     }
+
     .servicios-title {
       font-size: 2rem;
       font-weight: 700;
@@ -174,6 +229,7 @@
       margin-bottom: 2rem;
       text-align: center;
     }
+
     .servicio-card {
       border: none;
       border-radius: var(--radius);
@@ -184,41 +240,51 @@
       padding: 2rem 1rem 1.5rem 1rem;
       text-align: center;
     }
+
     .servicio-card:hover {
       transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
       background: #eafff3;
     }
+
     .servicio-icon {
       font-size: 2.7rem;
       border-radius: 50%;
-      width: 70px; height: 70px;
-      display: flex; align-items: center; justify-content: center;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 auto 1rem;
       background: var(--verde1);
       color: var(--blanco);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     }
+
     .servicio-card .card-title {
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--verde2);
     }
+
     .servicio-card .card-text-dark {
       color: #333;
       font-size: 1rem;
     }
+
     .about-section {
       background: var(--blanco);
       padding: 2.5rem 0 2rem 0;
       text-align: center;
     }
+
     .about-section h2 {
       color: var(--verde2);
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
     }
+
     .about-section p {
       font-size: 1.1rem;
       color: #444;
@@ -227,29 +293,90 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    /* --- Responsive Equipo Section --- */
     .equipo-container {
-      max-width: 900px;
-      margin: 0 auto 3rem auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
+      margin-bottom: 3rem;
     }
+
     .equipo-container .col {
       flex: 1 1 150px;
       max-width: 180px;
-      min-width: 150px;
+      min-width: 120px;
       text-align: center;
+      margin-bottom: 1.5rem;
     }
+
     .imagen-trabajador {
-      width: 100px; height: 100px; margin: 0 auto 10px auto;
-      display: flex; align-items: center; justify-content: center;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .imagen-trabajador img {
-      width: 100px; height: 100px; object-fit: cover; border-radius: 50%; display: block;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
       border: 3px solid var(--verde1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      transition: width 0.2s, height 0.2s;
     }
+
+    /* Tablets */
+    @media (max-width: 991px) {
+      .equipo-container {
+        gap: 1.2rem;
+      }
+
+      .equipo-container .col {
+        max-width: 140px;
+        min-width: 100px;
+      }
+
+      .imagen-trabajador,
+      .imagen-trabajador img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    /* Móviles */
+    @media (max-width: 600px) {
+      .equipo-container {
+        gap: 0.7rem;
+      }
+
+      .equipo-container .col {
+        max-width: 90px;
+        min-width: 70px;
+      }
+
+      .imagen-trabajador,
+      .imagen-trabajador img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .equipo-container h3 {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .equipo-container p {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+      }
+    }
+
     .footer {
       background: linear-gradient(to bottom, #014b01, #016101, green, #02b602, #18aa3d);
       background-size: 100% 100%;
@@ -258,25 +385,29 @@
       padding: 2rem 0 1rem 0;
       font-size: 1.1rem;
       font-weight: 500;
-      box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
       text-align: center;
     }
+
     .footer .footer-social {
       margin-top: 2.2rem;
       margin-bottom: 0.5rem;
     }
+
     .footer .list-inline-item img {
       width: 64px;
       height: 64px;
       border-radius: 50%;
       margin: 0 0.7rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
       transition: transform 0.18s;
     }
+
     .footer .list-inline-item img:hover {
       transform: scale(1.13) rotate(-6deg);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     }
+
     .navbar-toggle {
       background: none;
       border: none;
@@ -288,25 +419,48 @@
       align-items: center;
       justify-content: center;
     }
+
     @media (min-width: 992px) {
       .navbar {
         min-height: 110px;
         height: 110px;
         padding: 0 2.5rem;
       }
+
       body {
         padding-top: 110px;
       }
-      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img {
+
+      .carousel-container,
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item img {
         height: 440px !important;
         min-height: 440px !important;
       }
     }
+
     @media (max-width: 991px) {
-      body { padding-top: 70px; }
-      .header-logo-container { height: 100px; }
-      .main-title { font-size: 2rem; }
-      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img { height: 180px; min-height: 180px; }
+      body {
+        padding-top: 70px;
+      }
+
+      .header-logo-container {
+        height: 100px;
+      }
+
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .carousel-container,
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item img {
+        height: 180px;
+        min-height: 180px;
+      }
+
       .navbar-links {
         position: fixed;
         top: 70px;
@@ -319,36 +473,67 @@
         padding: 0.5rem 2rem 1.5rem 2rem;
         display: none;
         z-index: 999;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
         border-bottom-left-radius: 1.2rem;
         border-bottom-right-radius: 1.2rem;
       }
+
       .navbar-links.show {
         display: flex;
       }
+
       .nav-link {
         width: 100%;
         margin: 0.2rem 0;
         font-size: 1.1rem;
         text-align: left;
       }
+
       .lang-btn {
         margin-top: 0.5rem;
       }
+
       .navbar-toggle {
         display: flex !important;
       }
     }
+
     @media (max-width: 600px) {
-      .header-logo-container { height: 60px; }
-      .main-title { font-size: 1.3rem; }
-      .carousel-container, .carousel-inner, .carousel-item, .carousel-item img { height: 100px; min-height: 300px; min-width: 80%; margin: auto; }
-      .servicios-title, .about-section h2 { font-size: 1.2rem; }
-      .footer .footer-social { margin-top: 1.2rem; }
-      .footer .list-inline-item img { width: 44px; height: 44px; }
+      .header-logo-container {
+        height: 60px;
+      }
+
+      .main-title {
+        font-size: 1.3rem;
+      }
+
+      .carousel-container,
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item img {
+        height: 100px;
+        min-height: 300px;
+        min-width: 80%;
+        margin: auto;
+      }
+
+      .servicios-title,
+      .about-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .footer .footer-social {
+        margin-top: 1.2rem;
+      }
+
+      .footer .list-inline-item img {
+        width: 44px;
+        height: 44px;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -356,16 +541,21 @@
       <img src="logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="eager" fetchpriority="high">
       <span style="color:#fff;font-size:1.2rem;font-weight:700;">Comunitega</span>
     </div>
-    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-links">
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="navbar-links">
       <i class="fas fa-bars"></i>
     </button>
     <div class="navbar-links" id="navbar-links">
-      <a class="nav-link" href="#" data-es="Desarrollo web e E-commerce" data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a>
-      <a class="nav-link" href="#" data-es="Gestion de Redes Sociales" data-en="Social Media Management">Gestion de Redes Sociales</a>
+      <a class="nav-link" href="#" data-es="Desarrollo web e E-commerce"
+        data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a>
+      <a class="nav-link" href="#" data-es="Gestion de Redes Sociales" data-en="Social Media Management">Gestion de
+        Redes Sociales</a>
       <a class="nav-link" href="#" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a>
-      <a class="nav-link" href="#" data-es="Seo y Posicionamiento Web" data-en="SEO and Web Positioning">Seo y Posicionamiento Web</a>
+      <a class="nav-link" href="#" data-es="Seo y Posicionamiento Web" data-en="SEO and Web Positioning">Seo y
+        Posicionamiento Web</a>
       <a class="nav-link" href="#" data-es="Email Marketing" data-en="Email Marketing">Email Marketing</a>
-      <a class="nav-link" href="#" data-es="Automatización y Chatbots" data-en="Automation and Chatbots">Automatización y Chatbots</a>
+      <a class="nav-link" href="#" data-es="Automatización y Chatbots" data-en="Automation and Chatbots">Automatización
+        y Chatbots</a>
       <span class="lang-btn">
         <img id="btn-es" src="españa.webp" alt="Español" tabindex="0">
         <img id="btn-en" src="uk.webp" alt="English" tabindex="0">
@@ -383,7 +573,7 @@
         toggle.setAttribute('aria-expanded', expanded ? "true" : "false");
       });
       // Cierra el menú al hacer click fuera (opcional)
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (window.innerWidth < 992 && !links.contains(e.target) && !toggle.contains(e.target)) {
           links.classList.remove('show');
           toggle.setAttribute('aria-expanded', "false");
@@ -401,8 +591,10 @@
 
   <!-- Main Title & Desc -->
   <section>
-    <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega</h1>
-    <p class="main-desc" data-es="Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas."
+    <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega
+    </h1>
+    <p class="main-desc"
+      data-es="Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas."
       data-en="We are a community passionate about technology and digital marketing, among many other things.">
       Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas.
     </p>
@@ -411,12 +603,19 @@
   <!-- Carrusel de imágenes (más alto) -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-inner">
-      <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp" alt="Desarrollo web e E-commerce Comunitega" width="1200" height="440" loading="eager" fetchpriority="high" style="display:block;">
-      <img class="carousel-item" src="Gestión-de-redes-sociales-Comunitega.webp" alt="Gestión de redes sociales Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Marketing-Digital-Comunitega.webp" alt="Marketing Digital Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="SEO-y-Posicionamiento-web-Comunitega.webp" alt="SEO y Posicionamiento web Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
-      <img class="carousel-item" src="Automatización-y-Chatbots-Comunitega.webp" alt="Automatización y Chatbots Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
+        alt="Desarrollo web e E-commerce Comunitega" width="1200" height="440" loading="eager" fetchpriority="high"
+        style="display:block;">
+      <img class="carousel-item" src="Gestión-de-redes-sociales-Comunitega.webp"
+        alt="Gestión de redes sociales Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Marketing-Digital-Comunitega.webp" alt="Marketing Digital Comunitega" width="1200"
+        height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="SEO-y-Posicionamiento-web-Comunitega.webp"
+        alt="SEO y Posicionamiento web Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega" width="1200"
+        height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Automatización-y-Chatbots-Comunitega.webp"
+        alt="Automatización y Chatbots Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
@@ -444,33 +643,47 @@
       <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-search"></i></div>
-          <h5 data-es="SEO y Posicionamiento Web" data-en="SEO and Web Positioning" class="card-title">SEO y Posicionamiento Web</h5>
-          <p data-es="Promovemos un mejor posicionamiento web en los resultados de búsqueda." data-en="We promote better web positioning in search results." class="card-text-dark">Promovemos un mejor posicionamiento web en los resultados de búsqueda.</p>
+          <h5 data-es="SEO y Posicionamiento Web" data-en="SEO and Web Positioning" class="card-title">SEO y
+            Posicionamiento Web</h5>
+          <p data-es="Promovemos un mejor posicionamiento web en los resultados de búsqueda."
+            data-en="We promote better web positioning in search results." class="card-text-dark">Promovemos un mejor
+            posicionamiento web en los resultados de búsqueda.</p>
         </div>
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-envelope-open-text"></i></div>
           <h5 data-es="Email Marketing" data-en="Email Marketing" class="card-title">Email Marketing</h5>
-          <p data-es="Realizamos acciones de marketing a través de Email." data-en="We carry out marketing actions through email." class="card-text-dark">Realizamos acciones de marketing a través de Email.</p>
+          <p data-es="Realizamos acciones de marketing a través de Email."
+            data-en="We carry out marketing actions through email." class="card-text-dark">Realizamos acciones de
+            marketing a través de Email.</p>
         </div>
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-robot"></i></div>
-          <h5 data-es="Automatización y Chatbots" data-en="Automatization and Chatbots" class="card-title">Automatización y Chatbots</h5>
-          <p data-es="Automatizamos tareas y métodos de contacto con nuestros clientes." data-en="We automate tasks and methods of contact with our clients." class="card-text-dark">Automatizamos tareas y métodos de contacto con nuestros clientes.</p>
+          <h5 data-es="Automatización y Chatbots" data-en="Automatization and Chatbots" class="card-title">
+            Automatización y Chatbots</h5>
+          <p data-es="Automatizamos tareas y métodos de contacto con nuestros clientes."
+            data-en="We automate tasks and methods of contact with our clients." class="card-text-dark">Automatizamos
+            tareas y métodos de contacto con nuestros clientes.</p>
         </div>
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-code"></i></div>
           <h5 data-es="Desarrollo Web" data-en="Web Development" class="card-title">Desarrollo Web</h5>
-          <p data-es="Desarrollamos sitios web personalizados y atractivos." data-en="We develop customized and attractive websites." class="card-text-dark">Desarrollamos sitios web personalizados y atractivos.</p>
+          <p data-es="Desarrollamos sitios web personalizados y atractivos."
+            data-en="We develop customized and attractive websites." class="card-text-dark">Desarrollamos sitios web
+            personalizados y atractivos.</p>
         </div>
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-bullhorn"></i></div>
           <h5 data-es="Marketing Digital" data-en="Digital Marketing" class="card-title">Marketing Digital</h5>
-          <p data-es="Ayudamos a las empresas a crecer en línea." data-en="We help businesses grow online." class="card-text-dark">Ayudamos a las empresas a crecer en línea.</p>
+          <p data-es="Ayudamos a las empresas a crecer en línea." data-en="We help businesses grow online."
+            class="card-text-dark">Ayudamos a las empresas a crecer en línea.</p>
         </div>
         <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
           <div class="servicio-icon"><i class="fas fa-share-alt"></i></div>
-          <h5 data-es="Gestion de Redes Sociales" data-en="Social Media Management" class="card-title">Gestión de Redes Sociales</h5>
-          <p data-es="Ayudamos a las empresas a crecer en redes sociales." data-en="We help businesses grow in social media." class="card-text-dark">Ayudamos a las empresas a crecer en redes sociales.</p>
+          <h5 data-es="Gestion de Redes Sociales" data-en="Social Media Management" class="card-title">Gestión de Redes
+            Sociales</h5>
+          <p data-es="Ayudamos a las empresas a crecer en redes sociales."
+            data-en="We help businesses grow in social media." class="card-text-dark">Ayudamos a las empresas a crecer
+            en redes sociales.</p>
         </div>
       </div>
     </div>
@@ -481,15 +694,19 @@
     <h2 data-es="¿Quiénes somos?" data-en="Who are we?">¿Quiénes somos?</h2>
     <p data-es="Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización."
       data-en="We are a digital marketing agency committed to helping businesses improve their online presence and connect with their customers through innovative strategies. Our team works in key areas such as web development, social media management, digital advertising, SEO, email marketing, and automation.">
-      Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización.
+      Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia
+      online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como
+      desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización.
     </p>
     <p data-es="Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio."
       data-en="We are passionate about digital marketing and believe in the power of creativity and technology to generate impact. At Comunitega, we work as a team, share knowledge, and focus on offering effective solutions for the growth of every business.">
-      Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio.
+      Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En
+      Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para
+      el crecimiento de cada negocio.
     </p>
   </section>
 
-  
+
   <!-- Video YouTube (lazy load) -->
   <div class="container-fluid mb-5">
     <div class="row justify-content-center">
@@ -626,4 +843,5 @@
     });
   </script>
 </body>
+
 </html>
