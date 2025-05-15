@@ -1,5 +1,5 @@
 
-<!-- Optimización extrema de rendimiento para Comunitega -->
+<!-- Optimización extrema de rendimiento para Comunitega con CLS corregido -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +13,8 @@
 
   <!-- CSS crítico en línea (solo lo esencial para el above-the-fold) -->
   <style>
-    body { min-height: 100vh; font-family: 'Segoe UI', Arial, sans-serif; }
+    html, body { height: 100%; min-height: 100vh; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; min-height: 100vh; margin: 0; padding-top: 120px; }
     .navbar { background-image: linear-gradient(to right, #02b602,#008000,#005e00, #000000); }
     .footer { background-color: green; color: white; }
     .servicio-card { box-shadow: 0 2px 8px rgba(0,0,0,0.07); border: none; }
@@ -21,24 +22,96 @@
     .scale-up { transition: transform .2s; }
     .scale-up:hover { transform: scale(1.08); }
     .imagen-trabajador img { border: 3px solid #02b602; }
-    /* Loader para YouTube */
     #loader { font-size: 1.2rem; color: #008000; }
+    .header-logo-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .main-carrusel-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 600px;
+      margin: 0 auto 30px auto;
+      position: relative;
+    }
+    @media (max-width: 991px) {
+      body { padding-top: 70px; }
+      .header-logo-container { height: 150px; }
+      .main-carrusel-container { height: 200px; }
+    }
+    .carousel-inner, .carousel-item, .carousel-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+    .carousel-control-prev, .carousel-control-next {
+      width: 5%;
+      min-width: 40px;
+      height: 100%;
+    }
+    .footer {
+      min-height: 220px;
+      padding-top: 25px;
+      padding-bottom: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .footer .list-inline-item img {
+      width: 90px;
+      height: 90px;
+    }
+    /* Reservar espacio para equipo */
+    .equipo-container {
+      max-width: 800px;
+      margin: 0 auto 85px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .equipo-container .col {
+      flex: 1 1 150px;
+      max-width: 180px;
+      min-width: 150px;
+      text-align: center;
+    }
+    .imagen-trabajador {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .imagen-trabajador img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
   </style>
 
-  <!-- Bootstrap 4 CSS (asíncrono) -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Bootstrap 4 CSS (asíncrono, no bloqueante) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   </noscript>
 
   <!-- FontAwesome (asíncrono, solo una vez) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </noscript>
 
   <!-- CSS personalizado (asíncrono) -->
-  <link rel="preload" href="diseño.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="diseño.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="diseño.css">
   </noscript>
@@ -80,9 +153,9 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="d-flex justify-content-center">
+    <div class="header-logo-container">
       <img src="logo_texto.webp" alt="Logo de Comunitega"
-        width="1200" height="300" style="max-width: 100%; height: auto; margin-top: 195px;" loading="eager" fetchpriority="high">
+        width="1200" height="300" style="width:100%;height:100%;object-fit:contain;display:block;" loading="eager" fetchpriority="high">
     </div>
   </header>
 
@@ -133,46 +206,42 @@
   </main>
 
   <!-- Carrusel de imágenes -->
-  <div style="margin-top: 65px;" class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
-                alt="Desarrollo web e E-commerce Comunitega" width="1200" height="600" loading="eager" fetchpriority="high">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="Gestión-de-redes-sociales-Comunitega.webp"
-                alt="Gestión de redes sociales Comunitega" width="1200" height="600" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="Marketing-Digital-Comunitega.webp"
-                alt="Marketing Digital Comunitega" width="1200" height="600" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="SEO-y-Posicionamiento-web-Comunitega.webp"
-                alt="SEO y Posicionamiento web Comunitega" width="1200" height="600" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="Email Marketing Comunitega.webp"
-                alt="Email Marketing Comunitega" width="1200" height="600" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="Automatización-y-Chatbots-Comunitega.webp"
-                alt="Automatización y Chatbots Comunitega" width="1200" height="600" loading="lazy">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-          </a>
+  <div class="main-carrusel-container">
+    <div id="carouselExampleControls" class="carousel slide h-100" data-ride="carousel">
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active h-100">
+          <img class="d-block w-100 h-100" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
+            alt="Desarrollo web e E-commerce Comunitega" width="1200" height="600" style="object-fit:cover;" loading="eager" fetchpriority="high">
+        </div>
+        <div class="carousel-item h-100">
+          <img class="d-block w-100 h-100" src="Gestión-de-redes-sociales-Comunitega.webp"
+            alt="Gestión de redes sociales Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
+        </div>
+        <div class="carousel-item h-100">
+          <img class="d-block w-100 h-100" src="Marketing-Digital-Comunitega.webp"
+            alt="Marketing Digital Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
+        </div>
+        <div class="carousel-item h-100">
+          <img class="d-block w-100 h-100" src="SEO-y-Posicionamiento-web-Comunitega.webp"
+            alt="SEO y Posicionamiento web Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
+        </div>
+        <div class="carousel-item h-100">
+          <img class="d-block w-100 h-100" src="Email Marketing Comunitega.webp"
+            alt="Email Marketing Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
+        </div>
+        <div class="carousel-item h-100">
+          <img class="d-block w-100 h-100" src="Automatización-y-Chatbots-Comunitega.webp"
+            alt="Automatización y Chatbots Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
         </div>
       </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" tabindex="0">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" tabindex="0">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
     </div>
   </div>
 
@@ -295,43 +364,38 @@
   </div>
 
   <!-- Equipo -->
-  <div class="row row-cols-1 row-cols-md-3 g-2 justify-content-center mx-auto" style="max-width: 800px;margin-bottom: 85px;">
+  <div class="equipo-container">
     <div class="col">
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
-          width="100" height="100" style="object-fit: cover;" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
       </div>
       <h3 class="text-center">Nombre 1</h3>
       <p class="text-center">Cargo 1</p>
     </div>
     <div class="col">
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
-          width="100" height="100" style="object-fit: cover;" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
       </div>
       <h3 class="text-center">Nombre 2</h3>
       <p class="text-center">Cargo 2</p>
     </div>
     <div class="col">
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
-          width="100" height="100" style="object-fit: cover;" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
       </div>
       <h3 class="text-center">Nombre 3</h3>
       <p class="text-center">Cargo 3</p>
     </div>
     <div class="col">
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
-          width="100" height="100" style="object-fit: cover;" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
       </div>
       <h3 class="text-center">Nombre 4</h3>
       <p class="text-center">Cargo 4</p>
     </div>
     <div class="col">
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
-          width="100" height="100" style="object-fit: cover;" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
       </div>
       <h3 class="text-center">Nombre 5</h3>
       <p class="text-center">Cargo 5</p>
@@ -339,10 +403,10 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer" style="height: 220px;">
+  <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center" style="margin-top: 25px; margin-bottom: 10px; font-size: 22px; font-weight: bold;">
+        <div class="col-md-12 text-center">
           <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
             &copy; 2025 Comunitega. Todos los derechos reservados.
           </p>
