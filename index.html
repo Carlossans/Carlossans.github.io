@@ -19,7 +19,14 @@
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function loadBootstrap() {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.x.x/dist/js/bootstrap.bundle.min.js';
+      document.body.appendChild(script);
+    }
+    window.addEventListener('DOMContentLoaded', loadBootstrap);
+  </script>
   <!-- Enlace a la hoja de estilos personalizada -->
   <link rel="stylesheet" href="diseño.css" font-display="swap">
   <!-- Enlace al icono de la página -->
@@ -30,18 +37,18 @@
 
   <!-- Script para jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous" defer></script>
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"
+    defer></script>
 
   <!-- Script para Popper -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous" defer></script>
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
+    defer></script>
 
   <!-- Script para Bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous" defer></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
+    defer></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -78,7 +85,15 @@
   <script>
     var player; function loadYouTubeScript() { var e = document.createElement("script"); e.src = "https://www.youtube.com/iframe_api", document.body.appendChild(e) } function onYouTubeIframeAPIReady() { player = new YT.Player("player", { videoId: "9QNUXxuwt1Y", width: "100%", height: "100%", playerVars: { enablejsapi: 1, origin: "*", cookie: "none" } }) } window.addEventListener("load", function () { let e = new IntersectionObserver(r => { r[0].isIntersecting && (loadYouTubeScript(), e.unobserve(r[0].target)) }, { rootMargin: "50px" }); e.observe(document.getElementById("player")) });
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Reemplaza esto -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.x.x/css/all.min.css" rel="stylesheet">
+
+  <!-- Con esto: -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.x.x/css/all.min.css">
+  </noscript>
 
 </head>
 
