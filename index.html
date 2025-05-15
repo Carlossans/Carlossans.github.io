@@ -85,7 +85,7 @@
     var player; function loadYouTubeScript() { var e = document.createElement("script"); e.src = "https://www.youtube.com/iframe_api", document.body.appendChild(e) } function onYouTubeIframeAPIReady() { player = new YT.Player("player", { videoId: "9QNUXxuwt1Y", width: "100%", height: "100%", playerVars: { enablejsapi: 1, origin: "*", cookie: "none" } }) } window.addEventListener("load", function () { let e = new IntersectionObserver(r => { r[0].isIntersecting && (loadYouTubeScript(), e.unobserve(r[0].target)) }, { rootMargin: "50px" }); e.observe(document.getElementById("player")) });
   </script>
 
-
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
 
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
