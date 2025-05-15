@@ -1,358 +1,313 @@
-
-<!-- Optimización extrema de rendimiento para Comunitega con CLS corregido -->
+<!-- Definimos el tipo de documento y el idioma de la página -->
 <!DOCTYPE html>
 <html lang="es">
+
+<!-- Sección de metadatos y enlaces a estilos y scripts -->
+
 <head>
+  <!-- Codificación de caracteres para la página -->
   <meta charset="UTF-8">
+  <!-- Configuración de la vista para dispositivos móviles -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título de la página -->
   <title>Comunitelga</title>
-  <meta name="description" content="Comunitega es una agencia de marketing digital que ayuda a las empresas a mejorar su presencia online, Posicionamiento web, Desarrollo Web e E-commerce, Gestión de Redes Social, Email Marketing, Automatización y Chatbots.">
+  <meta name="description"
+    content="Comunitega es una agencia de marketing digital que ayuda a las empresas a mejorar su presencia online, Posicionamiento web, Desarrollo Web e E-commerce, Gestión de Redes Social, Email Marketing, Automatización y Chatbots.">
   <meta http-equiv="Cache-Control" content="public, max-age=3600">
-  <meta name="keywords" content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Gestión de Redes Sociales, Automatización, Chatbots">
-  <meta name="theme-color" content="#02b602">
-
-  <!-- CSS crítico en línea (solo lo esencial para el above-the-fold) -->
-  <style>
-    html, body { height: 100%; min-height: 100vh; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; min-height: 100vh; margin: 0; padding-top: 120px; }
-    .navbar { background-image: linear-gradient(to right, #02b602,#008000,#005e00, #000000); }
-    .footer { background-color: green; color: white; }
-    .servicio-card { box-shadow: 0 2px 8px rgba(0,0,0,0.07); border: none; }
-    .servicio-icon { font-size: 2.5rem; border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
-    .scale-up { transition: transform .2s; }
-    .scale-up:hover { transform: scale(1.08); }
-    .imagen-trabajador img { border: 3px solid #02b602; }
-    #loader { font-size: 1.2rem; color: #008000; }
-    .header-logo-container {
-      width: 100%;
-      max-width: 1200px;
-      height: 300px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .main-carrusel-container {
-      width: 100%;
-      max-width: 1200px;
-      height: 600px;
-      margin: 0 auto 30px auto;
-      position: relative;
-    }
-    @media (max-width: 991px) {
-      body { padding-top: 70px; }
-      .header-logo-container { height: 150px; }
-      .main-carrusel-container { height: 200px; }
-    }
-    .carousel-inner, .carousel-item, .carousel-item img {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      object-fit: cover;
-    }
-    .carousel-control-prev, .carousel-control-next {
-      width: 5%;
-      min-width: 40px;
-      height: 100%;
-    }
-    .footer {
-      min-height: 220px;
-      padding-top: 25px;
-      padding-bottom: 10px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .footer .list-inline-item img {
-      width: 90px;
-      height: 90px;
-    }
-    /* Reservar espacio para equipo */
-    .equipo-container {
-      max-width: 800px;
-      margin: 0 auto 85px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-    }
-    .equipo-container .col {
-      flex: 1 1 150px;
-      max-width: 180px;
-      min-width: 150px;
-      text-align: center;
-    }
-    .imagen-trabajador {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 10px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .imagen-trabajador img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-    }
-  </style>
-
-  <!-- Bootstrap 4 CSS (asíncrono, no bloqueante) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  </noscript>
-
-  <!-- FontAwesome (asíncrono, solo una vez) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </noscript>
-
-  <!-- CSS personalizado (asíncrono) -->
-  <link rel="stylesheet" href="diseño.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="diseño.css">
-  </noscript>
-
-  <!-- Favicon -->
+  <meta name="keywords"
+    content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Gestión de Redes Sociales, Automatización, Chatbots">
+  <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Enlace a la hoja de estilos personalizada -->
+  <link rel="stylesheet" href="diseño.css" font-display="swap">
+  <!-- Enlace al icono de la página -->
   <link rel="icon" href="logo_circulo.webp">
-
-  <!-- Preload imagen principal del carrusel -->
-  <link rel="preload" as="image" href="Desarrollo-web-e-E-commerce-Comunitega.webp" imagesrcset="Desarrollo-web-e-E-commerce-Comunitega.webp 1200w">
-
-  <!-- Preconnect para recursos externos críticos -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://code.jquery.com" crossorigin>
-
-  <!-- Idioma y traducción -->
-  <script defer>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btnEs = document.getElementById("btn-es");
-      const btnEn = document.getElementById("btn-en");
-      let idioma = localStorage.getItem("idioma") || "es";
-      function cambiarIdioma(idiomaSeleccionado) {
-        idioma = idiomaSeleccionado;
-        localStorage.setItem("idioma", idioma);
-        document.documentElement.lang = idioma;
-        document.querySelectorAll("[data-es], [data-en]").forEach(el => {
-          const contenido = el.getAttribute(`data-${idioma}`);
-          if (contenido !== null) el.innerHTML = contenido;
-        });
-      }
-      cambiarIdioma(idioma);
-      if (btnEs && btnEn) {
-        btnEs.addEventListener("click", () => cambiarIdioma("es"));
-        btnEn.addEventListener("click", () => cambiarIdioma("en"));
-      }
-    });
+  <script>
+    function cargaDiferida() { var e = document.createElement("link"); e.rel = "stylesheet", e.href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", document.head.appendChild(e) } function cargaDiferidaDiseño() { var e = document.createElement("link"); e.rel = "stylesheet", e.href = "dise\xf1o.css", document.head.appendChild(e) } window.addEventListener("load", cargaDiferida);
   </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 </head>
+
+<!-- Sección de contenido de la página -->
+
 <body>
-  <!-- Header -->
+  <!-- Sección de encabezado -->
   <header>
-    <div class="header-logo-container">
-      <img src="logo_texto.webp" alt="Logo de Comunitega"
-        width="1200" height="300" style="width:100%;height:100%;object-fit:contain;display:block;" loading="eager" fetchpriority="high">
+    <!-- Contenedor para el logo de la página -->
+    <div class="d-flex justify-content-center">
+      <!-- Logo de la página -->
+      <img src="logo_texto.webp" alt="Logo de Comunitega" style="width: 1200px; height: 300px; max-width: 100%; height: auto; margin-top: 195px;">
     </div>
   </header>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <!-- Sección de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+    style="background-image: linear-gradient(to right, #02b602,#008000,#005e00, #000000);">
+    <!-- Logo de la página en la navegación -->
     <img src="logo_circulo.webp" alt="Logo Circulo de Comunitega"
-      width="100" height="100" style="border-radius: 50%; margin-left: 120px; margin-right: 120px;" loading="lazy">
+      style="width: 100px; height: 100px; border-radius: 50%; margin-left: 120px; margin-right: 120px;">
+    <!-- Contenedor para la navegación -->
     <div class="container">
+      <!-- Botón para mostrar u ocultar la navegación en dispositivos móviles -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Contenedor para la navegación -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Lista de enlaces de navegación -->
         <ul class="navbar-nav ml-auto">
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Desarrollo web e E-commerce" data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a></li>
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Gestion de Redes Sociales" data-en="Social Media Management">Gestion de Redes Sociales</a></li>
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a></li>
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Seo y Posicionamiento Web" data-en="SEO and Web Positioning">Seo y Posicionamiento Web</a></li>
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Email Marketing" data-en="Email Marketing">Email Marketing</a></li>
-          <li><a class="nav-link text-light font-weight-bold" href="#" data-es="Automatización y Chatbots" data-en="Automation and Chatbots">Automatización y Chatbots</a></li>
+          <!-- Enlace a la sección de desarrollo web y e-commerce -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Desarrollo web e E-commerce"
+              data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a>
+          </li>
+          <!-- Enlace a la sección de gestión de redes sociales -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Gestion de Redes Sociales"
+              data-en="Social Media Management">Gestion de Redes Sociales</a>
+          </li>
+          <!-- Enlace a la sección de marketing digital -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Marketing Digital"
+              data-en="Digital Marketing">Marketing Digital</a>
+          </li>
+          <!-- Enlace a la sección de SEO y posicionamiento web -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Seo y Posicionamiento Web"
+              data-en="SEO and Web Positioning">Seo y Posicionamiento Web</a>
+          </li>
+          <!-- Enlace a la sección de email marketing -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Email Marketing"
+              data-en="Email Marketing">Email Marketing</a>
+          </li>
+          <!-- Enlace a la sección de automatización y chatbots -->
+          <li>
+            <a class="nav-link text-light font-weight-bold" href="#" data-es="Automatización y Chatbots"
+              data-en="Automation and Chatbots">Automatización y Chatbots</a>
+          </li>
         </ul>
       </div>
       <div class="ml-auto">
         <button class="btn btn-link" id="btn-es">
-          <img width="45" height="45" src="españa.webp" alt="Bandera de España que traduce al español" loading="lazy">
+          <img style="width: 45px; height: 45px;" src="españa.webp" alt="Bandera de España que traduce al español">
         </button>
         <button class="btn btn-link" id="btn-en">
-          <img width="45" height="45" src="uk.webp" alt="Bandera de Reino Unido que traduce al inglés" loading="lazy">
+          <img style="width: 45px; height: 45px;" src="uk.webp"
+            alt=" bandera de Reino Unido que al hacer click traduce al inglés">
         </button>
       </div>
     </div>
+    </div>
   </nav>
 
-  <!-- Main -->
+  <!-- Sección de contenido principal -->
   <main>
+    <!-- Contenedor para la sección de contenido principal -->
     <section class="container">
+      <!-- Fila para la sección de contenido principal -->
       <div class="row">
-        <div style="margin-top:35px;" class="col-md-12">
-          <h1 data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega" class="text-center">Bienvenido a Comunitega</h1>
+        <!-- Columna para la sección de contenido principal -->
+        <div style="margin-top:35px ;" class="col-md-12">
+          <!-- Título de la sección de contenido principal -->
+          <h1 data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega" class="text-center">Bienvenido a
+            Comunitega</h1>
+          <!-- Descripción de la sección de contenido principal -->
           <p data-es="Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas."
             data-en="We are a community passionate about technology and digital marketing, among many other things."
-            style="font-size: 18px; margin-top: 45px;" class="text-center">
-            Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas.
-          </p>
+            style="font-size: 18px; margin-top: 45px;" class="text-center">Somos una comunidad apasionada por la
+            tecnología y el marketing digital entre muchas más cosas.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Carrusel de imágenes -->
-  <div class="main-carrusel-container">
-    <div id="carouselExampleControls" class="carousel slide h-100" data-ride="carousel">
-      <div class="carousel-inner h-100">
-        <div class="carousel-item active h-100">
-          <img class="d-block w-100 h-100" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
-            alt="Desarrollo web e E-commerce Comunitega" width="1200" height="600" style="object-fit:cover;" loading="eager" fetchpriority="high">
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 h-100" src="Gestión-de-redes-sociales-Comunitega.webp"
-            alt="Gestión de redes sociales Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 h-100" src="Marketing-Digital-Comunitega.webp"
-            alt="Marketing Digital Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 h-100" src="SEO-y-Posicionamiento-web-Comunitega.webp"
-            alt="SEO y Posicionamiento web Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 h-100" src="Email Marketing Comunitega.webp"
-            alt="Email Marketing Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 h-100" src="Automatización-y-Chatbots-Comunitega.webp"
-            alt="Automatización y Chatbots Comunitega" width="1200" height="600" style="object-fit:cover;" loading="lazy">
+  <!-- Sección de carrusel de imágenes -->
+  <div style="margin-top: 65px;" class="container">
+    <!-- Fila para el carrusel de imágenes -->
+    <div class="row">
+      <!-- Columna para el carrusel de imágenes -->
+      <div class="col-md-12">
+        <!-- Carrusel de imágenes -->
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <!-- Contenedor para las imágenes del carrusel -->
+          <div class="container">
+            <!-- Fila para las imágenes del carrusel -->
+            <div class="row">
+              <!-- Columna para las imágenes del carrusel -->
+              <div class="col-md-12">
+                <!-- Carrusel de imágenes -->
+                  <div class="carousel-inner">
+                    <!-- Desarrollo web e E-commerce Comunitega del carrusel -->
+                    <div class="carousel-item active">
+                      <img class="d-block w-100" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
+                        alt="Desarrollo web e E-commerce Comunitega">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="Gestión-de-redes-sociales-Comunitega.webp"
+                        alt="Gestión de redes sociales Comunitega">
+                    </div>
+                    <!-- Marketing Digital Comunitega del carrusel -->
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="Marketing-Digital-Comunitega.webp"
+                        alt="Marketing Digital Comunitega">
+                    </div>
+                    <!-- SEO y Posicionamiento web Comunitega del carrusel -->
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="SEO-y-Posicionamiento-web-Comunitega.webp"
+                        alt="SEO y Posicionamiento web Comunitega">
+                    </div>
+                    <!-- Email Marketing Comunitega del carrusel -->
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega">
+                    </div>
+                    <!-- Automatización y Chatbots Comunitega del carrusel -->
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="Automatización-y-Chatbots-Comunitega.webp"
+                        alt="Automatización y Chatbots Comunitega">
+                    </div>
+                  </div>
+                  <!-- Botones de navegación para el carrusel -->
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" tabindex="0">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" tabindex="0">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-      </a>
     </div>
   </div>
 
-  <!-- Servicios -->
-  <section id="servicios" class="py-5 bg-white">
-    <div class="container">
-      <h2 data-es="Nuestros Servicios" data-en="Our Services" class="text-center mb-5">Nuestros Servicios</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Servicio 1 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-primary text-white mb-3">
-                <i class="fas fa-search"></i>
-              </div>
-              <h5 data-es="SEO y Posicionamiento Web" data-en="SEO and Web Positioning" class="card-title">SEO y Posicionamiento Web</h5>
-              <p data-es="Promovemos un mejor posicionamiento web en los resultados de búsqueda."
-                data-en="We promote better web positioning in search results." class="card-text-dark">Promovemos un mejor posicionamiento web en los resultados de búsqueda.</p>
+<!-- Sección de tarjetas de servicios -->
+<section id="servicios" class="py-5 bg-white">
+  <div class="container">
+    <h2 data-es="Nuestros Servicios" data-en="Our Services" class="text-center mb-5">Nuestros Servicios</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Servicio 1 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-primary text-white mb-3">
+              <i class="fas fa-search"></i>
             </div>
+            <h5 data-es="SEO y Posicionamiento Web" data-en="SEO and Web Positioning" class="card-title">SEO y Posicionamiento Web</h5>
+            <p data-es="Promovemos un mejor posicionamiento web en los resultados de búsqueda." data-en="We promote better web positioning in search results." class="card-text-dark">Promovemos un mejor posicionamiento web en los resultados de búsqueda.</p>
           </div>
         </div>
-        <!-- Servicio 2 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-success text-white mb-3">
-                <i class="fas fa-envelope-open-text"></i>
-              </div>
-              <h5 data-es="Email Marketing" data-en="Email Marketing" class="card-title">Email Marketing</h5>
-              <p data-es="Realizamos acciones de marketing a través de Email."
-                data-en="We carry out marketing actions through email." class="card-text-dark">Realizamos acciones de marketing a través de Email.</p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-success text-white mb-3">
+              <i class="fas fa-envelope-open-text"></i>
             </div>
+            <h5 data-es="Email Marketing" data-en="Email Marketing" class="card-title">Email Marketing</h5>
+            <p data-es="Realizamos acciones de marketing a través de Email." data-en="We carry out marketing actions through email." class="card-text-dark">Realizamos acciones de marketing a través de Email.</p>
           </div>
         </div>
-        <!-- Servicio 3 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-info text-white mb-3">
-                <i class="fas fa-robot"></i>
-              </div>
-              <h5 data-es="Automatización y Chatbots" data-en="Automatization and Chatbots" class="card-title">Automatización y Chatbots</h5>
-              <p data-es="Automatizamos tareas y métodos de contacto con nuestros clientes."
-                data-en="We automate tasks and methods of contact with our clients." class="card-text-dark">Automatizamos tareas y métodos de contacto con nuestros clientes.</p>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-info text-white mb-3">
+              <i class="fas fa-robot"></i>
             </div>
+            <h5 data-es="Automatización y Chatbots" data-en="Automatization and Chatbots" class="card-title">Automatización y Chatbots</h5>
+            <p data-es="Automatizamos tareas y métodos de contacto con nuestros clientes." data-en="We automate tasks and methods of contact with our clients."  class="card-text-dark">Automatizamos tareas y métodos de contacto con nuestros clientes.</p>
           </div>
         </div>
-        <!-- Servicio 4 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-warning text-dark mb-3">
-                <i class="fas fa-code"></i>
-              </div>
-              <h5 data-es="Desarrollo Web" data-en="Web Development" class="card-title">Desarrollo Web</h5>
-              <p data-es="Desarrollamos sitios web personalizados y atractivos."
-                data-en="We develop customized and attractive websites." class="card-text-dark">Desarrollamos sitios web personalizados y atractivos.</p>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-warning text-dark mb-3">
+              <i class="fas fa-code"></i>
             </div>
+            <h5 data-es="Desarrollo Web" data-en="Web Development" class="card-title">Desarrollo Web</h5>
+            <p data-es="Desarrollamos sitios web personalizados y atractivos." data-en="We develop customized and attractive websites."class="card-text-dark">Desarrollamos sitios web personalizados y atractivos.</p>
           </div>
         </div>
-        <!-- Servicio 5 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-secondary text-white mb-3">
-                <i class="fas fa-bullhorn"></i>
-              </div>
-              <h5 data-es="Marketing Digital" data-en="Digital Marketing" class="card-title">Marketing Digital</h5>
-              <p data-es="Ayudamos a las empresas a crecer en línea." data-en="We help businesses grow online." class="card-text-dark">Ayudamos a las empresas a crecer en línea.</p>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-secondary text-white mb-3">
+              <i class="fas fa-bullhorn"></i>
             </div>
+            <h5 data-es="Marketing Digital" data-en="Digital Marketing" class="card-title">Marketing Digital</h5>
+            <p data-es="Ayudamos a las empresas a crecer en línea." data-en="We help businesses grow online." class="card-text-dark">Ayudamos a las empresas a crecer en línea.</p>
           </div>
         </div>
-        <!-- Servicio 6 -->
-        <div class="col">
-          <div class="card servicio-card h-100">
-            <div class="card-body text-center">
-              <div class="servicio-icon bg-danger text-white mb-3">
-                <i class="fas fa-share-alt"></i>
-              </div>
-              <h5 data-es="Gestion de Redes Sociales" data-en="Social Media Management" class="card-title">Gestión de Redes Sociales</h5>
-              <p data-es="Ayudamos a las empresas a crecer en redes sociales."
-                data-en="We help businesses grow in social media." class="card-text-dark">Ayudamos a las empresas a crecer en redes sociales.</p>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="col">
+        <div class="card servicio-card h-100">
+          <div class="card-body text-center">
+            <div class="servicio-icon bg-danger text-white mb-3">
+              <i class="fas fa-share-alt"></i>
             </div>
+            <h5 data-es="Gestion de Redes Sociales" data-en="Social Media Management" class="card-title">Gestión de Redes Sociales</h5>
+            <p data-es="Ayudamos a las empresas a crecer en redes sociales." data-en="We help businesses grow in social media." class="card-text-dark">Ayudamos a las empresas a crecer en redes sociales.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Descripción de la empresa -->
+
+  <!-- Sección de descripción de la empresa -->
   <div style="margin-bottom: 75px;" class="text-center">
+    <!-- Título de la sección de descripción de la empresa -->
     <h2 data-es="¿Quiénes somos?" data-en="Who are we?" style="margin-bottom: 55px;">¿Quiénes somos?</h2>
+    <!-- Descripción de la empresa -->
+    <p>
     <div class="container-fluid">
+      <!-- Fila para la descripción de la empresa -->
       <div class="row justify-content-center">
+        <!-- Columna para la descripción de la empresa -->
         <div class="col-md-8 text-center">
+          <!-- Descripción de la empresa -->
           <p data-es="Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización."
             data-en="We are a digital marketing agency committed to helping businesses improve their online presence and connect with their customers through innovative strategies. Our team works in key areas such as web development, social media management, digital advertising, SEO, email marketing, and automation."
-            style="font-size: 17px;" class="text-center mb-4">
-            Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización.
-          </p>
+            style="font-size: 17px;" class="text-center mb-4">Somos una agencia especializada en marketing digital,
+            comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de
+            estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes
+            sociales, publicidad digital, SEO, email marketing y automatización.</p>
+          <!-- Descripción de la empresa -->
           <p data-es="Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio."
             data-en="We are passionate about digital marketing and believe in the power of creativity and technology to generate impact. At Comunitega, we work as a team, share knowledge, and focus on offering effective solutions for the growth of every business."
-            style="font-size: 17px;" class="text-center mb-4">
-            Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio.
-          </p>
+            style="font-size: 17px;" class="text-center mb-4">Nos apasiona el marketing digital y creemos en el poder de
+            la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos
+            conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio.</p>
         </div>
       </div>
     </div>
+    </p>
   </div>
 
-  <!-- Video YouTube (lazy load) -->
   <div style="margin-bottom: 100px;" class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6 col-xl-5">
@@ -363,74 +318,118 @@
     </div>
   </div>
 
-  <!-- Equipo -->
-  <div class="equipo-container">
+  <script>
+    var player; function loadYouTubeScript() { var e = document.createElement("script"); e.src = "https://www.youtube.com/iframe_api", document.body.appendChild(e) } function onYouTubeIframeAPIReady() { player = new YT.Player("player", { videoId: "9QNUXxuwt1Y", width: "100%", height: "100%", playerVars: { enablejsapi: 1, origin: "*", cookie: "none" } }) } window.addEventListener("load", function () { let e = new IntersectionObserver(r => { r[0].isIntersecting && (loadYouTubeScript(), e.unobserve(r[0].target)) }, { rootMargin: "50px" }); e.observe(document.getElementById("player")) });
+  </script>
+
+  <!-- Sección de equipo -->
+  <div class="row row-cols-1 row-cols-md-3 g-2 justify-content-center mx-auto"
+    style="max-width: 800px;margin-bottom: 85px;">
+    <!-- Miembro del equipo 1 -->
     <div class="col">
+      <!-- Imagen del miembro del equipo 1 -->
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
+          style="width: 100px; height: 100px; object-fit: cover;" loading="lazy">
       </div>
+      <!-- Nombre del miembro del equipo 1 -->
       <h3 class="text-center">Nombre 1</h3>
+      <!-- Cargo del miembro del equipo 1 -->
       <p class="text-center">Cargo 1</p>
     </div>
+    <!-- Miembro del equipo 2 -->
     <div class="col">
+      <!-- Imagen del miembro del equipo 2 -->
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
+          style="width: 100px; height: 100px; object-fit: cover;" loading="lazy">
       </div>
+      <!-- Nombre del miembro del equipo 2 -->
       <h3 class="text-center">Nombre 2</h3>
+      <!-- Cargo del miembro del equipo 2 -->
       <p class="text-center">Cargo 2</p>
     </div>
+    <!-- Miembro del equipo 3 -->
     <div class="col">
+      <!-- Imagen del miembro del equipo 3 -->
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
+          style="width: 100px; height: 100px; object-fit: cover;" loading="lazy">
       </div>
+      <!-- Nombre del miembro del equipo 3 -->
       <h3 class="text-center">Nombre 3</h3>
+      <!-- Cargo del miembro del equipo 3 -->
       <p class="text-center">Cargo 3</p>
     </div>
+    <!-- Miembro del equipo 4 -->
     <div class="col">
+      <!-- Imagen del miembro del equipo 4 -->
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
+          style="width: 100px; height: 100px; object-fit: cover;" loading="lazy">
       </div>
+      <!-- Nombre del miembro del equipo 4 -->
       <h3 class="text-center">Nombre 4</h3>
+      <!-- Cargo del miembro del equipo 4 -->
       <p class="text-center">Cargo 4</p>
     </div>
+    <!-- Miembro del equipo 5 -->
     <div class="col">
+      <!-- Imagen del miembro del equipo 5 -->
       <div class="imagen-trabajador">
-        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" class="img-fluid rounded-circle"
+          style="width: 100px; height: 100px; object-fit: cover;" loading="lazy">
       </div>
+      <!-- Nombre del miembro del equipo 5 -->
       <h3 class="text-center">Nombre 5</h3>
+      <!-- Cargo del miembro del equipo 5 -->
       <p class="text-center">Cargo 5</p>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- Pie de página -->
+  <footer class="footer" style="height: 220px;background-color: green;">
+    <!-- Contenedor para el pie de página -->
     <div class="container">
+      <!-- Fila para el pie de página -->
       <div class="row">
-        <div class="col-md-12 text-center">
+        <!-- Columna para el pie de página -->
+        <div class="col-md-12 text-center"
+          style="margin-top: 25px; margin-bottom: 10px; color: white;  font-size: 22px; font-weight: bold;">
+          <!-- Texto de derechos de autor -->
           <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
-            &copy; 2025 Comunitega. Todos los derechos reservados.
-          </p>
+            &copy; 2025 Comunitega. Todos los derechos reservados.</p>
         </div>
+        <!-- Columna para el pie de página -->
         <div class="col-md-12 text-center">
+          <!-- Lista de enlaces a redes sociales -->
           <ul class="list-inline">
+            <!-- Enlace a Instagram -->
             <li class="list-inline-item">
-              <a href="https://instagram.com" target="_blank" rel="noopener">
-                <img class="img-fluid scale-up" width="90" height="90" src="Instagram-de-Comunitega.webp" alt="Instagram de Comunitega" loading="lazy">
+              <a href="https://instagram.com" target="_blank">
+                <img class="img-fluid scale-up" style="max-width: 90px; height: 90px;"
+                  src="Instagram-de-Comunitega.webp" alt="Instagram de Comunitega">
               </a>
             </li>
+            <!-- Enlace a Twitter -->
             <li class="list-inline-item">
-              <a href="https://x.com" target="_blank" rel="noopener">
-                <img class="img-fluid scale-up" width="90" height="90" src="twitter-x-logo.webp" alt="X twitter de Comunitega" loading="lazy">
+              <a href="https://x.com" target="_blank">
+                <img class="img-fluid scale-up" style="max-width: 90px; height: 90px;" src="twitter-x-logo.webp"
+                  alt="X twitter de Comunitega">
               </a>
             </li>
+            <!-- Enlace a Facebook -->
             <li class="list-inline-item">
-              <a href="https://facebook.com" target="_blank" rel="noopener">
-                <img class="img-fluid scale-up" width="90" height="90" src="Facebook de Comunitega.webp" alt="Facebook de Comunitega" loading="lazy">
+              <a href="https://facebook.com" target="_blank">
+                <img class="img-fluid scale-up" style="max-width: 90px; height: 90px;" src="Facebook de Comunitega.webp"
+                  alt=" Facebook de Comunitega">
               </a>
             </li>
+            <!-- Enlace a LinkedIn -->
             <li class="list-inline-item">
-              <a href="https://linkedin.com" target="_blank" rel="noopener">
-                <img class="img-fluid scale-up" width="90" height="90" src="Linkedin-de-Comunitega.webp" alt="Linkedin de Comunitega" loading="lazy">
+              <a href="https://linkedin.com" target="_blank">
+                <img class="img-fluid scale-up" style="max-width: 90px; height: 90px;" src="Linkedin-de-Comunitega.webp"
+                  alt="Linkedin de Comunitega">
               </a>
             </li>
           </ul>
@@ -439,39 +438,51 @@
     </div>
   </footer>
 
-  <!-- JS: jQuery, Popper, Bootstrap (defer, solo una vez cada uno) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" defer></script>
+  <!-- Script para jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
 
-  <!-- Lazy load YouTube video solo cuando es visible -->
-  <script defer>
-    let ytLoaded = false;
-    function loadYouTubeScript() {
-      if (ytLoaded) return;
-      ytLoaded = true;
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
-    function onYouTubeIframeAPIReady() {
-      new YT.Player("player", {
-        videoId: "9QNUXxuwt1Y",
-        width: "100%",
-        height: "100%",
-        playerVars: { enablejsapi: 1, origin: window.location.origin, cookie: "none" }
-      });
-    }
-    window.addEventListener("load", function () {
-      const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          loadYouTubeScript();
-          observer.unobserve(entries[0].target);
+  <!-- Script para Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+
+  <!-- Script para Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btnEs = document.getElementById("btn-es");
+        const btnEn = document.getElementById("btn-en");
+    
+        // Detectar idioma guardado o usar 'es' por defecto
+        let idioma = localStorage.getItem("idioma") || "es";
+    
+        // Función que actualiza todo el contenido según el idioma
+        function cambiarIdioma(idiomaSeleccionado) {
+          idioma = idiomaSeleccionado;
+          localStorage.setItem("idioma", idioma);
+          document.documentElement.lang = idioma; // Cambiar atributo lang en <html>
+    
+          document.querySelectorAll("[data-es], [data-en]").forEach(el => {
+            const contenido = el.getAttribute(`data-${idioma}`);
+            if (contenido !== null) {
+              el.innerHTML = contenido; // usar innerHTML para mantener formato
+            }
+          });
         }
-      }, { rootMargin: "50px" });
-      observer.observe(document.getElementById("player"));
-    });
-    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-  </script>
-</body>
-</html>
+    
+        // Aplicar idioma al cargar
+        cambiarIdioma(idioma);
+    
+        // Eventos de cambio de idioma
+        if (btnEs && btnEn) {
+          btnEs.addEventListener("click", () => cambiarIdioma("es"));
+          btnEn.addEventListener("click", () => cambiarIdioma("en"));
+        }
+      });
+    </script>
+    
