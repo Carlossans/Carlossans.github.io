@@ -23,22 +23,23 @@
     .imagen-trabajador img { border: 3px solid #02b602; }
     /* Loader para YouTube */
     #loader { font-size: 1.2rem; color: #008000; }
+    .lcp-img { display: block; width: 100%; height: auto; border-radius: 8px; }
   </style>
 
-  <!-- Bootstrap 4 CSS (asíncrono) -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Bootstrap 4 CSS (asíncrono, no bloqueante) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   </noscript>
 
   <!-- FontAwesome (asíncrono, solo una vez) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </noscript>
 
   <!-- CSS personalizado (asíncrono) -->
-  <link rel="preload" href="diseño.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="diseño.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="diseño.css">
   </noscript>
@@ -46,8 +47,8 @@
   <!-- Favicon -->
   <link rel="icon" href="logo_circulo.webp">
 
-  <!-- Preload imagen principal del carrusel -->
-  <link rel="preload" as="image" href="Desarrollo-web-e-E-commerce-Comunitega.webp" imagesrcset="Desarrollo-web-e-E-commerce-Comunitega.webp 1200w">
+  <!-- Preload imagen principal del LCP adaptativa -->
+  <link rel="preload" as="image" href="Desarrollo-web-e-E-commerce-Comunitega-1200.webp" imagesrcset="Desarrollo-web-e-E-commerce-Comunitega-400.webp 400w,Desarrollo-web-e-E-commerce-Comunitega-800.webp 800w,Desarrollo-web-e-E-commerce-Comunitega-1200.webp 1200w">
 
   <!-- Preconnect para recursos externos críticos -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -116,6 +117,28 @@
     </div>
   </nav>
 
+  <!-- Imagen LCP optimizada y adaptativa, fuera del carrusel para renderizar antes -->
+  <div class="container" style="margin-top: 65px;">
+    <div class="row">
+      <div class="col-md-12">
+        <img
+          class="lcp-img"
+          src="Desarrollo-web-e-E-commerce-Comunitega-800.webp"
+          srcset="
+            Desarrollo-web-e-Ecommerce-Comunitega-400.webp 400w,
+            Desarrollo-web-e-Ecommerce-Comunitega-800.webp 800w,
+            Desarrollo-web-e-Ecommerce-Comunitega-1200.webp 1200w
+          "
+          sizes="(max-width: 600px) 100vw, 1200px"
+          alt="Desarrollo web e E-commerce Comunitega"
+          width="1200" height="600"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+
   <!-- Main -->
   <main>
     <section class="container">
@@ -132,17 +155,13 @@
     </section>
   </main>
 
-  <!-- Carrusel de imágenes -->
-  <div style="margin-top: 65px;" class="container">
+  <!-- Carrusel de imágenes (ahora solo para imágenes secundarias, todas lazy) -->
+  <div style="margin-top: 30px;" class="container">
     <div class="row">
       <div class="col-md-12">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
-                alt="Desarrollo web e E-commerce Comunitega" width="1200" height="600" loading="eager" fetchpriority="high">
-            </div>
-            <div class="carousel-item">
               <img class="d-block w-100" src="Gestión-de-redes-sociales-Comunitega.webp"
                 alt="Gestión de redes sociales Comunitega" width="1200" height="600" loading="lazy">
             </div>
