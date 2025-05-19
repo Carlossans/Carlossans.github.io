@@ -40,30 +40,17 @@
     --radius: 1.2rem;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     --font-main: 'Segoe UI', Arial, sans-serif;
-    --sidebar-width: 305px;
+    --sidebar-width: 340px;
     --sidebar-collapsed-width: 180px;
-}
-
-html,
-body {
-    height: 100%;
-    min-height: 100vh;
-}
-
-body {
-    font-family: var(--font-main);
-    background: var(--blanco);
-    color: var(--negro);
-    margin: 0;
-    padding-top: 90px;
-    scroll-behavior: smooth;
-    transition: padding-left 0.2s, padding-top 0.2s;
+    --sidebar-logo-size: 70px;
 }
 
 /* --------- SIDEBAR entre 992px y 1613px --------- */
 @media (max-width: 1612px) and (min-width: 992px) {
     .navbar {
+        display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: flex-start;
         width: var(--sidebar-width);
         min-width: var(--sidebar-width);
@@ -75,63 +62,70 @@ body {
         bottom: 0;
         right: auto;
         position: fixed;
-        padding: 2rem 1rem 1rem 1rem;
+        padding: 0;
         z-index: 1100;
         box-shadow: 2px 0 24px rgba(0,0,0,0.08);
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         overflow-y: auto;
         transition: width 0.25s cubic-bezier(.4,0,.2,1), min-width 0.25s cubic-bezier(.4,0,.2,1), max-width 0.25s cubic-bezier(.4,0,.2,1), padding 0.25s cubic-bezier(.4,0,.2,1);
+        position: relative;
     }
     body {
         padding-top: 0 !important;
         padding-left: var(--sidebar-width);
         transition: padding-left 0.25s cubic-bezier(.4,0,.2,1);
     }
-    /* --- COLLAPSED SIDEBAR --- */
-    .navbar.sidebar-collapsed {
-        width: var(--sidebar-collapsed-width);
-        min-width: var(--sidebar-collapsed-width);
-        max-width: var(--sidebar-collapsed-width);
-        padding: 1.2rem 0.5rem 1rem 0.5rem;
+    .navbar-header {
+        width: 100%;
+        display: flex;
         align-items: center;
+        height: var(--sidebar-logo-size);
+        padding: 2rem 1rem 0 1rem;
+        position: relative;
+        box-sizing: border-box;
+        gap: 1rem;
     }
-    body.sidebar-collapsed {
-        padding-left: var(--sidebar-collapsed-width) !important;
-    }
-    .navbar-logo {
-        margin-bottom: 2rem;
-        justify-content: flex-start;
-        transition: justify-content 0.2s;
-    }
-    .navbar.sidebar-collapsed .navbar-logo {
-        margin-bottom: 0.5rem;
+    .navbar-logo.fixed-left {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: var(--sidebar-logo-size);
+        height: var(--sidebar-logo-size);
+        display: flex;
+        align-items: center;
         justify-content: center;
+        z-index: 1201;
+        margin-bottom: 0;
+        padding: 0;
     }
     .navbar-toggle {
         display: flex !important;
-        position: absolute;
-        top: 1.2rem;
-        right: 1.2rem;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-left: 1rem;
+        height: var(--sidebar-logo-size);
+        font-size: 2rem;
         z-index: 1200;
-        transition: right 0.2s;
-    }
-    .navbar.sidebar-collapsed .navbar-toggle {
-        right: 0.7rem;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
     }
     .navbar-links {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        position: absolute;
-        left: 0;
-        top: 70px;
+        width: 100%;
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         box-shadow: 2px 0 24px rgba(0,0,0,0.08);
-        padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+        padding: 1.5rem 1rem 2.5rem 1rem;
         display: none;
-        width: 100%;
-        border-radius: 1rem;
+        border-radius: 1rem 1rem 0 0;
         z-index: 1101;
+        margin-top: auto;
+        margin-bottom: 0;
+        position: static;
         transition: top 0.2s;
     }
     .navbar-links.show {
@@ -156,6 +150,15 @@ body {
     .navbar.sidebar-collapsed .navbar-links,
     .navbar.sidebar-collapsed .navbar-links.show {
         display: none !important;
+    }
+    /* --- COLLAPSED SIDEBAR --- */
+    .navbar.sidebar-collapsed {
+        width: var(--sidebar-collapsed-width);
+        min-width: var(--sidebar-collapsed-width);
+        max-width: var(--sidebar-collapsed-width);
+    }
+    body.sidebar-collapsed {
+        padding-left: var(--sidebar-collapsed-width) !important;
     }
 }
 
@@ -685,6 +688,7 @@ body {
         border-radius: 1rem;
         z-index: 1101;
         transition: top 0.2s;
+        padding-left: 80px; /* Deja espacio para el logo fijo */
     }
     .navbar-links.show {
         display: flex;
@@ -699,6 +703,20 @@ body {
     .lang-btn {
         margin-top: 1rem;
         margin-left: 0;
+    }
+    /* --- LOGO FIJO A LA IZQUIERDA --- */
+    .navbar-logo.fixed-left {
+        position: absolute;
+        left: 0;
+        top: 2rem;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1201;
+        margin-bottom: 0;
+        padding: 0;
     }
 }
 
@@ -828,8 +846,8 @@ body {
 <body>
   <!-- Navbar -->
   <nav class="navbar sidebar-collapsed" id="sidebar-navbar">
-    <div class="navbar-logo">
-      <img src="logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="eager" fetchpriority="high">
+    <div class="navbar-logo fixed-left">
+      <a href="index.html"><img src="logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="eager" fetchpriority="high"></a>
     </div>
     <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false"
       aria-controls="navbar-links">
