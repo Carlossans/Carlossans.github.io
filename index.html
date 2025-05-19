@@ -40,7 +40,8 @@
     --radius: 1.2rem;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     --font-main: 'Segoe UI', Arial, sans-serif;
-    --sidebar-width: 320px;
+    --sidebar-width: 305px;
+    --sidebar-collapsed-width: 180px;
 }
 
 html,
@@ -59,26 +60,201 @@ body {
     transition: padding-left 0.2s, padding-top 0.2s;
 }
 
-.navbar {
-    background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
-    box-shadow: var(--shadow);
-    min-height: 90px;
-    min-width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    transition: min-height 0.2s, height 0.2s, width 0.2s, left 0.2s;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
+/* --------- SIDEBAR entre 992px y 1613px --------- */
+@media (max-width: 1612px) and (min-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: var(--sidebar-width);
+        min-width: var(--sidebar-width);
+        max-width: var(--sidebar-width);
+        height: 100vh;
+        min-height: 100vh;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        position: fixed;
+        padding: 2rem 1rem 1rem 1rem;
+        z-index: 1100;
+        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
+        overflow-y: auto;
+        transition: width 0.25s cubic-bezier(.4,0,.2,1), min-width 0.25s cubic-bezier(.4,0,.2,1), max-width 0.25s cubic-bezier(.4,0,.2,1), padding 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    body {
+        padding-top: 0 !important;
+        padding-left: var(--sidebar-width);
+        transition: padding-left 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    /* --- COLLAPSED SIDEBAR --- */
+    .navbar.sidebar-collapsed {
+        width: var(--sidebar-collapsed-width);
+        min-width: var(--sidebar-collapsed-width);
+        max-width: var(--sidebar-collapsed-width);
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        align-items: center;
+    }
+    body.sidebar-collapsed {
+        padding-left: var(--sidebar-collapsed-width) !important;
+    }
+    .navbar-logo {
+        margin-bottom: 2rem;
+        justify-content: flex-start;
+        transition: justify-content 0.2s;
+    }
+    .navbar.sidebar-collapsed .navbar-logo {
+        margin-bottom: 0.5rem;
+        justify-content: center;
+    }
+    .navbar-toggle {
+        display: flex !important;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        z-index: 1200;
+        transition: right 0.2s;
+    }
+    .navbar.sidebar-collapsed .navbar-toggle {
+        right: 0.7rem;
+    }
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        position: absolute;
+        left: 0;
+        top: 70px;
+        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
+        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+        display: none;
+        width: 100%;
+        border-radius: 1rem;
+        z-index: 1101;
+        transition: top 0.2s;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+        padding: 0.5rem 0.5rem;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+    .lang-btn {
+        margin-top: 1rem;
+        margin-left: 0;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+    /* Oculta las opciones del nav y los idiomas cuando está colapsado */
+    .navbar.sidebar-collapsed .navbar-links,
+    .navbar.sidebar-collapsed .navbar-links.show {
+        display: none !important;
+    }
 }
 
+/* --------- Menú hamburguesa en móviles --------- */
+@media (max-width: 991px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 70px;
+        min-height: 70px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 70px !important;
+    }
+    .navbar-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0.5rem 2rem 1.5rem 2rem;
+        display: none;
+        z-index: 999;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        border-bottom-left-radius: 1.2rem;
+        border-bottom-right-radius: 1.2rem;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        margin: 0.2rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .lang-btn {
+        margin-top: 0.5rem;
+    }
+    .navbar-toggle {
+        display: flex !important;
+    }
+}
+
+/* --------- Navbar horizontal arriba en pantallas grandes --------- */
+@media (min-width: 1613px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 110px;
+        min-height: 110px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2.5rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 110px !important;
+    }
+    .navbar-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        position: static !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0;
+        display: flex !important;
+        width: auto;
+    }
+    .navbar-toggle {
+        display: none !important;
+    }
+}
+
+/* --- Otros estilos existentes (sin cambios) --- */
 .navbar-logo {
     display: flex;
     align-items: center;
@@ -91,6 +267,19 @@ body {
     border-radius: 50%;
     background: var(--blanco);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
 }
 
 .navbar-links {
@@ -638,7 +827,7 @@ body {
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar sidebar-collapsed" id="sidebar-navbar">
     <div class="navbar-logo">
       <img src="logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="eager" fetchpriority="high">
     </div>
@@ -664,25 +853,65 @@ body {
     </div>
   </nav>
   <script>
-    // Menú hamburguesa responsive y sidebar
+    // Menú hamburguesa responsive y sidebar colapsable
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.getElementById('navbar-toggle');
       const links = document.getElementById('navbar-links');
+      const sidebar = document.getElementById('sidebar-navbar');
+      const body = document.body;
+
+      // Detecta si estamos en el rango sidebar (992px - 1612px)
+      function isSidebar() {
+        return window.innerWidth >= 992 && window.innerWidth <= 1612;
+      }
+
+      function collapseSidebar() {
+        if (sidebar) sidebar.classList.add('sidebar-collapsed');
+        body.classList.add('sidebar-collapsed');
+        links.classList.remove('show');
+        if (toggle) toggle.setAttribute('aria-expanded', "false");
+      }
+      function expandSidebar() {
+        if (sidebar) sidebar.classList.remove('sidebar-collapsed');
+        body.classList.remove('sidebar-collapsed');
+      }
       function closeMenu() {
         links.classList.remove('show');
         if (toggle) toggle.setAttribute('aria-expanded', "false");
+        if (isSidebar()) collapseSidebar();
       }
       function openMenu() {
         links.classList.add('show');
         if (toggle) toggle.setAttribute('aria-expanded', "true");
+        if (isSidebar()) expandSidebar();
       }
+
+      // Inicializa colapsado si es sidebar
+      if (isSidebar()) {
+        collapseSidebar();
+      }
+
       if (toggle) {
         toggle.addEventListener('click', function (e) {
           e.stopPropagation();
-          const expanded = links.classList.toggle('show');
-          toggle.setAttribute('aria-expanded', expanded ? "true" : "false");
+          if (isSidebar()) {
+            // Si está colapsado, expandir y mostrar menú
+            if (sidebar.classList.contains('sidebar-collapsed')) {
+              expandSidebar();
+              links.classList.add('show');
+              toggle.setAttribute('aria-expanded', "true");
+            } else {
+              // Si está expandido, colapsar y ocultar menú
+              collapseSidebar();
+            }
+          } else {
+            // Comportamiento móvil normal
+            const expanded = links.classList.toggle('show');
+            toggle.setAttribute('aria-expanded', expanded ? "true" : "false");
+          }
         });
       }
+
       // Cierra el menú al hacer click fuera (en cualquier tamaño)
       document.addEventListener('click', function (e) {
         if (!links.contains(e.target) && (!toggle || !toggle.contains(e.target))) {
@@ -690,10 +919,16 @@ body {
         }
       });
 
-      // Sidebar: cerrar menú hamburguesa si se cambia de tamaño a desktop o sidebar
+      // Sidebar: cerrar menú hamburguesa si se cambia de tamaño a desktop o móvil
       window.addEventListener('resize', function () {
         if (window.innerWidth >= 1613 || window.innerWidth < 992) {
-          closeMenu();
+          // Desktop o móvil: quitar clases sidebar
+          if (sidebar) sidebar.classList.remove('sidebar-collapsed');
+          body.classList.remove('sidebar-collapsed');
+          links.classList.remove('show');
+        } else {
+          // Sidebar: colapsar por defecto
+          collapseSidebar();
         }
       });
     });
