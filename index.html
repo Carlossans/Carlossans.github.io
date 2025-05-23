@@ -65,7 +65,7 @@
         padding: 0;
         z-index: 1100;
         box-shadow: none !important;
-        border-radius:none !important;
+        border-radius: none !important;
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         overflow-y: auto;
         transition: width 0.25s cubic-bezier(.4,0,.2,1), min-width 0.25s cubic-bezier(.4,0,.2,1), max-width 0.25s cubic-bezier(.4,0,.2,1), padding 0.25s cubic-bezier(.4,0,.2,1);
@@ -118,15 +118,15 @@
         align-items: flex-start;
         gap: 0.5rem;
         width: 100%;
-        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
+        background: transparent;
         box-shadow: none !important;
         padding: 1.5rem 1rem 2.5rem 1rem;
         display: none;
         border-radius: none !important;
         z-index: 1101;
-        margin-top: auto; /* <-- Hace que el menú baje al fondo del sidebar */
+        margin-top: auto;
         margin-bottom: 0;
-        position: static; /* <-- Cambiado de absolute a static */
+        position: static;
         transition: top 0.2s;
     }
     .navbar-links.show {
@@ -656,7 +656,7 @@
         position: fixed;
         padding: 2rem 1rem 1rem 1rem;
         z-index: 1100;
-        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        box-shadow: none !important;
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         overflow-y: auto;
     }
@@ -678,20 +678,16 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        /* position: absolute;  <-- ELIMINADO */
-        /* left: 0; top: 70px; <-- ELIMINADO */
-        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
-        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        background: transparent;
+        box-shadow: none !important;
         padding: 1.5rem 1rem 2.5rem 1rem;
         display: none;
         width: 100%;
-        border-radius: 1rem;
+        border-radius: none !important;
         z-index: 1101;
-        transition: top 0.2s;
-        margin-top: auto; /* <-- Hace que el menú baje al fondo del sidebar */
+        margin-top: auto;
         margin-bottom: 0;
-        position: static; /* <-- Cambiado de absolute a static */
-        /* padding-left: 80px; <-- ELIMINADO */
+        position: static;
     }
     .navbar-links.show {
         display: flex;
