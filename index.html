@@ -28,7 +28,7 @@
   </noscript>
   <!-- Preload imagen principal -->
   <link rel="preload" as="image" href="Desarrollo-web-e-E-commerce-Comunitega.webp">
-  <link rel="stylesheet" href="main.css">
+  <!--<link rel="stylesheet" href="main.css">-->
 
   <style>
 :root {
@@ -64,7 +64,8 @@
         position: fixed;
         padding: 0;
         z-index: 1100;
-        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        box-shadow: none !important;
+        border-radius:none !important;
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         overflow-y: auto;
         transition: width 0.25s cubic-bezier(.4,0,.2,1), min-width 0.25s cubic-bezier(.4,0,.2,1), max-width 0.25s cubic-bezier(.4,0,.2,1), padding 0.25s cubic-bezier(.4,0,.2,1);
@@ -118,14 +119,14 @@
         gap: 0.5rem;
         width: 100%;
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
-        box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+        box-shadow: none !important;
         padding: 1.5rem 1rem 2.5rem 1rem;
         display: none;
-        border-radius: 1rem 1rem 0 0;
+        border-radius: none !important;
         z-index: 1101;
-        margin-top: auto;
+        margin-top: auto; /* <-- Hace que el menú baje al fondo del sidebar */
         margin-bottom: 0;
-        position: static;
+        position: static; /* <-- Cambiado de absolute a static */
         transition: top 0.2s;
     }
     .navbar-links.show {
@@ -607,7 +608,7 @@
 }
 
 .footer .footer-social {
-    margin-top: 2.2rem;
+    margin-top: 2rem;
     margin-bottom: 0.5rem;
 }
 
@@ -677,18 +678,20 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        position: absolute;
-        left: 0;
-        top: 70px; /* SUBE las opciones del nav */
+        /* position: absolute;  <-- ELIMINADO */
+        /* left: 0; top: 70px; <-- ELIMINADO */
         background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
         box-shadow: 2px 0 24px rgba(0,0,0,0.08);
-        padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+        padding: 1.5rem 1rem 2.5rem 1rem;
         display: none;
         width: 100%;
         border-radius: 1rem;
         z-index: 1101;
         transition: top 0.2s;
-        padding-left: 80px; /* Deja espacio para el logo fijo */
+        margin-top: auto; /* <-- Hace que el menú baje al fondo del sidebar */
+        margin-bottom: 0;
+        position: static; /* <-- Cambiado de absolute a static */
+        /* padding-left: 80px; <-- ELIMINADO */
     }
     .navbar-links.show {
         display: flex;
@@ -832,7 +835,7 @@
     }
 
     .footer .footer-social {
-        margin-top: 1.2rem;
+        margin-top: 1 rem;
     }
 
     .footer .list-inline-item img {
@@ -1005,7 +1008,6 @@
       setInterval(() => { idx = (idx + 1) % items.length; show(idx); }, 5000);
     });
   </script>
-
   <!-- Servicios -->
   <section id="servicios" class="servicios-section">
     <h2 class="servicios-title" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
@@ -1160,9 +1162,6 @@
   <!-- Footer -->
   <footer class="footer">
     <div>
-      <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
-        &copy; 2025 Comunitega. Todos los derechos reservados.
-      </p>
       <div class="footer-social">
         <ul class="list-inline" style="padding:0;margin:0;">
           <li class="list-inline-item">
@@ -1187,6 +1186,10 @@
           </li>
         </ul>
       </div>
+      <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
+        &copy; 2025 Comunitega. Todos los derechos reservados.
+      </p>
+
     </div>
   </footer>
 
