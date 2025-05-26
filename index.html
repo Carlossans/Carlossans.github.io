@@ -45,7 +45,7 @@
     --sidebar-logo-size: 70px;
 }
 
-/* --------- SIDEBAR entre 992px y 1613px --------- */
+/*  SIDEBAR entre 992px y 1613px  */
 @media (max-width: 1612px) and (min-width: 992px) {
     .navbar {
         display: flex;
@@ -152,7 +152,7 @@
     .navbar.sidebar-collapsed .navbar-links.show {
         display: none !important;
     }
-    /* --- COLLAPSED SIDEBAR --- */
+    /*  SIDEBAR COLAPSADO POR DEFECTO */
     .navbar.sidebar-collapsed {
         width: var(--sidebar-collapsed-width);
         min-width: var(--sidebar-collapsed-width);
@@ -163,7 +163,7 @@
     }
 }
 
-/* --------- Menú hamburguesa en móviles --------- */
+/* botón hamburguesa en móviles */
 @media (max-width: 991px) {
     .navbar {
         flex-direction: row;
@@ -219,7 +219,7 @@
     }
 }
 
-/* --------- Navbar horizontal arriba en pantallas grandes --------- */
+/* Navbar horizontal arriba en pantallas grandes  */
 @media (min-width: 1613px) {
     .navbar {
         flex-direction: row;
@@ -258,7 +258,7 @@
     }
 }
 
-/* --- Otros estilos existentes (sin cambios) --- */
+/*  Otros estilos existentes (sin cambios)  */
 .navbar-logo {
     display: flex;
     align-items: center;
@@ -512,7 +512,7 @@
     margin-right: auto;
 }
 
-/* --- Responsive Equipo Section --- */
+/*  Seccion equipo responsive */
 .equipo-container {
     display: flex;
     flex-wrap: wrap;
@@ -639,7 +639,7 @@
     z-index: 1200;
 }
 
-/* --------- SIDEBAR entre 992px y 1613px --------- */
+/* SIDEBAR entre 992px y 1613px */
 @media (max-width: 1612px) and (min-width: 992px) {
     .navbar {
         flex-direction: column;
@@ -703,7 +703,7 @@
         margin-top: 1rem;
         margin-left: 0;
     }
-    /* --- LOGO FIJO A LA IZQUIERDA --- */
+    /* LOGO FIJO A LA IZQUIERDA */
     .navbar-logo.fixed-left {
         position: absolute;
         left: 0;
@@ -719,7 +719,7 @@
     }
 }
 
-/* --------- Menú hamburguesa en móviles --------- */
+/* boton hamburguesa en móviles */
 @media (max-width: 991px) {
     .navbar {
         flex-direction: row;
@@ -775,7 +775,7 @@
     }
 }
 
-/* --------- Navbar horizontal arriba en pantallas grandes --------- */
+/* Navbar horizontal arriba en pantallas grandes/ordenadores */
 @media (min-width: 1613px) {
     .navbar {
         flex-direction: row;
@@ -823,8 +823,7 @@
         font-size: 1.3rem;
     }
 
-    /* .carousel-container handled above */
-
+     .carousel-container handled above 
     .servicios-title,
     .about-section h2 {
         font-size: 1.2rem;
@@ -871,7 +870,7 @@
     </div>
   </nav>
   <script>
-    // Menú hamburguesa responsive y sidebar colapsable
+    // boton hamburguesa responsive + sidebar colapsable
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.getElementById('navbar-toggle');
       const links = document.getElementById('navbar-links');
@@ -904,7 +903,7 @@
         if (isSidebar()) expandSidebar();
       }
 
-      // Inicializa colapsado si es sidebar
+      // Inicializa el sidebar de manera que esté colapsado
       if (isSidebar()) {
         collapseSidebar();
       }
@@ -930,7 +929,7 @@
         });
       }
 
-      // Cierra el menú al hacer click fuera (en cualquier tamaño)
+      // Cierra el menú al hacer click fuera del sidebar
       document.addEventListener('click', function (e) {
         if (!links.contains(e.target) && (!toggle || !toggle.contains(e.target))) {
           closeMenu();
@@ -952,14 +951,14 @@
     });
   </script>
 
-  <!-- Header Logo -->
+
   <header>
     <div class="header-logo-container">
       <img src="logo_texto.webp" alt="Logo de Comunitega" width="900" height="180" loading="eager" fetchpriority="high">
     </div>
   </header>
 
-  <!-- Main Title & Desc -->
+  <!-- Titulo principal y descripción -->
   <section>
     <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega
     </h1>
@@ -970,7 +969,7 @@
     </p>
   </section>
 
-  <!-- Carrusel de imágenes (más alto) -->
+  <!-- Carrusel de imágenes -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-inner">
       <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
@@ -993,7 +992,7 @@
     </div>
   </div>
   <script>
-    // Carrusel ultra-ligero sin Bootstrap JS
+    // Carrusel ultra-ligero
     document.addEventListener("DOMContentLoaded", function () {
       const items = document.querySelectorAll('.carousel-item');
       let idx = 0;
@@ -1076,7 +1075,7 @@
   </section>
 
 
-  <!-- Video YouTube (lazy load) -->
+  <!-- Video YouTube -->
   <div class="container-fluid mb-5">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
@@ -1190,7 +1189,7 @@
     </div>
   </footer>
 
-  <!-- Traducción -->
+  <!-- Traducción de la web -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const btnEs = document.getElementById("btn-es");
@@ -1213,5 +1212,4 @@
     });
   </script>
 </body>
-
 </html>
