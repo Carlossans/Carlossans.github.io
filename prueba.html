@@ -1077,6 +1077,58 @@ body.animaciones-activas .lang-btn img {
   opacity: 1;
   /* Las animaciones CSS ya están definidas en tu CSS original */
 }
+
+
+/* Overlay ocupa toda la pantalla y centra el video */
+#intro-video-overlay {
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s;
+  opacity: 1;
+  overflow: hidden;
+}
+
+/* Video ocupa todo el overlay, mantiene proporción y cubre el área */
+#intro-video {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
+  background: #000;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajustes para móviles (evita barras negras y asegura cobertura) */
+@media (max-width: 600px) {
+  #intro-video,
+  #intro-video-overlay {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+}
+
+/* Opcional: para pantallas ultra anchas, asegura cobertura */
+@media (min-aspect-ratio: 16/9) {
+  #intro-video {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+
   </style>
 </head>
 
@@ -1446,10 +1498,42 @@ body.animaciones-activas .lang-btn img {
   </script>
 
 <div id="intro-video-overlay" style="position: fixed; z-index: 99999;top: 0;left: 0;width: 100vw;height: 100vh; background:#000; display: none;align-items: center;justify-content: center;transition: opacity 0.7s;opacity: 1;">
+
     <video id="intro-video" src="Video_Bienvenida.mp4" autoplay muted playsinline style="width: 100vw; height: 100vh; object-fit: cover;" preload="auto"></video>
   </div>
   
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const overlay = document.getElementById('intro-video-overlay');
+      const video = document.getElementById('intro-video');
+    
+      function quitarOverlayYActivarAnimaciones() {
+        overlay.style.opacity = 0;
+        setTimeout(() => {
+          overlay.style.display = "none";
+          document.body.style.overflow = ""; // restaurar scroll
+          document.body.classList.add('animaciones-activas');
+        }, 700);
+      }
+    
+      // Siempre muestra overlay y bloquea scroll
+      overlay.style.display = "flex";
+      document.body.style.overflow = "hidden";
+      document.body.classList.remove('animaciones-activas');
+      video.currentTime = 0;
+      video.play().catch(()=>{});
+      video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
+      // Permite cerrar con Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === "Escape" && overlay.style.display !== "none"){
+          quitarOverlayYActivarAnimaciones();
+        }
+      });
+      // Si el video no carga o hay error, quita overlay tras 8s
+      video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
+    });
+    </script>
+  <!--<script>
   document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.getElementById('intro-video-overlay');
     const video = document.getElementById('intro-video');
@@ -1490,7 +1574,7 @@ body.animaciones-activas .lang-btn img {
       document.body.style.overflow = "";
     }
   });
-  </script>
+  </script>-->
 
 </body>
 </html>
