@@ -1093,42 +1093,6 @@ body.animaciones-activas .lang-btn img {
   overflow: hidden;
 }
 
-/* Video ocupa todo el overlay, mantiene proporción y cubre el área */
-#intro-video {
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
-  object-fit: cover;
-  background: #000;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Ajustes para móviles (evita barras negras y asegura cobertura) */
-@media (max-width: 600px) {
-  #intro-video,
-  #intro-video-overlay {
-    width: 100vw !important;
-    height: 100vh !important;
-    min-width: 100vw;
-    min-height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;
-  }
-}
-
-/* Opcional: para pantallas ultra anchas, asegura cobertura */
-@media (min-aspect-ratio: 16/9) {
-  #intro-video {
-    width: 100vw;
-    height: 100vh;
-  }
-}
-
-
   </style>
 </head>
 
@@ -1503,35 +1467,50 @@ body.animaciones-activas .lang-btn img {
   </div>
   
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const overlay = document.getElementById('intro-video-overlay');
-      const video = document.getElementById('intro-video');
-    
-      function quitarOverlayYActivarAnimaciones() {
-        overlay.style.opacity = 0;
-        setTimeout(() => {
-          overlay.style.display = "none";
-          document.body.style.overflow = ""; // restaurar scroll
-          document.body.classList.add('animaciones-activas');
-        }, 700);
-      }
-    
-      // Siempre muestra overlay y bloquea scroll
-      overlay.style.display = "flex";
-      document.body.style.overflow = "hidden";
-      document.body.classList.remove('animaciones-activas');
-      video.currentTime = 0;
-      video.play().catch(()=>{});
-      video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
-      // Permite cerrar con Escape
-      document.addEventListener('keydown', function(e){
-        if(e.key === "Escape" && overlay.style.display !== "none"){
-          quitarOverlayYActivarAnimaciones();
-        }
-      });
-      // Si el video no carga o hay error, quita overlay tras 8s
-      video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
-    });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById('intro-video-overlay');
+  const video = document.getElementById('intro-video');
+
+  // Detecta si es móvil (user agent + ancho de pantalla)
+  function esMovil() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      || window.innerWidth <= 600;
+  }
+
+  // Cambia el src según el dispositivo
+  if (esMovil()) {
+    video.src = "New Project.mp4";
+  } else {
+    video.src = "Video_Bienvenida.mp4";
+  }
+
+  function quitarOverlayYActivarAnimaciones() {
+    overlay.style.opacity = 0;
+    setTimeout(() => {
+      overlay.style.display = "none";
+      document.body.style.overflow = ""; // restaurar scroll
+      document.body.classList.add('animaciones-activas');
+    }, 700);
+  }
+
+  // Siempre muestra overlay y bloquea scroll
+  overlay.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  document.body.classList.remove('animaciones-activas');
+  video.currentTime = 0;
+  video.play().catch(()=>{});
+  video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
+  // Permite cerrar con Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === "Escape" && overlay.style.display !== "none"){
+      quitarOverlayYActivarAnimaciones();
+    }
+  });
+  // Si el video no carga o hay error, quita overlay tras 8s
+  video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
+});
+
     </script>
   <!--<script>
   document.addEventListener("DOMContentLoaded", function () {
