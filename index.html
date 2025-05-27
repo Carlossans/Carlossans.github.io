@@ -576,7 +576,7 @@ h3 {
     background: var(--verde1);
     color: var(--blanco);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.1s, color 0.1,s;
 }
 
 .servicio-card .card-title {
@@ -635,7 +635,7 @@ h3 {
     border-radius: var(--radius);
     box-shadow: 0 2px 8px rgba(30,144,255,0.07);
     padding: 1.2rem 0.5rem 1rem 0.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .equipo-container .col:hover {
@@ -645,7 +645,7 @@ h3 {
 }
 
 .equipo-container .col:hover:nth-child(even) {
-    transform: scale(1.06) rotate(362deg);
+    transform: scale(1.06) rotate(360deg);
     box-shadow: 0 8px 32px var(--rojo);
     background: #ffeaea;
 }
@@ -1017,7 +1017,6 @@ h3 {
   </style>
 </head>
 
-<body>
   <!-- Navbar -->
   <nav class="navbar sidebar-collapsed" id="sidebar-navbar">
     <div class="navbar-logo fixed-left">
@@ -1134,18 +1133,17 @@ h3 {
   </header>
 
   <!-- Titulo principal y descripción -->
-  <section>
-    <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega
-    </h1>
-
-    <video src=""></section>video>
+ 
+</h1>
+  <div>
+  <video src="Video_Bienvenida.mp4" autoplay muted loop style="width: 100%;" ></video>
     <p class="main-desc"
       data-es="Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas."
       data-en="We are a community passionate about technology and digital marketing, among many other things.">
       Somos una comunidad apasionada por la tecnología y el marketing digital entre muchas más cosas.
     </p>
-  </section>
-
+  </div>s
+ 
   <!-- Carrusel de imágenes -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-inner">
@@ -1388,6 +1386,6 @@ h3 {
       }
     });
   </script>
-  
+
 </body>
 </html>

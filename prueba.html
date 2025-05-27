@@ -1,0 +1,1496 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunitega</title>
+  <meta name="description"
+    content="Comunitega es una agencia de marketing digital que ayuda a las empresas a mejorar su presencia online, Posicionamiento web, Desarrollo Web e E-commerce, Gestión de Redes Social, Email Marketing, Automatización y Chatbots.">
+  <meta name="keywords"
+    content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Gestión de Redes Sociales, Automatización, Chatbots">
+  <meta name="theme-color" content="#02b602">
+  <link rel="icon" href="logo_circulo.webp">
+
+  <!-- FontAwesome (no bloqueante) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
+
+  <!-- Bootstrap solo para grid y componentes, no bloqueante -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  </noscript>
+  <!-- Preload imagen principal -->
+  <link rel="preload" as="image" href="Desarrollo-web-e-E-commerce-Comunitega.webp">
+  <!--<link rel="stylesheet" href="main.css">-->
+
+  <style>
+:root {
+    --verde1: #02b602;
+    --verde1-scroll:#6ae76ad7;
+    --verde2: #008000;
+    --verde3: #005e00;
+    --negro: #000;
+    --blanco: #fff;
+    --azul:#1e90ff;
+    --azul-super-claro:#e9f3fd;
+    --rojo:#e63946;
+    --radius: 1.2rem;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --font-main: 'Segoe UI', Arial, sans-serif;
+    --sidebar-width: 340px;
+    --sidebar-collapsed-width: 180px;
+    --sidebar-logo-size: 70px;
+}
+
+/* Capa para el contenido encima del fondo */
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    transition: padding-left var(--transition);
+}
+
+/* Márgenes y justificación global */
+section, .servicios-section, .about-section, .equipo-container, header {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+}
+
+section, .servicios-section, .about-section {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+p, .card-text-dark, .main-desc, .about-section p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-main);
+    letter-spacing: -1px;
+}
+
+h1 {
+    font-size: 2.7rem;
+    font-weight: 900;
+    color: var(--verde2);
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(30,144,255,0.08);
+    animation: fadeInDown 1s;
+}
+
+h2 {
+    color: var(--azul);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    animation: fadeInUp 1s;
+}
+
+h3 {
+    color: var(--rojo);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+/*  SIDEBAR entre 992px y 1613px  */
+@media (max-width: 1612px) and (min-width: 992px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: var(--sidebar-width);
+        min-width: var(--sidebar-width);
+        max-width: var(--sidebar-width);
+        height: 100vh;
+        min-height: 100vh;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        position: fixed;
+        padding: 0;
+        z-index: 1100;
+        box-shadow: none !important;
+        border-radius: none !important;
+        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
+        overflow-y: auto;
+        transition: width 0.25s cubic-bezier(.4,0,.2,1), min-width 0.25s cubic-bezier(.4,0,.2,1), max-width 0.25s cubic-bezier(.4,0,.2,1), padding 0.25s cubic-bezier(.4,0,.2,1);
+        position: relative;
+    }
+    body {
+        padding-top: 0 !important;
+        padding-left: var(--sidebar-width);
+        transition: padding-left 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    .navbar-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: var(--sidebar-logo-size);
+        padding: 2rem 1rem 0 1rem;
+        position: relative;
+        box-sizing: border-box;
+        gap: 1rem;
+    }
+    .navbar-logo.fixed-left {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: var(--sidebar-logo-size);
+        height: var(--sidebar-logo-size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1201;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .navbar-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-left: 1rem;
+        height: var(--sidebar-logo-size);
+        font-size: 2rem;
+        z-index: 1200;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+    }
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        width: 100%;
+        background: transparent;
+        box-shadow: none !important;
+        padding: 1.5rem 1rem 2.5rem 1rem;
+        display: none;
+        border-radius: none !important;
+        z-index: 1101;
+        margin-top: auto;
+        margin-bottom: 0;
+        position: static;
+        transition: top 0.2s;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+        padding: 0.5rem 0.5rem;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+    .lang-btn {
+        margin-top: 1rem;
+        margin-left: 0;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+    /* Oculta las opciones del nav y los idiomas cuando está colapsado */
+    .navbar.sidebar-collapsed .navbar-links,
+    .navbar.sidebar-collapsed .navbar-links.show {
+        display: none !important;
+    }
+    /*  SIDEBAR COLAPSADO POR DEFECTO */
+    .navbar.sidebar-collapsed {
+        width: var(--sidebar-collapsed-width);
+        min-width: var(--sidebar-collapsed-width);
+        max-width: var(--sidebar-collapsed-width);
+    }
+    body.sidebar-collapsed {
+        padding-left: var(--sidebar-collapsed-width) !important;
+    }
+}
+
+/* botón hamburguesa en móviles */
+@media (max-width: 991px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 70px;
+        min-height: 70px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 70px !important;
+    }
+    .navbar-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0.5rem 2rem 1.5rem 2rem;
+        display: none;
+        z-index: 999;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        border-bottom-left-radius: 1.2rem;
+        border-bottom-right-radius: 1.2rem;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        margin: 0.2rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .lang-btn {
+        margin-top: 0.5rem;
+    }
+    .navbar-toggle {
+        display: flex !important;
+    }
+}
+
+/* Navbar horizontal arriba en pantallas grandes  */
+@media (min-width: 1613px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 110px;
+        min-height: 110px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2.5rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 110px !important;
+    }
+    .navbar-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        position: static !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0;
+        display: flex !important;
+        width: auto;
+    }
+    .navbar-toggle {
+        display: none !important;
+    }
+}
+
+/*  Otros estilos existentes (sin cambios)  */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-logo img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--blanco);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    transition: max-height 0.3s;
+}
+
+.nav-link {
+    color: var(--blanco) !important;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+    font-size: 1.05rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--blanco);
+    color: var(--verde2) !important;
+}
+
+.lang-btn img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--blanco);
+    margin-left: 0.5rem;
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+.lang-btn img.active,
+.lang-btn img:focus {
+    border: 2px solid var(--verde1);
+    outline: none;
+}
+
+.header-logo-container {
+    width: 100%;
+    max-width: 900px;
+    height: 280px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin-top: 10%;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--verde2);
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.main-desc {
+    font-size: 1.25rem;
+    color: #222;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    margin: 0 auto 2.5rem auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--blanco);
+    position: relative;
+    animation: zooIn 1s;
+}
+
+@media (min-width: 992px) {
+    .carousel-container {
+        height: 440px;
+    }
+}
+@media (max-width: 991px) {
+    .carousel-container {
+        height: 260px;
+    }
+}
+@media (max-width: 600px) {
+    .carousel-container {
+        aspect-ratio: 9/16;
+        height:180px;
+    }
+}
+
+.carousel-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    transition: filter 0.3s;
+}
+
+
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.carousel-btn {
+    background: var(--verde1);
+    color: var(--blanco);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-btn:hover {
+    background: var(--negro);
+}
+
+.servicios-section {
+  margin-top: 6.5rem;
+    background: var(--blanco);
+    padding: 3rem 0 2rem 0;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 16px rgba(30,144,255,0.3);
+}
+
+.servicios-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.servicio-card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    background: #f6fff8;
+    padding: 2rem 1rem 1.5rem 1rem;
+    text-align: center;
+    animation: zoomIn 1s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px) scale(1.04) rotate(-2deg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: var(--azul-super-claro);
+}
+
+.servicio-card:hover:nth-child(even) {
+    transform: translateY(-6px) scale(1.04) rotate(2deg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: #eafff3;
+}
+
+.servicio-icon {
+    font-size: 2.7rem;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    background: var(--verde1);
+    color: var(--blanco);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: background 0.2s, color 0.2s;
+}
+
+.servicio-card .card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--negro);
+}
+
+.servicio-card .card-text-dark {
+    color: #333;
+    font-size: 1rem;
+}
+
+.about-section {
+    background: var(--blanco);
+    padding: 2.5rem 0 2rem 0;
+    text-align: center;
+    animation:fadeInUp 1.2s;
+}
+
+.about-section h2 {
+    color: var(--rojo);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+/*  Seccion equipo responsive */
+.equipo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1.2s;
+}
+
+.equipo-container .col {
+    flex: 1 1 150px;
+    max-width: 180px;
+    min-width: 120px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background:#fefeff81;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(30,144,255,0.07);
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.equipo-container .col:hover {
+    transform: scale(1.06) rotate(-360deg);
+    box-shadow: 0 8px 32px var(--verde1);
+    background: #eafff3;
+}
+
+.equipo-container .col:hover:nth-child(2) {
+    transform: scale(1.06) rotate(360deg);
+    box-shadow: 0 8px 32px var(--rojo);
+    background: #ffeaea;
+}
+
+.equipo-container .col:hover:nth-child(3) {
+    transform: scale(1.06) rotate(-360deg);
+    box-shadow: 0 8px 32px var(--azul);
+    background: #d5eaff;
+}
+
+.equipo-container .col:hover:nth-child(4) {
+    transform: scale(1.06) rotate(360deg);
+    box-shadow: 0 8px 32px var(--verde1);
+    background: #eafff3;
+}
+
+.equipo-container .col:hover:nth-child(5) {
+    transform: scale(1.06) rotate(-360deg);
+    box-shadow: 0 8px 32px var(--rojo);
+    background: #ffeaea;
+}
+
+.imagen-trabajador {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-trabajador img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    border: 3px solid var(--azul);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: width 0.2s, height 0.2s;
+}
+
+.equipo-container .col:hover .imagen-trabajador img {
+    border: 3px solid var(--verde1);
+}
+
+.equipo-container .col:hover:nth-child(2) .imagen-trabajador img {
+    border: 3px solid var(--rojo);
+}
+
+.equipo-container .col:hover:nth-child(3) .imagen-trabajador img {
+    border: 3px solid var(--azul);
+}
+
+.equipo-container .col.col:hover:nth-child(4) .imagen-trabajador img {
+    border: 3px solid var(--verde1);
+}
+
+.equipo-container .col:hover:nth-child(5) .imagen-trabajador img {
+    border: 3px solid var(--rojo);
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+    .equipo-container {
+        gap: 1.2rem;
+    }
+
+    .equipo-container .col {
+        max-width: 140px;
+        min-width: 100px;
+    }
+
+    .imagen-trabajador,
+    .imagen-trabajador img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+    .equipo-container {
+        gap: 0.7rem;
+    }
+
+    .equipo-container .col {
+        max-width: 90px;
+        min-width: 70px;
+    }
+
+    .imagen-trabajador,
+    .imagen-trabajador img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .equipo-container h3 {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .equipo-container p {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+}
+/* Video YouTube responsivo */
+#player {
+    width: 100%;
+    min-height: 220px;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    animation: zoomIn 1s;
+}
+
+@media (max-width: 991px) {
+    #player {
+        min-height: 180px;
+        max-width: 100vw;
+        height: 260px;
+    }
+}
+@media (max-width: 600px) {
+    #player {
+        min-height: 140px;
+        height: 160px;
+        max-width: 100vw;
+    }
+}
+
+.lang-btn img{
+
+  animation: zoomIn 1s;
+
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: var(--azul-super-claro);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--verde1-scroll);
+    border-radius: 4px;
+}
+::selection {
+    background: var(--verde2);
+    color: var(--blanco);
+}
+
+
+.footer {
+    background: linear-gradient(to bottom, #014b01, #016101, green, #02b602, #18aa3d);
+    background-size: 100% 100%;
+    color: var(--blanco);
+    min-height: 140px;
+    padding: 2rem 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .footer-social {
+    margin-top: 1.125rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer .list-inline-item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 0.7rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.18s;
+}
+
+.footer .list-inline-item img:hover {
+    transform: scale(1.13) rotate(-6deg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+/* SIDEBAR entre 992px y 1613px */
+@media (max-width: 1612px) and (min-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: var(--sidebar-width);
+        min-width: var(--sidebar-width);
+        max-width: var(--sidebar-width);
+        height: 100vh;
+        min-height: 100vh;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        position: fixed;
+        padding: 2rem 1rem 1rem 1rem;
+        z-index: 1100;
+        box-shadow: none !important;
+        background: linear-gradient(to bottom, #02b602, #008000, #005e00, #000000);
+        overflow-y: auto;
+    }
+    body {
+        padding-top: 0 !important;
+        padding-left: var(--sidebar-width);
+    }
+    .navbar-logo {
+        margin-bottom: 2rem;
+        justify-content: flex-start;
+    }
+    .navbar-toggle {
+        display: flex !important;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        background: transparent;
+        box-shadow: none !important;
+        padding: 1.5rem 1rem 2.5rem 1rem;
+        display: none;
+        width: 100%;
+        border-radius: none !important;
+        z-index: 1101;
+        margin-top: auto;
+        margin-bottom: 0;
+        position: static;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+        padding: 0.5rem 0.5rem;
+    }
+    .lang-btn {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    /* LOGO FIJO A LA IZQUIERDA */
+    .navbar-logo.fixed-left {
+        position: absolute;
+        left: 0;
+        top: 2rem;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1201;
+        margin-bottom: 0;
+        padding: 0;
+    }
+}
+
+/* boton hamburguesa en móviles */
+@media (max-width: 991px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 70px;
+        min-height: 70px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 70px !important;
+    }
+    .navbar-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0.5rem 2rem 1.5rem 2rem;
+        display: none;
+        z-index: 999;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        border-bottom-left-radius: 1.2rem;
+        border-bottom-right-radius: 1.2rem;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        margin: 0.2rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .lang-btn {
+        margin-top: 0.5rem;
+    }
+    .navbar-toggle {
+        display: flex !important;
+    }
+}
+
+/* Navbar horizontal arriba en pantallas grandes/ordenadores */
+@media (min-width: 1613px) {
+    .navbar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 110px;
+        min-height: 110px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        position: fixed;
+        padding: 0 2.5rem;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+    }
+    body {
+        padding-left: 0 !important;
+        padding-top: 110px !important;
+    }
+    .navbar-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        position: static !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0;
+        display: flex !important;
+        width: auto;
+    }
+    .navbar-toggle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-logo-container {
+        height: 60px;
+    }
+
+    .main-title {
+        font-size: 1.3rem;
+    }
+
+     .carousel-container handled above 
+    .servicios-title,
+    .about-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer .footer-social {
+        margin-top: 0.5 rem;
+
+    }
+
+    .footer .list-inline-item img {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Desactiva animaciones de aparición por defecto hasta que se active la clase .animaciones-activas en body */
+body:not(.animaciones-activas) .main-title,
+body:not(.animaciones-activas) h2,
+body:not(.animaciones-activas) .servicio-card,
+body:not(.animaciones-activas) .about-section,
+body:not(.animaciones-activas) .equipo-container,
+body:not(.animaciones-activas) .header-logo-container,
+body:not(.animaciones-activas) .carousel-container,
+body:not(.animaciones-activas) #player,
+body:not(.animaciones-activas) .lang-btn img {
+  /* Quita animaciones y transiciones */
+  animation: none !important;
+  opacity: 0;
+  transition: none !important;
+}
+
+/* Cuando body tiene .animaciones-activas, vuelve a animar y mostrar */
+body.animaciones-activas .main-title,
+body.animaciones-activas h2,
+body.animaciones-activas .servicio-card,
+body.animaciones-activas .about-section,
+body.animaciones-activas .equipo-container,
+body.animaciones-activas .header-logo-container,
+body.animaciones-activas .carousel-container,
+body.animaciones-activas #player,
+body.animaciones-activas .lang-btn img {
+  opacity: 1;
+  /* Las animaciones CSS ya están definidas en tu CSS original */
+}
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar sidebar-collapsed" id="sidebar-navbar">
+    <div class="navbar-logo fixed-left">
+      <a href="index.html"><img src="logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="eager" fetchpriority="high"></a>
+    </div>
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="navbar-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="navbar-links" id="navbar-links">
+      <a class="nav-link" href="#" data-es="Desarrollo web e E-commerce"
+        data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a>
+      <a class="nav-link" href="#" data-es="Gestion de Redes Sociales" data-en="Social Media Management">Gestion de
+        Redes Sociales</a>
+      <a class="nav-link" href="#" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a>
+      <a class="nav-link" href="#" data-es="Seo y Posicionamiento Web" data-en="SEO and Web Positioning">Seo y
+        Posicionamiento Web</a>
+      <a class="nav-link" href="#" data-es="Email Marketing" data-en="Email Marketing">Email Marketing</a>
+      <a class="nav-link" href="#" data-es="Automatización y Chatbots" data-en="Automation and Chatbots">Automatización
+        y Chatbots</a>
+      <span class="lang-btn">
+        <img id="btn-es" src="españa.webp" alt="Español" tabindex="0">
+        <img id="btn-en" src="uk.webp" alt="English" tabindex="0">
+      </span>
+    </div>
+  </nav>
+  <script>
+    // boton hamburguesa responsive + sidebar colapsable
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById('navbar-toggle');
+      const links = document.getElementById('navbar-links');
+      const sidebar = document.getElementById('sidebar-navbar');
+      const body = document.body;
+
+      // Detecta si estamos en el rango sidebar (992px - 1612px)
+      function isSidebar() {
+        return window.innerWidth >= 992 && window.innerWidth <= 1612;
+      }
+
+      function collapseSidebar() {
+        if (sidebar) sidebar.classList.add('sidebar-collapsed');
+        body.classList.add('sidebar-collapsed');
+        links.classList.remove('show');
+        if (toggle) toggle.setAttribute('aria-expanded', "false");
+      }
+      function expandSidebar() {
+        if (sidebar) sidebar.classList.remove('sidebar-collapsed');
+        body.classList.remove('sidebar-collapsed');
+      }
+      function closeMenu() {
+        links.classList.remove('show');
+        if (toggle) toggle.setAttribute('aria-expanded', "false");
+        if (isSidebar()) collapseSidebar();
+      }
+      function openMenu() {
+        links.classList.add('show');
+        if (toggle) toggle.setAttribute('aria-expanded', "true");
+        if (isSidebar()) expandSidebar();
+      }
+
+      // Inicializa el sidebar de manera que esté colapsado
+      if (isSidebar()) {
+        collapseSidebar();
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (isSidebar()) {
+            // Si está colapsado, expandir y mostrar menú
+            if (sidebar.classList.contains('sidebar-collapsed')) {
+              expandSidebar();
+              links.classList.add('show');
+              toggle.setAttribute('aria-expanded', "true");
+            } else {
+              // Si está expandido, colapsar y ocultar menú
+              collapseSidebar();
+            }
+          } else {
+            // Comportamiento móvil normal
+            const expanded = links.classList.toggle('show');
+            toggle.setAttribute('aria-expanded', expanded ? "true" : "false");
+          }
+        });
+      }
+
+      // Cierra el menú al hacer click fuera del sidebar
+      document.addEventListener('click', function (e) {
+        if (!links.contains(e.target) && (!toggle || !toggle.contains(e.target))) {
+          closeMenu();
+        }
+      });
+
+      // Sidebar: cerrar menú hamburguesa si se cambia de tamaño a desktop o móvil
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1613 || window.innerWidth < 992) {
+          // Desktop o móvil: quitar clases sidebar
+          if (sidebar) sidebar.classList.remove('sidebar-collapsed');
+          body.classList.remove('sidebar-collapsed');
+          links.classList.remove('show');
+        } else {
+          // Sidebar: colapsar por defecto
+          collapseSidebar();
+        }
+      });
+    });
+  </script>
+
+
+  <header>
+    <div class="header-logo-container">
+      <img src="logo_texto.webp" alt="Logo de Comunitega" width="900" height="180" loading="eager" fetchpriority="high">
+    </div>
+  </header>
+
+  <!-- Titulo principal y descripción -->
+  <section>
+    <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega
+    </h1>
+  </section>
+  </body>
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-container" id="carousel">
+    <div class="carousel-inner">
+      <img class="carousel-item" src="Desarrollo-web-e-E-commerce-Comunitega.webp"
+        alt="Desarrollo web e E-commerce Comunitega" width="1200" height="440" loading="eager" fetchpriority="high"
+        style="display:block;">
+      <img class="carousel-item" src="Gestión-de-redes-sociales-Comunitega.webp"
+        alt="Gestión de redes sociales Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Marketing-Digital-Comunitega.webp" alt="Marketing Digital Comunitega" width="1200"
+        height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="SEO-y-Posicionamiento-web-Comunitega.webp"
+        alt="SEO y Posicionamiento web Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Email Marketing Comunitega.webp" alt="Email Marketing Comunitega" width="1200"
+        height="440" loading="lazy" style="display:none;">
+      <img class="carousel-item" src="Automatización-y-Chatbots-Comunitega.webp"
+        alt="Automatización y Chatbots Comunitega" width="1200" height="440" loading="lazy" style="display:none;">
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+  <script>
+    // Carrusel ultra-ligero
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll('.carousel-item');
+      let idx = 0;
+      function show(n) {
+        items.forEach((img, i) => img.style.display = (i === n ? 'block' : 'none'));
+      }
+      document.getElementById('prevBtn').onclick = () => { idx = (idx - 1 + items.length) % items.length; show(idx); };
+      document.getElementById('nextBtn').onclick = () => { idx = (idx + 1) % items.length; show(idx); };
+      setInterval(() => { idx = (idx + 1) % items.length; show(idx); }, 5000);
+    });
+  </script>
+  <!-- Servicios -->
+  <section id="servicios" class="servicios-section">
+    <h2 class="servicios-title" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+    <div class="container" style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-search"></i></div>
+          <h3 data-es="SEO y Posicionamiento Web" data-en="SEO and Web Positioning" class="card-title">SEO y
+            Posicionamiento Web</h3>
+          <p data-es="Promovemos un mejor posicionamiento web en los resultados de búsqueda."
+            data-en="We promote better web positioning in search results." class="card-text-dark">Promovemos un mejor
+            posicionamiento web en los resultados de búsqueda.</p>
+        </div>
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3 data-es="Email Marketing" data-en="Email Marketing" class="card-title">Email Marketing</h3>
+          <p data-es="Realizamos acciones de marketing a través de Email."
+            data-en="We carry out marketing actions through email." class="card-text-dark">Realizamos acciones de
+            marketing a través de Email.</p>
+        </div>
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-robot"></i></div>
+          <h3 data-es="Automatización y Chatbots" data-en="Automatization and Chatbots" class="card-title">
+            Automatización y Chatbots</h3>
+          <p data-es="Automatizamos tareas y métodos de contacto con nuestros clientes."
+            data-en="We automate tasks and methods of contact with our clients." class="card-text-dark">Automatizamos
+            tareas y métodos de contacto con nuestros clientes.</p>
+        </div>
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-code"></i></div>
+          <h3 data-es="Desarrollo Web" data-en="Web Development" class="card-title">Desarrollo Web</h3>
+          <p data-es="Desarrollamos sitios web personalizados y atractivos."
+            data-en="We develop customized and attractive websites." class="card-text-dark">Desarrollamos sitios web
+            personalizados y atractivos.</p>
+        </div>
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3 data-es="Marketing Digital" data-en="Digital Marketing" class="card-title">Marketing Digital</h3>
+          <p data-es="Ayudamos a las empresas a crecer en línea." data-en="We help businesses grow online."
+            class="card-text-dark">Ayudamos a las empresas a crecer en línea.</p>
+        </div>
+        <div class="servicio-card" style="flex:1 1 250px;max-width:320px;">
+          <div class="servicio-icon"><i class="fas fa-share-alt"></i></div>
+          <h3 data-es="Gestion de Redes Sociales" data-en="Social Media Management" class="card-title">Gestión de Redes
+            Sociales</h3>
+          <p data-es="Ayudamos a las empresas a crecer en redes sociales."
+            data-en="We help businesses grow in social media." class="card-text-dark">Ayudamos a las empresas a crecer
+            en redes sociales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre nosotros -->
+  <section class="about-section">
+    <h2 data-es="¿Quiénes somos?" data-en="Who are we?">¿Quiénes somos?</h2>
+    <p data-es="Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización."
+      data-en="We are a digital marketing agency committed to helping businesses improve their online presence and connect with their customers through innovative strategies. Our team works in key areas such as web development, social media management, digital advertising, SEO, email marketing, and automation.">
+      Somos una agencia especializada en marketing digital, comprometida con ayudar a empresas a mejorar su presencia
+      online y conectar con sus clientes a través de estrategias innovadoras. Nuestro equipo trabaja en áreas clave como
+      desarrollo web, gestión de redes sociales, publicidad digital, SEO, email marketing y automatización.
+    </p>
+    <p data-es="Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para el crecimiento de cada negocio."
+      data-en="We are passionate about digital marketing and believe in the power of creativity and technology to generate impact. At Comunitega, we work as a team, share knowledge, and focus on offering effective solutions for the growth of every business.">
+      Nos apasiona el marketing digital y creemos en el poder de la creatividad y la tecnología para generar impacto. En
+      Comunitega, trabajamos en equipo, compartimos conocimientos y nos enfocamos en ofrecer soluciones efectivas para
+      el crecimiento de cada negocio.
+    </p>
+  </section>
+
+
+  <!-- Video YouTube -->
+  <div class="container-fluid mb-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div id="player" class="embed-responsive embed-responsive-16by9" style="height: 400px; margin-bottom: 10%;">
+          <div id="loader" class="text-center">Cargando...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Lazy load YouTube solo cuando es visible
+    let ytLoaded = false;
+    function loadYouTubeScript() {
+      if (ytLoaded) return;
+      ytLoaded = true;
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+    function onYouTubeIframeAPIReady() {
+      new YT.Player("player", {
+        videoId: "9QNUXxuwt1Y",
+        width: "100%",
+        height: "100%",
+        playerVars: { enablejsapi: 1, origin: window.location.origin, cookie: "none" }
+      });
+    }
+    window.addEventListener("load", function () {
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          loadYouTubeScript();
+          observer.unobserve(entries[0].target);
+        }
+      }, { rootMargin: "50px" });
+      observer.observe(document.getElementById("player"));
+    });
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+  </script>
+
+  <!-- Equipo -->
+  <div class="equipo-container">
+    <div class="col">
+      <div class="imagen-trabajador">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+      </div>
+      <h3 class="text-center">Nombre 1</h3>
+      <p class="text-center">Cargo 1</p>
+    </div>
+    <div class="col">
+      <div class="imagen-trabajador">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+      </div>
+      <h3 class="text-center">Nombre 2</h3>
+      <p class="text-center">Cargo 2</p>
+    </div>
+    <div class="col">
+      <div class="imagen-trabajador">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+      </div>
+      <h3 class="text-center">Nombre 3</h3>
+      <p class="text-center">Cargo 3</p>
+    </div>
+    <div class="col">
+      <div class="imagen-trabajador">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+      </div>
+      <h3 class="text-center">Nombre 4</h3>
+      <p class="text-center">Cargo 4</p>
+    </div>
+    <div class="col">
+      <div class="imagen-trabajador">
+        <img src="imagen-trabajador.webp" alt="Trabajador de Comunitega" width="100" height="100" loading="lazy">
+      </div>
+      <h3 class="text-center">Nombre 5</h3>
+      <p class="text-center">Cargo 5</p>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>
+      <div class="footer-social">
+        <ul class="list-inline" style="padding:0;margin:0;">
+          <li class="list-inline-item">
+            <a href="https://instagram.com" target="_blank" rel="noopener">
+              <img src="Instagram-de-Comunitega.webp" alt="Instagram de Comunitega" loading="lazy">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://x.com" target="_blank" rel="noopener">
+              <img src="twitter-x-logo.webp" alt="X twitter de Comunitega" loading="lazy">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://facebook.com" target="_blank" rel="noopener">
+              <img src="Facebook de Comunitega.webp" alt="Facebook de Comunitega" loading="lazy">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://linkedin.com" target="_blank" rel="noopener">
+              <img src="Linkedin-de-Comunitega.webp" alt="Linkedin de Comunitega" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
+        &copy; 2025 Comunitega. Todos los derechos reservados.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Traducción de la web -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnEs = document.getElementById("btn-es");
+      const btnEn = document.getElementById("btn-en");
+      let idioma = sessionStorage.getItem("idioma") || "es";
+      function cambiarIdioma(idiomaSeleccionado) {
+        idioma = idiomaSeleccionado;
+        sessionStorage.setItem("idioma", idioma);
+        document.documentElement.lang = idioma;
+        document.querySelectorAll("[data-es], [data-en]").forEach(el => {
+          const contenido = el.getAttribute(`data-${idioma}`);
+          if (contenido !== null) el.innerHTML = contenido;
+        });
+      }
+      cambiarIdioma(idioma);
+      if (btnEs && btnEn) {
+        btnEs.addEventListener("click", () => cambiarIdioma("es"));
+        btnEn.addEventListener("click", () => cambiarIdioma("en"));
+      }
+    });
+  </script>
+
+<div id="intro-video-overlay" style="position: fixed; z-index: 99999;top: 0;left: 0;width: 100vw;height: 100vh; background:#000; display: none;align-items: center;justify-content: center;transition: opacity 0.7s;opacity: 1;">
+    <video id="intro-video" src="Video_Bienvenida.mp4" autoplay muted playsinline style="width: 100vw; height: 100vh; object-fit: cover;" preload="auto"></video>
+  </div>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.getElementById('intro-video-overlay');
+    const video = document.getElementById('intro-video');
+    // Chequea si ya se vio el video
+    const videoVisto = sessionStorage.getItem('videoBienvenidaVisto');
+  
+    function quitarOverlayYActivarAnimaciones() {
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.display = "none";
+        document.body.style.overflow = ""; // restaurar scroll
+        document.body.classList.add('animaciones-activas');
+        // Marca como visto para futuras visitas
+        sessionStorage.setItem('videoBienvenidaVisto', '1');
+      }, 700);
+    }
+  
+    if (!videoVisto) {
+      // Primera visita: muestra overlay y bloquea scroll
+      overlay.style.display = "flex";
+      document.body.style.overflow = "hidden";
+      document.body.classList.remove('animaciones-activas');
+      video.currentTime = 0;
+      video.play().catch(()=>{});
+      video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
+      // Permite cerrar con Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === "Escape" && overlay.style.display !== "none"){
+          quitarOverlayYActivarAnimaciones();
+        }
+      });
+      // Si el video no carga o hay error, quita overlay tras 8s
+      video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
+    } else {
+      // Ya se vio: oculta overlay y activa animaciones
+      overlay.style.display = "none";
+      document.body.classList.add('animaciones-activas');
+      document.body.style.overflow = "";
+    }
+  });
+  </script>
+
+</body>
+</html>
