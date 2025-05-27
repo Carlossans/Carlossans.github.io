@@ -34,6 +34,7 @@
 :root {
     --verde1: #02b602;
     --verde1-scroll:#6ae76ad7;
+    --verde-super-claro:#eafff3;
     --verde2: #008000;
     --verde3: #005e00;
     --negro: #000;
@@ -41,6 +42,7 @@
     --azul:#1e90ff;
     --azul-super-claro:#e9f3fd;
     --rojo:#e63946;
+    --rojo-super-claro:#ffeaea;
     --radius: 1.2rem;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     --font-main: 'Segoe UI', Arial, sans-serif;
@@ -553,15 +555,39 @@ h3 {
 }
 
 .servicio-card:hover {
-    transform: translateY(-6px) scale(1.04) rotate(-2deg);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: var(--verde-super-claro);
+}
+
+.servicio-card:hover:nth-child(2) {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: var(--rojo-super-claro);
+}
+
+.servicio-card:hover:nth-child(3) {
+    transform: translateY(-6px) scale(1.04);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     background: var(--azul-super-claro);
 }
 
-.servicio-card:hover:nth-child(even) {
-    transform: translateY(-6px) scale(1.04) rotate(2deg);
+.servicio-card:hover:nth-child(4) {
+    transform: translateY(-6px) scale(1.04);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    background: #eafff3;
+    background: var(--verde-super-claro);
+}
+
+.servicio-card:hover:nth-child(5) {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: var(--rojo-super-claro);
+}
+
+.servicio-card:hover:nth-child(6) {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: var(--azul-super-claro);
 }
 
 .servicio-icon {
@@ -577,6 +603,11 @@ h3 {
     color: var(--blanco);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     transition: background 0.2s, color 0.2s;
+}
+
+.servicio-card:hover .servicio-icon {
+    background: var(--negro);
+    color: var(--verde1);
 }
 
 .servicio-card .card-title {
@@ -649,7 +680,7 @@ h3 {
 .equipo-container .col:hover:nth-child(2) {
     transform: scale(1.06) rotate(360deg);
     box-shadow: 0 8px 32px var(--rojo);
-    background: #ffeaea;
+    background: var(--rojo-super-claro);
     color: var(--rojo);
 }
 
@@ -670,7 +701,7 @@ h3 {
 .equipo-container .col:hover:nth-child(5) {
     transform: scale(1.06) rotate(-360deg);
     box-shadow: 0 8px 32px var(--rojo);
-    background: #ffeaea;
+    background: var(--rojo-super-claro);
     color: var(--rojo);
 }
 
