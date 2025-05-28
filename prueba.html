@@ -55,9 +55,10 @@
 
 body {
     font-family: var(--font-main);
+    font-size: 1.18rem;
     line-height: 1.6;
     min-height: 100vh;
-    color: var(--negro);
+    color: #181818;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -80,48 +81,54 @@ section, .servicios-section, .about-section {
     margin-bottom: 5.5rem;
 }
 
-p, .card-text-dark, .main-desc, .about-section p {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.01em;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    line-height: 1.7;
+button, input, textarea, select{
+  font-size: 1.1rem;
 }
 
-h1, h2, h3, h4 {
+p, .card-text-dark, .main-desc, .about-section p, .servicio-card .card-text-dark {
+  font-size: clamp(1.18rem, 2.7vw, 1.32rem);
+  color: #232323;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+h1, h2, h3 {
     margin-top: 2rem;
     margin-bottom: 1.2rem;
     font-family: var(--font-main);
+    font-weight: 900;
     letter-spacing: -1px;
     line-height: 1.15;
     transition: color var(--transition);
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.7rem, 7vw, 3.7rem);
     font-weight: 900;
     color: var(--verde2);
     text-align: center;
-    text-shadow: 0 2px 8px rgba(30,144,255,0.08);
-    animation: fadeInDown 1s;
+    animation: zoomIn 1.2s;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
     color: var(--azul);
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(2.1rem, 5vw, 2.8rem);
     font-weight: 700;
     text-align: center;
-    animation: fadeInUp 1s;
+    animation: fadeInUp 1.2s;
+    margin-bottom: 1.2;
 }
 
 h3 {
     color: var(--negro);
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 700;
     text-align: center;
 }
+
 
 @media (max-width: 991px) {
   section, .servicios-section, .about-section, .equipo-container, header {
@@ -154,6 +161,44 @@ h3 {
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(60px);}
   to { opacity: 1; transform: translateX(0);}
+}
+.navbar, .navbar-links, .nav-link, .navbar-toggle, .lang-btn, .lang-btn img {
+  font-size: 1.05rem !important;
+  letter-spacing: 0;
+}
+.nav-link {
+  font-size: 0.85rem !important;
+}
+.navbar-logo img {
+  width: 56px;
+  height: 56px;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 18px;
+  }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.15rem; }
+  p, .card-text-dark, .main-desc, .about-section p, .servicio-card .card-text-dark { font-size: 1.05rem; }
+  .footer, .footer p, .footer .footer-social { font-size: 1.08rem; }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem; }
+  p, .card-text-dark, .main-desc, .about-section p, .servicio-card .card-text-dark { font-size: 0.98rem; }
+  .footer, .footer p, .footer .footer-social { font-size: 1rem; }
+}
+
+.footer p {
+  color: #fff;
+  font-size: 1.1em;
 }
 
 /*  SIDEBAR entre 992px y 1613px  */
@@ -348,6 +393,7 @@ h3 {
         z-index: 1000;
         box-shadow: var(--shadow);
         background: linear-gradient(to right, #02b602, #008000, #005e00, #000000);
+        animation: fadeInDown 1.2s;
     }
     body {
         padding-left: 0 !important;
@@ -444,6 +490,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: zoomIn 1.2s;
 }
 
 .header-logo-container img {
@@ -481,7 +528,7 @@ h3 {
     box-shadow: var(--shadow);
     background: var(--blanco);
     position: relative;
-    animation: zooIn 1s;
+    animation: zoomIn 1s;
 }
 
 @media (max-width: 991px) {
@@ -608,7 +655,7 @@ h3 {
 }
 
 .servicio-icon {
-    font-size: 2.7rem;
+    font-size: 2rem;
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -646,7 +693,7 @@ h3 {
 }
 
 .about-section h2 {
-    color: var(--azul-oscuro);
+    color:var(--azul-oscuro);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -691,7 +738,6 @@ h3 {
     transform: scale(1.175);
     box-shadow: 0 8px 32px var(--verde1);
     background: #eafff3;
-    color: var(--verde1);
 
 }
 
@@ -745,6 +791,35 @@ h3 {
 .equipo-container .col:nth-child(5):hover h3 {
     color: var(--rojo);
     transition: color 0.3s;
+}
+
+.equipo-container .col:hover p {
+    color: var(--verde1);
+    transition: color 0.3s;
+}
+
+.equipo-container .col:nth-child(2):hover p {
+    color: var(--rojo);
+    transition: color 0.3s;
+
+}
+
+.equipo-container .col:nth-child(3):hover p {
+    color: var(--azul);
+    transition: color 0.3s;
+
+}
+
+.equipo-container .col:nth-child(4):hover p {
+    color: var(--verde1);
+    transition: color 0.3s;
+
+}
+
+.equipo-container .col:nth-child(5):hover p {
+    color: var(--rojo);
+    transition: color 0.3s;
+
 }
 
 .imagen-trabajador {
@@ -812,26 +887,32 @@ h3 {
     }
 
     .equipo-container .col {
-        max-width: 90px;
-        min-width: 70px;
+        max-width: 150px;
+        min-width: 120px;
     }
 
     .imagen-trabajador,
     .imagen-trabajador img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
     .equipo-container h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 0.2rem;
     }
 
     .equipo-container p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-bottom: 0.2rem;
     }
 }
+
+.equipo-container h3, .equipo-container p {
+  color: #181818;
+  font-size: 1.18rem;
+}
+
 /* Video YouTube responsivo */
 #player {
     width: 100%;
@@ -896,6 +977,12 @@ h3 {
     animation: fadeInUp 1.2s;
 }
 
+.footer, .footer p, .footer .footer-social {
+  font-size: 1.22rem;
+  color: #fff;
+}
+
+
 .footer .footer-social {
     margin-top: 1.125rem;
     margin-bottom: 2.5rem;
@@ -905,7 +992,7 @@ h3 {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    margin: 0 1rem;
+    margin: 0 0.75rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     transition: transform 0.18s;
 }
@@ -1211,38 +1298,11 @@ body {
   }
 }
 
-.widget-lateral {
-
-  position: fixed;
-  top: 25vh;
-  left: 0;
-  z-index: 100;
-  background: var(--negro);
-  border-radius: 0 1.2rem 1.2rem;
-  box-shadow: 0 2px 12px rgba(30,144,255,0.10);
-  padding: 1.2rem 0.8rem;
-  min-width: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-  animation: slideInLeft 1.2s;
+html {
+  font-size: 21px;
+  background:var(--blanco);
 }
 
-.widget-lateral a {
-
-  color: var(--verde2);
-  font-size: 1.7rem;
-  transition: color 0.2s;
-}
-
-.widget-lateral a:hover {
-  color: var(--azul);
-}
-
-@media (max-width: 1200px) {
-  .widget-lateral { display: none; }
-}
 
   </style>
 </head>
@@ -1259,7 +1319,7 @@ body {
       <i class="fas fa-bars"></i>
     </button>
     <div class="navbar-links" id="navbar-links">
-      <a class="nav-link" href="#" data-es="Desarrollo web e E-commerce"
+      <a class="nav-link" href="Desarrollo.html" data-es="Desarrollo web e E-commerce"
         data-en="Web Development and E-commerce">Desarrollo web e E-commerce</a>
       <a class="nav-link" href="#" data-es="Gestion de Redes Sociales" data-en="Social Media Management">Gestion de
         Redes Sociales</a>
@@ -1369,7 +1429,7 @@ body {
     <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega
     </h1>
   </section>
-  </body>
+  
   <!-- Carrusel de imágenes -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-inner">
