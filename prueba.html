@@ -39,6 +39,7 @@
     --verde3: #005e00;
     --negro: #000;
     --blanco: #fff;
+    --azul-oscuro:#003161;
     --azul:#1e90ff;
     --azul-super-claro:#e9f3fd;
     --rojo:#e63946;
@@ -49,20 +50,21 @@
     --sidebar-width: 340px;
     --sidebar-collapsed-width: 180px;
     --sidebar-logo-size: 70px;
+    --transition: 0.3s cubic-bezier(.4,0,.2,1);
 }
 
-/* Capa para el contenido encima del fondo */
 body {
     font-family: var(--font-main);
     line-height: 1.6;
-    color: #333;
+    min-height: 100vh;
+    color: var(--negro);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     background: transparent;
     position: relative;
     z-index: 1;
-    transition: padding-left var(--transition);
+    transition: background 0.4s;
 }
 
 /* Márgenes y justificación global */
@@ -70,13 +72,12 @@ section, .servicios-section, .about-section, .equipo-container, header {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
+    padding-left: 2.6vw;
+    padding-right: 2.6vw;
 }
 
 section, .servicios-section, .about-section {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 5.5rem;
 }
 
 p, .card-text-dark, .main-desc, .about-section p {
@@ -85,17 +86,21 @@ p, .card-text-dark, .main-desc, .about-section p {
     hyphens: auto;
     margin-bottom: 1.5rem;
     letter-spacing: 0.01em;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
 }
 
 h1, h2, h3, h4 {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
     font-family: var(--font-main);
     letter-spacing: -1px;
+    line-height: 1.15;
+    transition: color var(--transition);
 }
 
 h1 {
-    font-size: 2.7rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
     color: var(--verde2);
     text-align: center;
@@ -105,7 +110,7 @@ h1 {
 
 h2 {
     color: var(--azul);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     text-align: center;
     animation: fadeInUp 1s;
@@ -113,9 +118,21 @@ h2 {
 
 h3 {
     color: var(--negro);
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     font-weight: 700;
     text-align: center;
+}
+
+@media (max-width: 991px) {
+  section, .servicios-section, .about-section, .equipo-container, header {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    max-width: 98vw;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1rem; }
+  p, .card-text-dark, .main-desc, .about-section p { font-size: 0.98rem; }
 }
 
 @keyframes fadeInDown {
@@ -129,6 +146,14 @@ h3 {
 @keyframes zoomIn {
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px);}
+  to { opacity: 1; transform: translateX(0);}
 }
 
 /*  SIDEBAR entre 992px y 1613px  */
@@ -413,9 +438,9 @@ h3 {
 
 .header-logo-container {
     width: 100%;
-    max-width: 900px;
-    height: 280px;
-    margin: 0 auto 1.5rem auto;
+    max-width: 1300px;
+    height: 320px;
+    margin: 0 auto 0.5rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -426,7 +451,7 @@ h3 {
     height: 100%;
     object-fit: contain;
     display: block;
-    margin-top: 10%;
+    margin: 0;
 }
 
 .main-title {
@@ -446,8 +471,9 @@ h3 {
 }
 
 .carousel-container {
+    margin: 0 auto 2.5rem auto;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     aspect-ratio: 16/9;
     margin: 0 auto 2.5rem auto;
     border-radius: var(--radius);
@@ -458,21 +484,11 @@ h3 {
     animation: zooIn 1s;
 }
 
-@media (min-width: 992px) {
-    .carousel-container {
-        height: 440px;
-    }
-}
 @media (max-width: 991px) {
-    .carousel-container {
-        height: 260px;
-    }
+  .carousel-container { height: 220px; }
 }
 @media (max-width: 600px) {
-    .carousel-container {
-        aspect-ratio: 9/16;
-        height:180px;
-    }
+  .carousel-container { aspect-ratio: 9/16; height: 140px; }
 }
 
 .carousel-container img {
@@ -532,12 +548,13 @@ h3 {
     padding: 3rem 0 2rem 0;
     border-radius: var(--radius);
     box-shadow: 0 2px 16px rgba(30,144,255,0.3);
+    animation: fadeInUp 1.2s;
 }
 
 .servicios-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--azul);
+    color: var(--negro);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -606,7 +623,7 @@ h3 {
 }
 
 .servicio-card:hover .servicio-icon {
-    background: var(--negro);
+    background: var(--azul-oscuro);
     color: var(--verde1);
 }
 
@@ -629,7 +646,7 @@ h3 {
 }
 
 .about-section h2 {
-    color: var(--rojo);
+    color: var(--azul-oscuro);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -650,7 +667,7 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5.5rem;
+    gap: 3.5rem;
     margin-bottom: 3rem;
     margin-top: 2rem;
     animation: fadeInUp 1.2s;
@@ -667,10 +684,11 @@ h3 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     padding: 1.2rem 0.5rem 1rem 0.5rem;
     transition: transform 0.5s, box-shadow 0.5s;
+    animation: zoomIn 1s;
 }
 
 .equipo-container .col:hover {
-    transform: scale(1.06) rotate(-360deg);
+    transform: scale(1.175);
     box-shadow: 0 8px 32px var(--verde1);
     background: #eafff3;
     color: var(--verde1);
@@ -678,28 +696,28 @@ h3 {
 }
 
 .equipo-container .col:hover:nth-child(2) {
-    transform: scale(1.06) rotate(360deg);
+    transform: scale(1.175);
     box-shadow: 0 8px 32px var(--rojo);
     background: var(--rojo-super-claro);
     color: var(--rojo);
 }
 
 .equipo-container .col:hover:nth-child(3) {
-    transform: scale(1.06) rotate(-360deg);
+    transform: scale(1.175);
     box-shadow: 0 8px 32px var(--azul);
     background: #d5eaff;
     color: var(--azul);
 }
 
 .equipo-container .col:hover:nth-child(4) {
-    transform: scale(1.06) rotate(360deg);
+    transform: scale(1.175);
     box-shadow: 0 8px 32px var(--verde1);
     background: #eafff3;
     color: var(--verde1);
 }
 
 .equipo-container .col:hover:nth-child(5) {
-    transform: scale(1.06) rotate(-360deg);
+    transform: scale(1.175);
     box-shadow: 0 8px 32px var(--rojo);
     background: var(--rojo-super-claro);
     color: var(--rojo);
@@ -851,7 +869,7 @@ h3 {
     background: var(--azul-super-claro);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--verde1-scroll);
+    background: linear-gradient(to top, #02b602, #008000, #005e00, #000000);;
     border-radius: 4px;
 }
 ::selection {
@@ -1168,6 +1186,40 @@ body {
   flex: 1 0 auto;
 }
 
+@media (min-width: 1200px) {
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    background: url('/decoracion-lateral.svg') center/contain no-repeat;
+    animation: slideInLeft 1.2s;
+  }
+  body::before {
+    left: 0;
+    background-position: left center;
+    animation: slideInLeft 1.2s;
+  }
+  body::after {
+    right: 0;
+    background-position: right center;
+    animation: slideInRight 1.2s;
+  }
+}
+
+.widget-lateral {
+
+  position: fixed;
+  top: 25vh;
+  left: 0;
+  z-index: 100;
+  background: var(--negro);
+  border-radius: 0 1.2rem 1.2rem;
+}
+
   </style>
 </head>
 
@@ -1284,7 +1336,7 @@ body {
 
   <header>
     <div class="header-logo-container">
-      <img src="otrologo.png" alt="Logo de Comunitega" width="900" height="180" loading="eager" fetchpriority="high">
+      <img src="otrologo.webp" alt="Logo de Comunitega" width="900" height="180" loading="eager" fetchpriority="high">
     </div>
   </header>
 
@@ -1543,7 +1595,7 @@ body {
     <video id="intro-video" src="VB.mp4" autoplay muted playsinline style="width: 100vw; height: 100vh; object-fit: cover;" preload="auto"></video>
   </div>
   
-  <!--<script>
+ <!--<script>
 
 document.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById('intro-video-overlay');
@@ -1643,7 +1695,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.add('animaciones-activas');
       document.body.style.overflow = "";
     }
-  });
+  })
 
 </script>
 </htm>
