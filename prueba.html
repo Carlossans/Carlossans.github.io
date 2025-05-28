@@ -1290,6 +1290,36 @@ html {
   font-size: 21px;
   background:var(--blanco);
 }
+
+    .seccion-importante {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 3.5rem 1rem 2rem 1rem;
+      position: relative;
+    }
+    .seccion-importante h1 {
+      font-size: clamp(2.5rem, 7vw, 3.5rem);
+      font-weight: 900;
+      color: var(--verde3);
+      margin-bottom: 3.5rem;
+      letter-spacing: -1.5px;
+      text-shadow: 0 2px 8px #02b60212;
+      animation: fadeInDown 1s;
+    }
+    .seccion-importante p {
+      font-size: clamp(1.18rem, 2.7vw, 1.32rem);
+      color: #333;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      line-height: 1.85;
+      animation: fadeIn 1.3s;
+    }
+
   </style>
 </head>
 
@@ -1382,8 +1412,9 @@ html {
   </div>
 </header>
 
-<section>
-  <h1 class="main-title" data-es="Bienvenido a Comunitega" data-en="Welcome to Comunitega">Bienvenido a Comunitega</h1>
+<section class="seccion-importante">
+  <h1 data-es="Impulsamos tu empresa al siguiente nivel" data-en="We take your company to the next level">Impulsamos tu empresa al siguiente nivel</h1>
+  <p data-es="Somos Comunitega, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y estrategias que enamoran." data-en="We are Comunitega, a digital marketing and web development agency. We help businesses grow, optimize their digital presence, and generate more customers with design, technology, and strategies they'll love."> Somos <b>Comunitega</b>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y estrategias que enamoran.</p>
 </section>
 <div class="carousel-container" id="carousel">
   <div class="carousel-inner">
@@ -1581,9 +1612,7 @@ html {
         </li>
       </ul>
     </div>
-    <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved.">
-      &copy; 2025 Comunitega. Todos los derechos reservados.
-    </p>
+    <p data-es="2025 Comunitega. Todos los derechos reservados." data-en="2025 Comunitega. All rights reserved." class="mt-2 mb-0">&copy; 2025 Comunitega. Todos los derechos reservados.</p>
   </div>
 </footer>
 
