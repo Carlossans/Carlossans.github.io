@@ -884,7 +884,7 @@ h3 {
     color: var(--blanco);
     min-height: 140px;
     padding: 2rem 0 1rem 0;
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     font-weight: 500;
     box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
     text-align: center;
@@ -893,6 +893,7 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    animation: fadeInUp 1.2s;
 }
 
 .footer .footer-social {
@@ -904,13 +905,13 @@ h3 {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    margin: 0 0.7rem;
+    margin: 0 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     transition: transform 0.18s;
 }
 
 .footer .list-inline-item img:hover {
-    transform: scale(1.13) rotate(-6deg);
+    transform: scale(1.175) rotate(-6deg);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
@@ -1218,6 +1219,29 @@ body {
   z-index: 100;
   background: var(--negro);
   border-radius: 0 1.2rem 1.2rem;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.10);
+  padding: 1.2rem 0.8rem;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  animation: slideInLeft 1.2s;
+}
+
+.widget-lateral a {
+
+  color: var(--verde2);
+  font-size: 1.7rem;
+  transition: color 0.2s;
+}
+
+.widget-lateral a:hover {
+  color: var(--azul);
+}
+
+@media (max-width: 1200px) {
+  .widget-lateral { display: none; }
 }
 
   </style>
