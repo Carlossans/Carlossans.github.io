@@ -112,6 +112,90 @@
       .navbar-brand img { width: 40px; height: 40px; }
       .hero-section { padding-top: 1.3rem; }
     }
+
+    /* CARRUSEL - NUEVO DISEÑO RESPONSIVE DE TAMAÑO FIJO */
+    .carrusel-section {
+      max-width: 1200px;
+      margin: 5rem auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      /* Añadido para asegurar que los controles estén dentro del área */
+      position: relative;
+    }
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+      height: 400px;
+      min-height: 200px;
+    }
+    .carousel-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+    }
+    .carousel-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(24, 24, 24, 0.1);
+      display: block;
+      /* Para que no haya saltos de tamaño al cambiar */
+      aspect-ratio: 16/9;
+    }
+    /* Responsive para tablets y móviles */
+    @media (max-width: 991px) {
+      .carrusel-section {
+        max-width: 95vw;
+        margin: 2.5rem auto;
+      }
+      .carousel,
+      .carousel-inner,
+      .carousel-item {
+        height: 250px;
+      }
+      .carousel-item img {
+        aspect-ratio: 16/9;
+      }
+    }
+    @media (max-width: 600px) {
+      .carrusel-section {
+        max-width: 100vw;
+        margin: 1.2rem 0.2rem;
+        border-radius: 0.7rem;
+      }
+      .carousel,
+      .carousel-inner,
+      .carousel-item {
+        height: 170px;
+        min-height: 100px;
+      }
+      .carousel-item img {
+        aspect-ratio: 16/9;
+        border-radius: 0.7rem;
+      }
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: black;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    .carousel-indicators [data-bs-target] {
+      background-color: var(--verde);
+    }
   </style>
 
   <!-- CSS asíncrono para el resto -->
@@ -372,42 +456,6 @@
       ::-webkit-scrollbar { width: 8px; background: transparent;}
       ::-webkit-scrollbar-thumb { background: linear-gradient(to top, var(--verde), var(--azul-oscuro)); border-radius: 4px;}
       ::selection { background: var(--verde); color: var(--blanco);}
-      .carrusel-section {
-        max-width: 1200px;
-        margin: 5rem auto;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-      .carousel-inner img {
-        border-radius: var(--radius);
-        box-shadow: 0 4px 16px rgba(24, 24, 24, 0.1);
-        max-height: 620px;
-        object-fit: cover;
-      }
-      .carousel-caption {
-        background: var(--negro);
-        border-radius: var(--radius);
-        padding: 1rem;
-      }
-      .carousel-control-prev-icon,
-      .carousel-control-next-icon {
-        background-color: black;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-      }
-      .carousel-inner img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-      @media (max-width: 600px) {
-        .carousel-inner img {
-          height: 250px;
-          object-fit: cover;
-        }
-      }
       .video-container {
         max-width: 800px;
         margin: 2rem auto;
@@ -454,10 +502,11 @@
     <section class="hero-section">
       <h1>Impulsamos tu empresa al siguiente nivel</h1>
       <p>
-        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y y estrategias que enamoran.
+        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología [...]
       </p>
       <a href="#contacto" class="btn btn-main shadow">Solicitar asesoría</a>
     </section>
+    <!-- CARRUSEL -->
     <section class="carrusel-section mt-5">
       <div id="carruselImagenes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <!-- Indicadores -->
@@ -472,22 +521,22 @@
         <!-- Contenido del carrusel -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img git/redes.webp" class="d-block w-100" alt="Imagen 1" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/redes.webp" class="d-block" alt="Imagen 1" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="img git/marketing-digital.webp" class="d-block w-100" alt="Imagen 2" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/marketing-digital.webp" class="d-block" alt="Imagen 2" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="img git/SEO.webp" class="d-block w-100" alt="Imagen 3" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/SEO.webp" class="d-block" alt="Imagen 3" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="img git/em.webp" class="d-block w-100" alt="Imagen 4" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/em.webp" class="d-block" alt="Imagen 4" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="img git/e-commerce.webp" class="d-block w-100" alt="Imagen 5" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/e-commerce.webp" class="d-block" alt="Imagen 5" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="img git/chatbot.webp" class="d-block w-100" alt="Imagen 6" loading="lazy" width="1200" height="630" decoding="async">
+            <img src="img git/chatbot.webp" class="d-block" alt="Imagen 6" loading="lazy" decoding="async">
           </div>
         </div>
         <!-- Controles -->
@@ -553,7 +602,7 @@
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
       <p>
-        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia, la innovación y la atención personalizada.
+        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometi[...]
       </p>
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
