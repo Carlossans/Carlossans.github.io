@@ -34,6 +34,7 @@
       --azul: #1e90ff;
       --azul-oscuro: #003161;
       --rojo: #e63946;
+      --morado: #a259e6;
       --transition: 0.25s cubic-bezier(.4,0,.2,1);
       --radius: 1.2rem;
       --shadow: 0 4px 24px rgba(24,24,24,0.09);
@@ -138,6 +139,16 @@
     .navbar-toggler:focus {
       box-shadow: none;
     }
+    /* NUEVO: Barra de progreso de scroll */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0; z-index: 1200;
+      width: 0; height: 5px;
+      background: linear-gradient(90deg, var(--verde), var(--azul), var(--morado));
+      transition: width 0.2s cubic-bezier(.4,0,.2,1);
+      pointer-events: none;
+      border-radius: 0 0 12px 0;
+    }
     .hero-section {
       display: flex;
       flex-direction: column;
@@ -152,7 +163,32 @@
       z-index: 1;
       box-shadow: 0 2px 35px 0 #02b60213;
     }
-
+    /* NUEVO: Badge animado de atención */
+    .attention-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background: linear-gradient(90deg,var(--azul),var(--verde));
+      color: #fff;
+      font-size: 1.14rem;
+      font-weight: 800;
+      border-radius: 18px;
+      padding: 0.38em 1.1em;
+      box-shadow: 0 2px 12px #13e17430;
+      margin-bottom: 1.2em;
+      animation: badgePop 1.5s cubic-bezier(.62,.13,.47,.94) infinite alternate;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 2px #00316140;
+      border: 2px solid #fff5;
+      user-select: none;
+    }
+    @keyframes badgePop {
+      0% { transform: scale(1);}
+      60% { transform: scale(1.08) rotate(-2deg);}
+      100% { transform: scale(1);}
+    }
     .glow-orb {
       position: absolute;
       top: 0; left: 50%;
@@ -249,6 +285,7 @@
       .navbar-brand img { width: 40px; height: 40px;}
       .hero-section { padding-top: 1.3rem; min-height: 40vh; }
       .glow-orb { width: 250px; height: 250px; margin-left: -125px;}
+      .attention-badge { font-size: 1rem; padding: 0.3em 0.7em;}
     }
     /* CARRUSEL RESPONSIVE */
     .carrusel-section {
@@ -600,16 +637,6 @@
         width: 50px; height: 50px; font-size: 25px; bottom: 20px; right: 20px;
       }
     }
-
-    /* NUEVO: Barra de progreso de scroll */
-    #scroll-progress {
-      position: fixed;
-      top: 0; left: 0; z-index: 1200;
-      width: 0; height: 5px;
-      background: linear-gradient(90deg, var(--verde), var(--azul));
-      transition: width 0.2s cubic-bezier(.4,0,.2,1);
-      pointer-events: none;
-    }
   </style>
   <!-- CSS asíncrono para el resto -->
   <noscript id="deferred-styles">
@@ -619,7 +646,7 @@
   </noscript>
 </head>
 <body>
-  <!-- Barra de progreso scroll -->
+  <!-- Barra de progreso scroll (NUEVO) -->
   <div id="scroll-progress"></div>
   <main>
     <!-- NAVBAR -->
@@ -647,6 +674,8 @@
     <section class="hero-section position-relative">
       <div class="glow-orb"></div>
       <div class="particles" id="particles"></div>
+      <!-- NUEVO: Badge animado de atención -->
+      <span class="attention-badge"><i class="fas fa-bolt"></i>¡Transforma tu empresa hoy!</span>
       <h1>Impulsamos tu empresa al siguiente nivel</h1>
       <p>
         Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y creatividad.
@@ -752,7 +781,7 @@
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
       <p>
-        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia y la innovación.
+        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia e innovación.
       </p>
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
@@ -805,7 +834,6 @@
   <a style="text-decoration: none;" href="https://wa.me/" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
-
   <!-- Scripts optimizados -->
   <script>
     // Lazy load de estilos diferidos para mejorar el rendimiento
