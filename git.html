@@ -798,8 +798,9 @@
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
           <div class="col-12 col-md-10 col-lg-9 col-xl-8">
-            <div id="player" class="responsive-video-container">
+            <div class="responsive-video-container">
               <div id="loader" class="text-center">Cargando...</div>
+              <div id="player"></div>
             </div>
           </div>
         </div>
@@ -924,6 +925,14 @@
           modestbranding: 1,
           rel: 0,
           showinfo: 0
+        },
+        events: {
+          onReady: function() {
+            var loader = document.getElementById(loader);
+            if (loader) {
+              loader.style.display = 'none';
+            }
+          }
         }
       });
     }
