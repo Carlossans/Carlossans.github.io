@@ -655,6 +655,32 @@
       transition: width 0.2s cubic-bezier(.4,0,.2,1);
       pointer-events: none;
     }
+    @media (max-width: 600px) {
+  .navbar-nav .nav-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .navbar-nav .nav-link::before {
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-nav .nav-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: inline-block;
+  }
+  .navbar-nav .nav-link::before {
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+  }
+}
   </style>
   <!-- CSS asíncrono para el resto -->
   <noscript id="deferred-styles">
