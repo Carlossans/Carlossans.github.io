@@ -10,7 +10,7 @@
   <link rel="icon" href="logo_circulo.webp" type="image/webp">
 
   <!-- Preload de recursos críticos -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Montserrat:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Montserrat:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
@@ -34,7 +34,6 @@
       --azul: #1e90ff;
       --azul-oscuro: #003161;
       --rojo: #e63946;
-      --morado: #a259e6;
       --transition: 0.25s cubic-bezier(.4,0,.2,1);
       --radius: 1.2rem;
       --shadow: 0 4px 24px rgba(24,24,24,0.09);
@@ -45,19 +44,20 @@
       margin: 0;
       padding: 0;
       font-family: var(--main-font), Arial, sans-serif;
-      color: #181818;
-      background: #f7f7fa;
+      color: var(--negro);
+      background: var(--gris);
       min-height: 100vh;
       scroll-behavior: smooth;
       -webkit-tap-highlight-color: transparent;
       overscroll-behavior: contain;
+      line-height: 1.6;
     }
     body {
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      font-size: 1.08rem;
+      font-size: 1.15rem;
     }
     main {
       flex: 1 0 auto;
@@ -68,7 +68,7 @@
       background: linear-gradient(90deg, var(--verde), var(--azul-oscuro)90%);
       color: var(--blanco);
       padding: 2.5rem 1rem 1rem 1rem;
-      font-size: 1.08rem;
+      font-size: 1.15rem;
       font-weight: 500;
       text-align: center;
       box-shadow: 0 -2px 12px #02b60222;
@@ -81,7 +81,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.3s cubic-bezier(.4,0,.2,1);
+      transition: all var(--transition);
     }
     .navbar.scrolled {
       background: linear-gradient(90deg, var(--verde-oscuro), var(--azul-oscuro) 80%);
@@ -106,10 +106,10 @@
       margin: 0 0.75rem;
       letter-spacing: 0.02em;
       border-radius: 0.5rem;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       padding: 0.5rem 1rem;
       position: relative;
-      font-size: 1.08rem;
+      font-size: 1.1rem;
     }
     .navbar-nav .nav-link::before {
       content: '';
@@ -120,7 +120,7 @@
       width: 0;
       height: 2px;
       background: var(--blanco);
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .navbar-nav .nav-link:hover::before,
     .navbar-nav .nav-link.active::before {
@@ -139,16 +139,6 @@
     .navbar-toggler:focus {
       box-shadow: none;
     }
-    /* Barra de progreso */
-    #scroll-progress {
-  position: fixed;
-  top: 0; left: 0; z-index: 1200;
-  width: 0; height: 5px;
-  background: linear-gradient(90deg, var(--verde-oscuro) 0%, var(--verde) 50%, var(--azul-oscuro) 100%);
-  transition: width 0.2s cubic-bezier(.4,0,.2,1);
-  pointer-events: none;
-  border-radius: 0 0 12px 0;
-}
     .hero-section {
       display: flex;
       flex-direction: column;
@@ -163,32 +153,7 @@
       z-index: 1;
       box-shadow: 0 2px 35px 0 #02b60213;
     }
-    /* NUEVO: Badge animado de atención */
-    .attention-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      background: linear-gradient(90deg,var(--azul),var(--verde));
-      color: #fff;
-      font-size: 1.14rem;
-      font-weight: 800;
-      border-radius: 18px;
-      padding: 0.38em 1.1em;
-      box-shadow: 0 2px 12px #13e17430;
-      margin-bottom: 1.2em;
-      animation: badgePop 1.5s cubic-bezier(.62,.13,.47,.94) infinite alternate;
-      letter-spacing: 0.04em;
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 1px 2px #00316140;
-      border: 2px solid #fff5;
-      user-select: none;
-    }
-    @keyframes badgePop {
-      0% { transform: scale(1);}
-      60% { transform: scale(1.08) rotate(-2deg);}
-      100% { transform: scale(1);}
-    }
+
     .glow-orb {
       position: absolute;
       top: 0; left: 50%;
@@ -227,7 +192,7 @@
       100% { transform: translateY(-100vh) rotate(360deg); opacity: 0.3;}
     }
     .hero-section h1 {
-      font-size: clamp(2.5rem, 7vw, 3.5rem);
+      font-size: clamp(2.5rem, 7vw, 3.8rem);
       font-weight: 900;
       color: #005e00;
       margin-bottom: 1.1rem;
@@ -236,9 +201,10 @@
       letter-spacing: -1.5px;
       text-shadow: 0 2px 8px #02b60212;
       animation: fadeInDown 1s;
+      line-height: 1.2;
     }
     .hero-section p {
-      font-size: clamp(1.18rem, 2.7vw, 1.32rem);
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
       color: #333;
       max-width: 700px;
       margin: 0 auto 2rem auto;
@@ -247,17 +213,18 @@
       animation: fadeIn 1.3s;
       position: relative;
       z-index: 1;
+      font-weight: 500;
     }
     .hero-section .btn-main {
-      padding: 0.8rem 2.4rem;
-      font-size: 1.15rem;
+      padding: 0.9rem 2.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--blanco);
       background: var(--verde-oscuro);
       border: none;
       border-radius: 2rem;
       box-shadow: 0 2px 16px #1e90ff33;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       margin-top: 1.1rem;
       position: relative;
       z-index: 1;
@@ -285,7 +252,6 @@
       .navbar-brand img { width: 40px; height: 40px;}
       .hero-section { padding-top: 1.3rem; min-height: 40vh; }
       .glow-orb { width: 250px; height: 250px; margin-left: -125px;}
-      .attention-badge { font-size: 1rem; padding: 0.3em 0.7em;}
     }
     /* CARRUSEL RESPONSIVE */
     .carrusel-section {
@@ -329,7 +295,7 @@
     .carousel-control-prev-icon, .carousel-control-next-icon {
       background-color: rgba(0,0,0,0.5);
       border-radius: 50%; width: 40px; height: 40px;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
       background-color: var(--verde);
@@ -361,7 +327,7 @@
     }
     .servicios-title {
       color: var(--azul-oscuro);
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       text-align: center;
       margin-bottom: 2.5rem;
@@ -390,7 +356,7 @@
       padding: 2rem 1.2rem 1.7rem 1.2rem;
       text-align: center;
       margin: 0.7rem 0;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -404,7 +370,7 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 5px;
       background: linear-gradient(90deg, var(--verde), var(--azul));
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .servicio-card:hover {
       background: var(--blanco);
@@ -421,7 +387,7 @@
       border-radius: 50%;
       margin-bottom: 1.15rem;
       box-shadow: 0 2px 8px #02b60218;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .servicio-card:hover .servicio-icon {
       background: var(--azul-oscuro);
@@ -429,7 +395,7 @@
       transform: rotateY(180deg);
     }
     .servicio-card h3 {
-      font-size: 1.23rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--verde-oscuro);
       margin-bottom: 0.8rem;
@@ -437,9 +403,10 @@
     }
     .servicio-card p {
       color: #232323;
-      font-size: 1.05rem;
-      text-align: justify;
+      font-size: 1.1rem;
+      text-align: center;
       flex-grow: 1;
+      padding: 0 0.5rem;
     }
     /* About/Equipo/Video */
     .about-section, .equipo-section {
@@ -454,7 +421,7 @@
     }
     .about-section h2, .equipo-title {
       color: var(--azul-oscuro);
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       margin-bottom: 1.3rem;
       position: relative;
@@ -473,7 +440,7 @@
       border-radius: 2px;
     }
     .about-section p, .equipo-card p {
-      font-size: 1.13rem;
+      font-size: 1.2rem;
       color: #444;
       margin-bottom: 0.6rem;
       max-width: 700px;
@@ -499,7 +466,7 @@
       padding: 1.7rem 1rem 1.2rem 1rem;
       margin-bottom: 2rem;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -511,7 +478,7 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 5px;
       background: linear-gradient(90deg, var(--verde), var(--azul));
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .equipo-card:hover {
       background: var(--verde-super-claro);
@@ -530,14 +497,14 @@
       border: 3px solid var(--negro);
       box-shadow: 0 2px 8px #02b60210;
       background: var(--blanco);
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
     .equipo-card:hover .imagen-trabajador img {
       border-color: var(--verde);
       transform: scale(1.1);
     }
     .equipo-card h3 {
-      font-size: 1.15rem; font-weight: 700;
+      font-size: 1.2rem; font-weight: 700;
       color: var(--azul-oscuro); margin-bottom: 0.4rem;
     }
 
@@ -550,14 +517,14 @@
       display: inline-block;
       color: var(--blanco);
       font-size: 1.7rem;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       position: relative;
     }
     .footer .footer-social a::after {
       content: '';
       position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
       width: 0; height: 2px; background: var(--blanco);
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       display: none;
     }
     .footer .footer-social a:hover {
@@ -570,6 +537,49 @@
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: translateY(0);} }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0);} }
     @keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
+    
+    /* Nuevo: Efecto de scroll suave para secciones */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Nuevo: Animación de carga optimizada */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--verde), var(--azul-oscuro));
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--blanco);
+      animation: spin 1s ease-in-out infinite;
+    }
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
     @media (max-width: 991px) {
       .hero-section { padding: 2.2rem 0.7rem 1.2rem 0.7rem; }
       .servicios-section, .about-section, .equipo-section {
@@ -579,6 +589,9 @@
       .equipo-container { gap: 1.2rem; }
       .equipo-card { min-width: 120px; max-width: 160px; padding: 1.2rem 0.5rem; height: 280px; }
       .imagen-trabajador { width: 66px; height: 66px;}
+      .servicio-card h3 { font-size: 1.2rem; }
+      .servicio-card p { font-size: 1rem; }
+      .about-section p, .equipo-card p { font-size: 1.1rem; }
     }
     @media (max-width: 600px) {
       .servicios-section, .about-section, .equipo-section { padding: 1.1rem 0.2rem; }
@@ -587,6 +600,9 @@
       .footer { font-size: 1rem; padding: 1.3rem 0.2rem; }
       .footer .footer-social a { font-size: 1.25rem; }
       .servicio-icon { width: 60px; height: 60px; font-size: 2rem; }
+      .hero-section h1 { font-size: 2.2rem; }
+      .hero-section p { font-size: 1.1rem; }
+      .servicios-title, .about-section h2, .equipo-title { font-size: 1.8rem; }
     }
     ::-webkit-scrollbar { width: 8px; background: transparent;}
     ::-webkit-scrollbar-thumb { background: linear-gradient(to top, var(--verde), var(--azul-oscuro)); border-radius: 4px;}
@@ -620,7 +636,7 @@
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
       z-index: 100;
       display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
       animation: pulse 2s infinite;
     }
     .whatsapp-float:hover {
@@ -637,17 +653,71 @@
         width: 50px; height: 50px; font-size: 25px; bottom: 20px; right: 20px;
       }
     }
+
+    /* NUEVO: Barra de progreso de scroll */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0; z-index: 1200;
+      width: 0; height: 5px;
+      background: linear-gradient(90deg, var(--verde), var(--azul));
+      transition: width 0.2s cubic-bezier(.4,0,.2,1);
+      pointer-events: none;
+    }
+    
+    /* Nuevo: Efecto de hover en tarjetas mejorado */
+    .servicio-card, .equipo-card {
+      will-change: transform;
+    }
+    
+    /* Nuevo: Optimización de fuentes */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    /* Nuevo: Mejora en la legibilidad del texto */
+    p {
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Nuevo: Efecto de hover en enlaces */
+    a {
+      transition: all var(--transition);
+    }
+    
+    /* Nuevo: Mejora en el contraste para accesibilidad */
+    .hero-section h1 {
+      color: var(--verde-oscuro);
+    }
+    
+    /* Nuevo: Optimización de imágenes */
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
   </style>
   <!-- CSS asíncrono para el resto -->
   <noscript id="deferred-styles">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </noscript>
 </head>
 <body>
+  <!-- Loader optimizado -->
+  <div class="loader">
+    <img src="logo_circulo.webp" alt="Comunitega" class="loader-logo" loading="eager">
+    <div class="loader-spinner"></div>
+  </div>
+  
+  
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
+  
   <main>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
@@ -674,61 +744,58 @@
     <section class="hero-section position-relative">
       <div class="glow-orb"></div>
       <div class="particles" id="particles"></div>
-      <!-- NUEVO: Badge animado de atención -->
-      <span class="attention-badge"><i class="fas fa-bolt"></i>¡Transforma tu empresa hoy!</span>
       <h1>Impulsamos tu empresa al siguiente nivel</h1>
       <p>
-        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología [...]
+        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y creatividad.
       </p>
       <a href="#contacto" class="btn btn-main shadow">Solicitar asesoría</a>
     </section>
     <!-- CARRUSEL -->
-<!-- Carrusel corregido -->
-  <section class="carrusel-section mt-5">
-    <div id="carruselImagenes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <!-- Indicadores -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="4" aria-label="Slide 5"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="5" aria-label="Slide 6"></button>
-        <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <section class="carrusel-section mt-5">
+      <div id="carruselImagenes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img git/redes.webp" class="d-block" alt="Imagen 1" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/marketing-digital.webp" class="d-block" alt="Imagen 2" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/SEO.webp" class="d-block" alt="Imagen 3" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/em.webp" class="d-block" alt="Imagen 4" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/e-commerce.webp" class="d-block" alt="Imagen 5" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/chatbot.webp" class="d-block" alt="Imagen 6" loading="lazy" decoding="async">
+          </div>
+          <div class="carousel-item">
+            <img src="img git/desarrollo web.webp" class="d-block" alt="Imagen 7" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselImagenes" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselImagenes" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img git/redes.webp" class="d-block" alt="Imagen 1" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/marketing-digital.webp" class="d-block" alt="Imagen 2" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/SEO.webp" class="d-block" alt="Imagen 3" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/em.webp" class="d-block" alt="Imagen 4" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/e-commerce.webp" class="d-block" alt="Imagen 5" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/chatbot.webp" class="d-block" alt="Imagen 6" loading="lazy" decoding="async">
-        </div>
-        <div class="carousel-item">
-          <img src="img git/desarrollo web.webp" class="d-block" alt="Imagen 7" loading="lazy" decoding="async">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
-    </div>
-  </section>
+    </section>
     <!-- SERVICIOS -->
     <section class="servicios-section" id="servicios">
       <h2 class="servicios-title">Nuestros Servicios</h2>
@@ -737,42 +804,42 @@
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-search"></i></div>
             <h3>SEO & Posicionamiento Web</h3>
-            <p>Mejoramos tu visibilidad en Google con estrategias SEO avanzadas, auditoría técnica y optimización de contenido.</p>
+            <p>Mejoramos tu visibilidad en Google con estrategias SEO avanzadas, auditoría técnica y optimización de contenido para aumentar tu tráfico orgánico.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-bullhorn"></i></div>
             <h3>Publicidad Digital</h3>
-            <p>Gestionamos campañas efectivas en Google Ads, Meta y más. Aumenta tus conversiones y el alcance de tu marca.</p>
+            <p>Gestionamos campañas efectivas en Google Ads, Meta y más plataformas. Aumenta tus conversiones y el alcance de tu marca con estrategias personalizadas.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-laptop-code"></i></div>
             <h3>Desarrollo Web & E-commerce</h3>
-            <p>Creamos páginas web y tiendas online de alto impacto, rápidas y seguras, 100% adaptadas a tu negocio.</p>
+            <p>Creamos páginas web y tiendas online de alto impacto, rápidas, seguras y 100% adaptadas a las necesidades de tu negocio y clientes.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-share-alt"></i></div>
             <h3>Gestión de Redes Sociales</h3>
-            <p>Diseñamos tu estrategia de social media, creamos contenido y gestionamos tus perfiles para conectar con tu audiencia.</p>
+            <p>Diseñamos tu estrategia de social media, creamos contenido relevante y gestionamos tus perfiles para conectar con tu audiencia de manera efectiva.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-robot"></i></div>
             <h3>Automatización & Chatbots</h3>
-            <p>Implementamos soluciones de automatización y chatbots inteligentes para mejorar la atención y la eficiencia.</p>
+            <p>Implementamos soluciones de automatización y chatbots inteligentes para mejorar la atención al cliente y la eficiencia operativa de tu negocio.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-chart-line"></i></div>
             <h3>E-mail Marketing</h3>
-            <p>Realizamos acciones de marketing a través de Email.</p>
+            <p>Realizamos acciones de marketing a través de Email diseñadas para aumentar el engagement y las conversiones de tu audiencia.</p>
           </div>
         </div>
       </div>
@@ -781,7 +848,7 @@
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
       <p>
-        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometi[...]
+        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia y la innovación constante.
       </p>
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
@@ -916,18 +983,44 @@
       });
     }
 
+    // Ocultar loader cuando la página esté cargada
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.querySelector('.loader').classList.add('hidden');
+      }, 1000); // 1 segundo para asegurar que todo esté cargado
+    });
+
+    // Intersection Observer para cargar recursos cuando son visibles
     document.addEventListener("DOMContentLoaded", function() {
       createParticles();
+      
       const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           loadYouTubeScript();
           observer.unobserve(entries[0].target);
         }
       }, { rootMargin: "50px" });
+      
       const playerElement = document.getElementById("player");
       if (playerElement) {
         observer.observe(playerElement);
       }
+      
+      // Smooth scroll para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
     });
 
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
