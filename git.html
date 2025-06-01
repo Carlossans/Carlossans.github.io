@@ -139,16 +139,16 @@
     .navbar-toggler:focus {
       box-shadow: none;
     }
-    /* NUEVO: Barra de progreso de scroll */
+    /* Barra de progreso */
     #scroll-progress {
-      position: fixed;
-      top: 0; left: 0; z-index: 1200;
-      width: 0; height: 5px;
-      background: linear-gradient(90deg, var(--verde), var(--azul), var(--morado));
-      transition: width 0.2s cubic-bezier(.4,0,.2,1);
-      pointer-events: none;
-      border-radius: 0 0 12px 0;
-    }
+  position: fixed;
+  top: 0; left: 0; z-index: 1200;
+  width: 0; height: 5px;
+  background: linear-gradient(90deg, var(--verde-oscuro) 0%, var(--verde) 50%, var(--azul-oscuro) 100%);
+  transition: width 0.2s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  border-radius: 0 0 12px 0;
+}
     .hero-section {
       display: flex;
       flex-direction: column;
@@ -646,7 +646,7 @@
   </noscript>
 </head>
 <body>
-  <!-- Barra de progreso scroll (NUEVO) -->
+  <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
   <main>
     <!-- NAVBAR -->
@@ -678,7 +678,7 @@
       <span class="attention-badge"><i class="fas fa-bolt"></i>¡Transforma tu empresa hoy!</span>
       <h1>Impulsamos tu empresa al siguiente nivel</h1>
       <p>
-        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y creatividad.
+        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología [...]
       </p>
       <a href="#contacto" class="btn btn-main shadow">Solicitar asesoría</a>
     </section>
@@ -719,11 +719,11 @@
           <img src="img git/desarrollo web.webp" class="d-block" alt="Imagen 7" loading="lazy" decoding="async">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carruselImagenes" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Anterior</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carruselImagenes" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Siguiente</span>
       </button>
@@ -781,7 +781,7 @@
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
       <p>
-        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia e innovación.
+        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometi[...]
       </p>
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
@@ -834,6 +834,7 @@
   <a style="text-decoration: none;" href="https://wa.me/" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
   <!-- Scripts optimizados -->
   <script>
     // Lazy load de estilos diferidos para mejorar el rendimiento
