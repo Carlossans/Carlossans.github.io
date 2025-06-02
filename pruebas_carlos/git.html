@@ -656,31 +656,48 @@
       pointer-events: none;
     }
     #intro-video-overlay {
-  position: fixed;
-  z-index: 99999;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.7s;
-  opacity: 1;
-  overflow: hidden;
-}
-#intro-video-overlay video {
-  max-width: 92vw;
-  max-height: 92vh;
-  border-radius: 1.2rem;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  background: #000;
-}
-@media (max-width:600px){
-  #intro-video-overlay video {
-    max-width:98vw;
-    max-height:98vh;
-    border-radius:0.7rem;
-  }
-}
+      position: fixed;
+      z-index: 99999;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+      opacity: 1;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+    #intro-welcome-video {
+      width: 100vw !important;
+      height: 100vh !important;
+      min-width: 100vw !important;
+      min-height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      object-fit: cover !important;
+      background: #000;
+      display: block;
+      border: none;
+      outline: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    body.intro-blocked {
+      overflow: hidden !important;
+      height: 100vh !important;
+      touch-action: none;
+    }
+    @media (max-width: 600px) {
+      #intro-welcome-video {
+        border-radius: 0;
+      }
+    }
+
 
   </style>
   <!-- CSS asíncrono para el resto -->
@@ -692,13 +709,13 @@
 </head>
 <body>
   <!-- Intro Video Overlay -->
-<div id="intro-video-overlay">
-  <video id="intro-welcome-video" playsinline preload="auto" autoplay muted>
-    <source src="/pruebas_carlos/videos_para_git_html/VB-git.mp4" type="video/mp4" media="(min-width: 601px)">
-    <source src="/pruebas_carlos/videos_para_git_html/movil-git.mp4" type="video/mp4" media="(max-width: 600px)">
-    Tu navegador no soporta videos HTML5.
-  </video>
-</div>
+  <div id="intro-video-overlay" style="display:none;">
+    <video id="intro-welcome-video" playsinline preload="auto" autoplay muted>
+      <source src="/pruebas_carlos/videos_para_git_html/VB-git.mp4" type="video/mp4" media="(min-width: 601px)">
+      <source src="/pruebas_carlos/videos_para_git_html/movil-git.mp4" type="video/mp4" media="(max-width: 600px)">
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
   <main>
@@ -992,34 +1009,42 @@
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
+<!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
+ <script>
+  (function() {
+    // Detecta si ya se mostró el video en esta sesión
     const overlay = document.getElementById('intro-video-overlay');
     const video = document.getElementById('intro-welcome-video');
-    if (!overlay || !video) return;
-  
-    // Si el usuario pulsa, también puede cerrar el overlay
-    overlay.addEventListener('click', () => {
-      overlay.style.opacity = 0;
-      setTimeout(() => overlay.style.display = 'none', 700);
-      if (!video.paused) video.pause();
-    });
-  
-    // Cuando el video termina, se oculta el overlay
-    video.addEventListener('ended', function() {
-      overlay.style.opacity = 0;
-      setTimeout(() => overlay.style.display = 'none', 700);
-    });
-  
-    // Opcional: quitar overlay tras 9 segundos si hay algún problema
-    setTimeout(() => {
-      if (overlay && overlay.style.display !== 'none') {
+    const sessionKey = 'introVideoShown-git';
+    // Usamos sessionStorage para que el video salga solo la primera vez al abrir el navegador
+    if (!sessionStorage.getItem(sessionKey)) {
+      overlay.style.display = "flex";
+      document.body.classList.add("intro-blocked");
+      // Cuando termina el video o el usuario hace click, cerrar
+      function closeOverlay() {
         overlay.style.opacity = 0;
-        setTimeout(() => overlay.style.display = 'none', 700);
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          document.body.classList.remove("intro-blocked");
+        }, 700);
+        video.pause();
       }
-    }, 9000);
-  });
-  </script>
+      // Click/tap en cualquier parte del overlay
+      overlay.onclick = closeOverlay;
+      video.onended = closeOverlay;
+      // Extra: Si el video no carga en 12s, cerramos para evitar bloqueos
+      setTimeout(() => {
+        if (overlay.style.display !== 'none') closeOverlay();
+      }, 12000);
+      // Guardar que ya se vio el video en esta sesión
+      sessionStorage.setItem(sessionKey, "1");
+    } else {
+      // Si ya se mostró, asegurarse que no bloquea nada
+      overlay.style.display = "none";
+      document.body.classList.remove("intro-blocked");
+    }
+  })();
+</script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
