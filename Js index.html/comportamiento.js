@@ -77,3 +77,63 @@
       }
     });
   });
+
+      // Carrusel ultra-ligero
+      document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll('.carousel-item');
+        let idx = 0;
+        function show(n) {
+          items.forEach((img, i) => img.style.display = (i === n ? 'block' : 'none'));
+        }
+        document.getElementById('prevBtn').onclick = () => { idx = (idx - 1 + items.length) % items.length; show(idx); };
+        document.getElementById('nextBtn').onclick = () => { idx = (idx + 1) % items.length; show(idx); };
+        setInterval(() => { idx = (idx + 1) % items.length; show(idx); }, 5000);
+      });
+
+       // Lazy load YouTube solo cuando es visible
+    let ytLoaded = false;
+    function loadYouTubeScript() {
+      if (ytLoaded) return;
+      ytLoaded = true;
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+    function onYouTubeIframeAPIReady() {
+      new YT.Player("player", {
+        videoId: "9QNUXxuwt1Y",
+        width: "100%",
+        height: "100%",
+        playerVars: { enablejsapi: 1, origin: window.location.origin, cookie: "none" }
+      });
+    }
+    window.addEventListener("load", function () {
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          loadYouTubeScript();
+          observer.unobserve(entries[0].target);
+        }
+      }, { rootMargin: "50px" });
+      observer.observe(document.getElementById("player"));
+    });
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const btnEs = document.getElementById("btn-es");
+        const btnEn = document.getElementById("btn-en");
+        let idioma = localStorage.getItem("idioma") || "es";
+        function cambiarIdioma(idiomaSeleccionado) {
+          idioma = idiomaSeleccionado;
+          localStorage.setItem("idioma", idioma);
+          document.documentElement.lang = idioma;
+          document.querySelectorAll("[data-es], [data-en]").forEach(el => {
+            const contenido = el.getAttribute(`data-${idioma}`);
+            if (contenido !== null) el.innerHTML = contenido;
+          });
+        }
+        cambiarIdioma(idioma);
+        if (btnEs && btnEn) {
+          btnEs.addEventListener("click", () => cambiarIdioma("es"));
+          btnEn.addEventListener("click", () => cambiarIdioma("en"));
+        }
+      });
