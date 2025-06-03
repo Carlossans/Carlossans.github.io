@@ -700,17 +700,15 @@
 </head>
 <body>
   <!-- Intro Video Overlay -->
-  <div id="intro-video-overlay" style="position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; display: none; align-items: center; justify-content: center; transition: opacity 0.7s; opacity: 1;">
-    <video 
-      id="intro-video"
-      muted
-      autoplay
-      playsinline
-      preload="auto"
-      style="width: 100vw; height: 100vh; object-fit: cover; background:#000; display: block;"
-      tabindex="0">
-    </video>
+  <div id="intro-video-overlay"
+  style="position: fixed;z-index: 99999;top: 0; left: 0; width: 100vw; height: 100vh;background: #000;display: flex;align-items:center; justify-content: center;transition: opacity 0.5s;opacity: 1;pointer-events: auto;">
+  <video id="intro-video" muted autoplay playsinline preload="auto" style="width: 100vw; height: 100vh; object-fit: cover; background:#000; display: block; cursor:pointer" tabindex="0"></video>
+  <div id="tap-instruction" style="position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+    <span style="color:#fff;font-size:1.4em;background:rgba(0,0,0,0.35);border-radius:1em;padding:1em 2em;display:none;align-items: flex-start; margin-top: 1.5rem;" id="tap-to-play-msg">
+      Pulsa para ver la bienvenida
+    </span>
   </div>
+</div>
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
   <main>
@@ -1005,103 +1003,97 @@
   </script>
 
 <!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const overlay = document.getElementById('intro-video-overlay');
-  const video = document.getElementById('intro-video');
-  const sessionKey = 'videoBienvenidaVisto-v2';
-
-  // [QODO] Detect platform para src correcto (movil o desktop)
-  function esMovil() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 600;
-  }
-  // [QODO] Elige src compatible
-  video.src = esMovil() ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4" : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
-
-  // [QODO] Helper: hace play seguro en todos lados (incluido iOS)
-  function intentarPlay() {
-    // Siempre .muted = true para autoplay forzado en móvil
-    video.muted = true;
-    // playsinline y sin controles
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.removeAttribute('controls');
-    let intento = video.play();
-    if (intento && intento.catch) intento.catch(()=>{}); // evita warning promesas rechazadas
-  }
-
-  // [QODO] El overlay solo si no se ha visto en la sesión
-  if (!sessionStorage.getItem(sessionKey)) {
-    overlay.style.display = "flex";
-    overlay.style.opacity = "1";
-    document.body.style.overflow = "hidden";
-    document.body.classList.remove('animaciones-activas');
-    video.currentTime = 0;
-
-    // [QODO] 1. Forzar autoplay JS nativo en DOMContentLoaded
-    intentarPlay();
-
-    // [QODO] 2. Fallback iOS: si sigue pausado tras breve tiempo, espera la PRIMERA interacción y entonces hace play()
-    let triggerDone = false;
-    function activarPlayPorInteraccion() {
-      if (!triggerDone) {
-        triggerDone = true;
-        intentarPlay();
-      }
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.getElementById('intro-video-overlay');
+    const video = document.getElementById('intro-video');
+    const tapMsg = document.getElementById('tap-to-play-msg');
+    const sessionKey = 'videoBienvenidaVisto-v3';
+    function esMovilApple() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
-    // Si a los 300ms el video sigue pausado, pone listeners proactivos
-    setTimeout(function(){
-      if (video.paused) {
-        // Casi seguro es iOS - requiere interacción
-        window.addEventListener("touchstart", activarPlayPorInteraccion, {once:true, passive:true});
-        window.addEventListener("mousedown", activarPlayPorInteraccion, {once:true, passive:true});
-        window.addEventListener("keydown", activarPlayPorInteraccion, {once:true, passive:true});
-      }
-    }, 300);
-
-    // [QODO] Quita overlay cuando termina, usuario hace click/Escape o error de video
-    function quitarOverlayYActivarAnimaciones() {
+    video.src = esMovilApple()
+        ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4"
+        : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+    function intentarPlay() {
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.removeAttribute('controls');
+      let intento = video.play();
+      if (intento && intento.catch) intento.catch(()=>{});
+    }
+    let overlayClosed = false;
+    function quitarOverlay() {
+      if (overlayClosed) return;
+      overlayClosed = true;
       overlay.style.opacity = 0;
+      overlay.style.pointerEvents = "none";
       setTimeout(() => {
-        overlay.style.display = "none";
         document.body.style.overflow = "";
         document.body.classList.add('animaciones-activas');
-      }, 700);
-      // Limpieza: elimina listeners para JS limpio
-      window.removeEventListener("touchstart", activarPlayPorInteraccion);
-      window.removeEventListener("mousedown", activarPlayPorInteraccion);
-      window.removeEventListener("keydown", activarPlayPorInteraccion);
-    }
-    // Usuario puede cerrar con click/focus en overlay (solo si el video no está en pantalla completa iOS)
-    overlay.onclick = function(e) {
-      if (e.target === overlay) quitarOverlayYActivarAnimaciones();
-    };
-    video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
-    video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
-
-    // Escape también lo cierra
-    document.addEventListener('keydown', function(e){
-      if(e.key === "Escape" && overlay.style.display !== "none"){
-        quitarOverlayYActivarAnimaciones();
+      }, 500);
+      window.removeEventListener("touchstart", playOnUserGesture);
+      window.removeEventListener("mousedown", playOnUserGesture);
+      // Los siguientes listeners solo se agregan si NO es iOS, así que solo los removemos si no es iOS
+      if (!esMovilApple()) {
+        video.removeEventListener("click", closeOnClick);
+        video.removeEventListener("touchend", closeOnClick);
+        overlay.removeEventListener("click", closeOnClick);
       }
-    });
-
-    // Fallback: si a los 12s sigue abierto, lo quitamos para evitar bloqueo UX
-    setTimeout(() => {
-      if (overlay.style.display !== "none") quitarOverlayYActivarAnimaciones();
-    }, 12000);
-
-    // Marca como visto la sesión
-    sessionStorage.setItem(sessionKey, "1");
-  } else {
-    // Ya lo vio: no bloquees ni overlays
-    overlay.style.display = "none";
-    document.body.classList.add('animaciones-activas');
-    document.body.style.overflow = "";
-  }
-
-});
-</script>
+    }
+    function closeOnClick(e) {
+      quitarOverlay();
+    }
+    function playOnUserGesture() {
+      intentarPlay();
+      // para iOS, sólo mostramos mensaje de tap si el vídeo sigue pausado
+      setTimeout(()=>{
+        if (video.paused && tapMsg) tapMsg.style.display = "inline-block";
+        else tapMsg.style.display = "none";
+      },120);
+    }
+    if (!sessionStorage.getItem(sessionKey)) {
+      overlay.style.opacity = "1";
+      overlay.style.pointerEvents = "auto";
+      document.body.style.overflow = "hidden";
+      document.body.classList.remove('animaciones-activas');
+      video.currentTime = 0;
+      intentarPlay();
+      setTimeout(function(){
+        if (video.paused && esMovilApple()) {
+          // mostrar instrucción solo en iOS si autoplay no funciona
+          tapMsg.style.display = "inline-block";
+          // cualquier tap/click reproduce el video
+          window.addEventListener("touchstart", playOnUserGesture, {once:true, passive:true});
+          window.addEventListener("mousedown", playOnUserGesture, {once:true, passive:true});
+        }
+      }, 500);
+      // cerrar overlay si termina/click o error
+      video.addEventListener('ended', quitarOverlay);
+      video.addEventListener('error', ()=>setTimeout(quitarOverlay, 4000));
+      // SOLO agregar estos listeners si NO es iOS
+      if (!esMovilApple()) {
+        overlay.addEventListener("click", closeOnClick);
+        video.addEventListener("click", closeOnClick);
+        video.addEventListener("touchend", closeOnClick);
+      }
+      // cerrar con Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === "Escape" && overlay.style.opacity !== "0"){
+          quitarOverlay();
+        }
+      });
+      setTimeout(quitarOverlay, 15000);
+      sessionStorage.setItem(sessionKey, "1");
+    } else {
+      overlay.style.opacity = "0";
+      overlay.style.pointerEvents = "none";
+      document.body.classList.add('animaciones-activas');
+      document.body.style.overflow = "";
+    }
+  });
+  </script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
