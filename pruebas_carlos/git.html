@@ -1042,26 +1042,39 @@
         return /iPhone|iPad|iPod/i.test(navigator.userAgent);
       }
     
+      // Función para ocultar el overlay
+      function quitarOverlay() {
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = "none";
+        document.body.style.overflow = "";
+        document.body.classList.add('animaciones-activas');
+      }
+    
       // Reemplazar el video por un GIF en dispositivos iPhone/iOS
       if (esMovilApple()) {
         const gif = document.createElement('img');
         gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
         gif.alt = "Bienvenida";
-        gif.style = "width: 100vw; height: 100vh; object-fit: cover; background: #000; display: block;";
+        gif.style = "width: 100vw; height: 100vh; object-fit: cover; background: #000; display: block; cursor: pointer;";
         overlay.replaceChild(gif, video);
     
         // Ocultar el GIF después de 9 segundos
         setTimeout(() => {
-          overlay.style.opacity = 0;
-          overlay.style.pointerEvents = "none";
-          document.body.style.overflow = "";
-          document.body.classList.add('animaciones-activas');
+          quitarOverlay();
         }, 9000);
+    
+        // Agregar evento de clic para ocultar el GIF
+        gif.addEventListener('click', quitarOverlay);
       } else {
         // Asignar el video según el dispositivo
         video.src = esMovil()
           ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4"
           : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+    
+        // Agregar eventos para ocultar el video
+        video.addEventListener('click', quitarOverlay);
+        video.addEventListener('touchend', quitarOverlay);
+        overlay.addEventListener('click', quitarOverlay);
       }
     
       function intentarPlay() {
@@ -1075,37 +1088,6 @@
         }
       }
     
-      let overlayClosed = false;
-      function quitarOverlay() {
-        if (overlayClosed) return;
-        overlayClosed = true;
-        overlay.style.opacity = 0;
-        overlay.style.pointerEvents = "none";
-        setTimeout(() => {
-          document.body.style.overflow = "";
-          document.body.classList.add('animaciones-activas');
-        }, 500);
-        window.removeEventListener("touchstart", playOnUserGesture);
-        window.removeEventListener("mousedown", playOnUserGesture);
-        if (!esMovilApple()) {
-          video.removeEventListener("click", closeOnClick);
-          video.removeEventListener("touchend", closeOnClick);
-          overlay.removeEventListener("click", closeOnClick);
-        }
-      }
-    
-      function closeOnClick(e) {
-        quitarOverlay();
-      }
-    
-      function playOnUserGesture() {
-        intentarPlay();
-        setTimeout(() => {
-          if (!esMovilApple() && video.paused && tapMsg) tapMsg.style.display = "inline-block";
-          else tapMsg.style.display = "none";
-        }, 120);
-      }
-    
       if (!sessionStorage.getItem(sessionKey)) {
         overlay.style.opacity = "1";
         overlay.style.pointerEvents = "auto";
@@ -1116,17 +1098,12 @@
         setTimeout(function () {
           if (!esMovilApple() && video.paused) {
             tapMsg.style.display = "inline-block";
-            window.addEventListener("touchstart", playOnUserGesture, { once: true, passive: true });
-            window.addEventListener("mousedown", playOnUserGesture, { once: true, passive: true });
+            window.addEventListener("touchstart", intentarPlay, { once: true, passive: true });
+            window.addEventListener("mousedown", intentarPlay, { once: true, passive: true });
           }
         }, 500);
-        if (!esMovilApple()) {
-          video.addEventListener('ended', quitarOverlay);
-          video.addEventListener('error', () => setTimeout(quitarOverlay, 4000));
-          overlay.addEventListener("click", closeOnClick);
-          video.addEventListener("click", closeOnClick);
-          video.addEventListener("touchend", closeOnClick);
-        }
+        video.addEventListener('ended', quitarOverlay);
+        video.addEventListener('error', () => setTimeout(quitarOverlay, 4000));
         document.addEventListener('keydown', function (e) {
           if (e.key === "Escape" && overlay.style.opacity !== "0") {
             quitarOverlay();
@@ -1135,10 +1112,7 @@
         setTimeout(quitarOverlay, 15000);
         sessionStorage.setItem(sessionKey, "1");
       } else {
-        overlay.style.opacity = "0";
-        overlay.style.pointerEvents = "none";
-        document.body.classList.add('animaciones-activas');
-        document.body.style.overflow = "";
+        quitarOverlay();
       }
     });
   </script>
