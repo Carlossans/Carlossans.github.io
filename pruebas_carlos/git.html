@@ -1027,106 +1027,120 @@
 <!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const overlay = document.getElementById('intro-video-overlay');
-    const video = document.getElementById('intro-video');
-    const tapMsg = document.getElementById('tap-to-play-msg');
-    const sessionKey = 'videoBienvenidaVisto-v3';
-  
-    // Función para detectar si es un dispositivo móvil
-    function esMovil() {
-      return /Android|webOS|BlackBerry|Windows Phone|Opera Mini|IEMobile/i.test(navigator.userAgent);
-    }
-  
-    // Función para detectar si es un dispositivo iOS
-    function esMovilApple() {
-      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-  
-    // Asignar el video o GIF según el dispositivo
-    if (esMovilApple()) {
-      video.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
-      video.type = "image/gif";
-    } else if (esMovil()) {
-      video.src = "/pruebas_carlos/videos_para_git_html/movil-git.mp4";
-    } else {
-      video.src = "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
-    }
-  
-    function intentarPlay() {
-      video.muted = true;
-      video.playsInline = true;
-      video.setAttribute('playsinline', '');
-      video.removeAttribute('controls');
-      let intento = video.play();
-      if (intento && intento.catch) intento.catch(() => {});
-    }
-  
-    let overlayClosed = false;
-    function quitarOverlay() {
-      if (overlayClosed) return;
-      overlayClosed = true;
-      overlay.style.opacity = 0;
-      overlay.style.pointerEvents = "none";
-      setTimeout(() => {
-        document.body.style.overflow = "";
+      const overlay = document.getElementById('intro-video-overlay');
+      const video = document.getElementById('intro-video');
+      const tapMsg = document.getElementById('tap-to-play-msg');
+      const sessionKey = 'videoBienvenidaVisto-v3';
+    
+      // Función para detectar si es un dispositivo móvil
+      function esMovil() {
+        return /Android|webOS|BlackBerry|Windows Phone|Opera Mini|IEMobile/i.test(navigator.userAgent);
+      }
+    
+      // Función para detectar si es un dispositivo iOS
+      function esMovilApple() {
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      }
+    
+      // Reemplazar el video por un GIF en dispositivos iPhone/iOS
+      if (esMovilApple()) {
+        const gif = document.createElement('img');
+        gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
+        gif.alt = "Bienvenida";
+        gif.style = "width: 100vw; height: 100vh; object-fit: cover; background: #000; display: block;";
+        overlay.replaceChild(gif, video);
+    
+        // Ocultar el GIF después de 9 segundos
+        setTimeout(() => {
+          overlay.style.opacity = 0;
+          overlay.style.pointerEvents = "none";
+          document.body.style.overflow = "";
+          document.body.classList.add('animaciones-activas');
+        }, 9000);
+      } else {
+        // Asignar el video según el dispositivo
+        video.src = esMovil()
+          ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4"
+          : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+      }
+    
+      function intentarPlay() {
+        if (!esMovilApple()) {
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute('playsinline', '');
+          video.removeAttribute('controls');
+          let intento = video.play();
+          if (intento && intento.catch) intento.catch(() => {});
+        }
+      }
+    
+      let overlayClosed = false;
+      function quitarOverlay() {
+        if (overlayClosed) return;
+        overlayClosed = true;
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = "none";
+        setTimeout(() => {
+          document.body.style.overflow = "";
+          document.body.classList.add('animaciones-activas');
+        }, 500);
+        window.removeEventListener("touchstart", playOnUserGesture);
+        window.removeEventListener("mousedown", playOnUserGesture);
+        if (!esMovilApple()) {
+          video.removeEventListener("click", closeOnClick);
+          video.removeEventListener("touchend", closeOnClick);
+          overlay.removeEventListener("click", closeOnClick);
+        }
+      }
+    
+      function closeOnClick(e) {
+        quitarOverlay();
+      }
+    
+      function playOnUserGesture() {
+        intentarPlay();
+        setTimeout(() => {
+          if (!esMovilApple() && video.paused && tapMsg) tapMsg.style.display = "inline-block";
+          else tapMsg.style.display = "none";
+        }, 120);
+      }
+    
+      if (!sessionStorage.getItem(sessionKey)) {
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "auto";
+        document.body.style.overflow = "hidden";
+        document.body.classList.remove('animaciones-activas');
+        if (!esMovilApple()) video.currentTime = 0;
+        intentarPlay();
+        setTimeout(function () {
+          if (!esMovilApple() && video.paused) {
+            tapMsg.style.display = "inline-block";
+            window.addEventListener("touchstart", playOnUserGesture, { once: true, passive: true });
+            window.addEventListener("mousedown", playOnUserGesture, { once: true, passive: true });
+          }
+        }, 500);
+        if (!esMovilApple()) {
+          video.addEventListener('ended', quitarOverlay);
+          video.addEventListener('error', () => setTimeout(quitarOverlay, 4000));
+          overlay.addEventListener("click", closeOnClick);
+          video.addEventListener("click", closeOnClick);
+          video.addEventListener("touchend", closeOnClick);
+        }
+        document.addEventListener('keydown', function (e) {
+          if (e.key === "Escape" && overlay.style.opacity !== "0") {
+            quitarOverlay();
+          }
+        });
+        setTimeout(quitarOverlay, 15000);
+        sessionStorage.setItem(sessionKey, "1");
+      } else {
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
         document.body.classList.add('animaciones-activas');
-      }, 500);
-      window.removeEventListener("touchstart", playOnUserGesture);
-      window.removeEventListener("mousedown", playOnUserGesture);
-      if (!esMovilApple()) {
-        video.removeEventListener("click", closeOnClick);
-        video.removeEventListener("touchend", closeOnClick);
-        overlay.removeEventListener("click", closeOnClick);
+        document.body.style.overflow = "";
       }
-    }
-  
-    function closeOnClick(e) {
-      quitarOverlay();
-    }
-  
-    function playOnUserGesture() {
-      intentarPlay();
-      setTimeout(() => {
-        if (video.paused && tapMsg) tapMsg.style.display = "inline-block";
-        else tapMsg.style.display = "none";
-      }, 120);
-    }
-  
-    if (!sessionStorage.getItem(sessionKey)) {
-      overlay.style.opacity = "1";
-      overlay.style.pointerEvents = "auto";
-      document.body.style.overflow = "hidden";
-      document.body.classList.remove('animaciones-activas');
-      video.currentTime = 0;
-      intentarPlay();
-      setTimeout(function () {
-        if (video.paused && esMovilApple()) {
-          tapMsg.style.display = "inline-block";
-          window.addEventListener("touchstart", playOnUserGesture, { once: true, passive: true });
-          window.addEventListener("mousedown", playOnUserGesture, { once: true, passive: true });
-        }
-      }, 500);
-      video.addEventListener('ended', quitarOverlay);
-      video.addEventListener('error', () => setTimeout(quitarOverlay, 4000));
-      if (!esMovilApple()) {
-        overlay.addEventListener("click", closeOnClick);
-        video.addEventListener("click", closeOnClick);
-        video.addEventListener("touchend", closeOnClick);
-      }
-      document.addEventListener('keydown', function (e) {
-        if (e.key === "Escape" && overlay.style.opacity !== "0") {
-          quitarOverlay();
-        }
-      });
-      setTimeout(quitarOverlay, 15000);
-      sessionStorage.setItem(sessionKey, "1");
-    } else {
-      overlay.style.opacity = "0";
-      overlay.style.pointerEvents = "none";
-      document.body.classList.add('animaciones-activas');
-      document.body.style.overflow = "";
-    }
-  });
+    });
   </script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
