@@ -677,6 +677,7 @@
       margin: 0;
       padding: 0;
       position: relative;
+      pointer-events: none; /* evita interacciones accidentales */
     }
     body.intro-blocked {
       overflow: hidden !important;
@@ -701,11 +702,13 @@
 <body>
   <!-- Intro Video Overlay -->
   <div id="intro-video-overlay" style="display:none;">
-    <video id="intro-welcome-video" playsinline preload="auto" autoplay muted>
+    <video id="intro-welcome-video" playsinline preload="auto" muted>
       <source src="/pruebas_carlos/videos_para_git_html/VB-git.mp4" type="video/mp4" media="(min-width: 601px)">
       <source src="/pruebas_carlos/videos_para_git_html/movil-git.mp4" type="video/mp4" media="(max-width: 600px)">
       Tu navegador no soporta videos HTML5.
     </video>
+    <!-- NUEVO: Botón sólo para iOS por si hace falta (oculto por defecto) -->
+    <button id="ios-play-btn" style="display:none;position:absolute;bottom:15%;left:50%;transform:translateX(-50%);font-size:2rem;padding:1.1em 2em;background:linear-gradient(90deg,#02b602,#1e90ff);color:#fff;border:none;border-radius:2em;box-shadow:0 2px 12px #02b60266;z-index:2;cursor:pointer;">Reproducir video</button>
   </div>
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
@@ -1035,6 +1038,76 @@
       document.body.classList.remove("intro-blocked");
     }
   })();
+  // Script para reproducir video de bienvenida en TODAS las plataformas
+document.addEventListener("DOMContentLoaded", function() {
+  // Función para detectar iOS
+  function isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+
+  function showIntroVideo() {
+    var overlay = document.getElementById('intro-video-overlay');
+    var video = document.getElementById('intro-welcome-video');
+    var iosBtn = document.getElementById('ios-play-btn');
+    if (!overlay || !video) return;
+
+    overlay.style.display = 'flex';
+    document.body.classList.add('intro-blocked');
+
+    // Limpia interacción previa
+    iosBtn.style.display = 'none';
+    iosBtn.onclick = null;
+
+    // iOS Safari workaround: mostrar botón si autoplay bloqueado
+    if (isIOS()) {
+      iosBtn.style.display = 'block';
+      iosBtn.onclick = function() {
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', 'playsinline');
+        video.setAttribute('webkit-playsinline', 'webkit-playsinline');
+        video.play().then(() => {
+          iosBtn.style.display = 'none';
+          // Oculta el overlay al terminar (o tras x segundos, ajusta a tu tamaño de video)
+          video.onended = hideIntroVideo;
+          setTimeout(hideIntroVideo, 4000); // 4000 ms = 4 segundos (ajusta según tu video)
+        });
+      };
+    } else {
+      // Otros navegadores: autoplay inmediato
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', 'playsinline');
+      video.setAttribute('webkit-playsinline', 'webkit-playsinline');
+      setTimeout(function() {
+        video.play().then(() => {
+          // Oculta el overlay cuando termina el video
+          video.onended = hideIntroVideo;
+          setTimeout(hideIntroVideo, 4000); // 4000 ms = 4 segundos (ajusta según tu video)
+        }).catch(function() {
+          // fallback: muestra botón si el navegador lo bloquea
+          if (iosBtn) iosBtn.style.display = 'block';
+        });
+      }, 10);
+    }
+  }
+
+  function hideIntroVideo() {
+    var overlay = document.getElementById('intro-video-overlay');
+    var video = document.getElementById('intro-welcome-video');
+    var iosBtn = document.getElementById('ios-play-btn');
+    if (overlay) overlay.style.display = 'none';
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+    if (iosBtn) iosBtn.style.display = 'none';
+    document.body.classList.remove('intro-blocked');
+  }
+
+  showIntroVideo();
+});
 </script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
