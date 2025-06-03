@@ -677,7 +677,6 @@
       margin: 0;
       padding: 0;
       position: relative;
-      pointer-events: none; /* evita interacciones accidentales */
     }
     body.intro-blocked {
       overflow: hidden !important;
@@ -701,14 +700,16 @@
 </head>
 <body>
   <!-- Intro Video Overlay -->
-  <div id="intro-video-overlay" style="display:none;">
-    <video id="intro-welcome-video" playsinline preload="auto" muted>
-      <source src="/pruebas_carlos/videos_para_git_html/VB-git.mp4" type="video/mp4" media="(min-width: 601px)">
-      <source src="/pruebas_carlos/videos_para_git_html/movil-git.mp4" type="video/mp4" media="(max-width: 600px)">
-      Tu navegador no soporta videos HTML5.
+  <div id="intro-video-overlay" style="position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; display: none; align-items: center; justify-content: center; transition: opacity 0.7s; opacity: 1;">
+    <video 
+      id="intro-video"
+      muted
+      autoplay
+      playsinline
+      preload="auto"
+      style="width: 100vw; height: 100vh; object-fit: cover; background:#000; display: block;"
+      tabindex="0">
     </video>
-    <!-- NUEVO: Botón sólo para iOS por si hace falta (oculto por defecto) -->
-    <button id="ios-play-btn" style="display:none;position:absolute;bottom:15%;left:50%;transform:translateX(-50%);font-size:2rem;padding:1.1em 2em;background:linear-gradient(90deg,#02b602,#1e90ff);color:#fff;border:none;border-radius:2em;box-shadow:0 2px 12px #02b60266;z-index:2;cursor:pointer;">Reproducir video</button>
   </div>
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
@@ -1005,114 +1006,103 @@
 
 <!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
  <script>
-  (function() {
-    // Detecta si ya se mostró el video en esta sesión
-    const overlay = document.getElementById('intro-video-overlay');
-    const video = document.getElementById('intro-welcome-video');
-    const sessionKey = 'introVideoShown-git';
-    // Usamos sessionStorage para que el video salga solo la primera vez al abrir el navegador
-    if (!sessionStorage.getItem(sessionKey)) {
-      overlay.style.display = "flex";
-      document.body.classList.add("intro-blocked");
-      // Cuando termina el video o el usuario hace click, cerrar
-      function closeOverlay() {
-        overlay.style.opacity = 0;
-        setTimeout(() => {
-          overlay.style.display = 'none';
-          document.body.classList.remove("intro-blocked");
-        }, 700);
-        video.pause();
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById('intro-video-overlay');
+  const video = document.getElementById('intro-video');
+  const sessionKey = 'videoBienvenidaVisto-v2';
+
+  // [QODO] Detect platform para src correcto (movil o desktop)
+  function esMovil() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 600;
+  }
+  // [QODO] Elige src compatible
+  video.src = esMovil() ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4" : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+
+  // [QODO] Helper: hace play seguro en todos lados (incluido iOS)
+  function intentarPlay() {
+    // Siempre .muted = true para autoplay forzado en móvil
+    video.muted = true;
+    // playsinline y sin controles
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.removeAttribute('controls');
+    let intento = video.play();
+    if (intento && intento.catch) intento.catch(()=>{}); // evita warning promesas rechazadas
+  }
+
+  // [QODO] El overlay solo si no se ha visto en la sesión
+  if (!sessionStorage.getItem(sessionKey)) {
+    overlay.style.display = "flex";
+    overlay.style.opacity = "1";
+    document.body.style.overflow = "hidden";
+    document.body.classList.remove('animaciones-activas');
+    video.currentTime = 0;
+
+    // [QODO] 1. Forzar autoplay JS nativo en DOMContentLoaded
+    intentarPlay();
+
+    // [QODO] 2. Fallback iOS: si sigue pausado tras breve tiempo, espera la PRIMERA interacción y entonces hace play()
+    let triggerDone = false;
+    function activarPlayPorInteraccion() {
+      if (!triggerDone) {
+        triggerDone = true;
+        intentarPlay();
       }
-      // Click/tap en cualquier parte del overlay
-      overlay.onclick = closeOverlay;
-      video.onended = closeOverlay;
-      // Extra: Si el video no carga en 12s, cerramos para evitar bloqueos
+    }
+    // Si a los 300ms el video sigue pausado, pone listeners proactivos
+    setTimeout(function(){
+      if (video.paused) {
+        // Casi seguro es iOS - requiere interacción
+        window.addEventListener("touchstart", activarPlayPorInteraccion, {once:true, passive:true});
+        window.addEventListener("mousedown", activarPlayPorInteraccion, {once:true, passive:true});
+        window.addEventListener("keydown", activarPlayPorInteraccion, {once:true, passive:true});
+      }
+    }, 300);
+
+    // [QODO] Quita overlay cuando termina, usuario hace click/Escape o error de video
+    function quitarOverlayYActivarAnimaciones() {
+      overlay.style.opacity = 0;
       setTimeout(() => {
-        if (overlay.style.display !== 'none') closeOverlay();
-      }, 12000);
-      // Guardar que ya se vio el video en esta sesión
-      sessionStorage.setItem(sessionKey, "1");
-    } else {
-      // Si ya se mostró, asegurarse que no bloquea nada
-      overlay.style.display = "none";
-      document.body.classList.remove("intro-blocked");
+        overlay.style.display = "none";
+        document.body.style.overflow = "";
+        document.body.classList.add('animaciones-activas');
+      }, 700);
+      // Limpieza: elimina listeners para JS limpio
+      window.removeEventListener("touchstart", activarPlayPorInteraccion);
+      window.removeEventListener("mousedown", activarPlayPorInteraccion);
+      window.removeEventListener("keydown", activarPlayPorInteraccion);
     }
-  })();
-  // Script para reproducir video de bienvenida en TODAS las plataformas
-document.addEventListener("DOMContentLoaded", function() {
-  // Función para detectar iOS
-  function isIOS() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    // Usuario puede cerrar con click/focus en overlay (solo si el video no está en pantalla completa iOS)
+    overlay.onclick = function(e) {
+      if (e.target === overlay) quitarOverlayYActivarAnimaciones();
+    };
+    video.addEventListener('ended', quitarOverlayYActivarAnimaciones);
+    video.addEventListener('error', () => setTimeout(quitarOverlayYActivarAnimaciones, 8000));
+
+    // Escape también lo cierra
+    document.addEventListener('keydown', function(e){
+      if(e.key === "Escape" && overlay.style.display !== "none"){
+        quitarOverlayYActivarAnimaciones();
+      }
+    });
+
+    // Fallback: si a los 12s sigue abierto, lo quitamos para evitar bloqueo UX
+    setTimeout(() => {
+      if (overlay.style.display !== "none") quitarOverlayYActivarAnimaciones();
+    }, 12000);
+
+    // Marca como visto la sesión
+    sessionStorage.setItem(sessionKey, "1");
+  } else {
+    // Ya lo vio: no bloquees ni overlays
+    overlay.style.display = "none";
+    document.body.classList.add('animaciones-activas');
+    document.body.style.overflow = "";
   }
 
-  function showIntroVideo() {
-    var overlay = document.getElementById('intro-video-overlay');
-    var video = document.getElementById('intro-welcome-video');
-    var iosBtn = document.getElementById('ios-play-btn');
-    if (!overlay || !video) return;
-
-    overlay.style.display = 'flex';
-    document.body.classList.add('intro-blocked');
-
-    // Limpia interacción previa
-    iosBtn.style.display = 'none';
-    iosBtn.onclick = null;
-
-    // iOS Safari workaround: mostrar botón si autoplay bloqueado
-    if (isIOS()) {
-      iosBtn.style.display = 'block';
-      iosBtn.onclick = function() {
-        video.muted = true;
-        video.playsInline = true;
-        video.setAttribute('playsinline', 'playsinline');
-        video.setAttribute('webkit-playsinline', 'webkit-playsinline');
-        video.play().then(() => {
-          iosBtn.style.display = 'none';
-          // Oculta el overlay al terminar (o tras x segundos, ajusta a tu tamaño de video)
-          video.onended = hideIntroVideo;
-          setTimeout(hideIntroVideo, 4000); // 4000 ms = 4 segundos (ajusta según tu video)
-        });
-      };
-    } else {
-      // Otros navegadores: autoplay inmediato
-      video.muted = true;
-      video.playsInline = true;
-      video.setAttribute('playsinline', 'playsinline');
-      video.setAttribute('webkit-playsinline', 'webkit-playsinline');
-      setTimeout(function() {
-        video.play().then(() => {
-          // Oculta el overlay cuando termina el video
-          video.onended = hideIntroVideo;
-          setTimeout(hideIntroVideo, 4000); // 4000 ms = 4 segundos (ajusta según tu video)
-        }).catch(function() {
-          // fallback: muestra botón si el navegador lo bloquea
-          if (iosBtn) iosBtn.style.display = 'block';
-        });
-      }, 10);
-    }
-  }
-
-  function hideIntroVideo() {
-    var overlay = document.getElementById('intro-video-overlay');
-    var video = document.getElementById('intro-welcome-video');
-    var iosBtn = document.getElementById('ios-play-btn');
-    if (overlay) overlay.style.display = 'none';
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
-    if (iosBtn) iosBtn.style.display = 'none';
-    document.body.classList.remove('intro-blocked');
-  }
-
-  showIntroVideo();
 });
 </script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-
-  
-  
 </body>
 </html>
