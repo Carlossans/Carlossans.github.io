@@ -676,7 +676,7 @@
       padding: 0;
       margin: 0;
     }
-    #intro-welcome-video {
+    #intro-welcome-video, #intro-video {
       width: 100vw !important;
       height: 100vh !important;
       min-width: 100vw !important;
@@ -1066,10 +1066,9 @@
         // Agregar evento de clic para ocultar el GIF
         gif.addEventListener('click', quitarOverlay);
       } else {
-        // Asignar el video según el dispositivo
-        video.src = esMovil()
-          ? "/pruebas_carlos/videos_para_git_html/movil-git.mp4"
-          : "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+
+        // Haz esto:
+        video.src = "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
     
         // Agregar eventos para ocultar el video
         video.addEventListener('click', quitarOverlay);
