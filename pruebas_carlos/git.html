@@ -703,6 +703,34 @@
       }
     }
 
+    /* Añade esto a tu CSS (ya tienes parte, pero asegúrate de que el overlay lo use) */
+.intro-video-wrapper {
+  width: 100vw;
+  max-width: 100vw;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+  border: none;
+  outline: none;
+}
+@media (max-width: 600px) {
+  .intro-video-wrapper {
+    aspect-ratio: 9/16; /* Opcional: mejor para móviles verticales */
+    min-height: 320px;
+  }
+}
+
     .contacto-section {
   background: linear-gradient(135deg, #232946 60%, #121629 100%);
   padding: 2.2rem 0 5.5rem 0;
@@ -773,13 +801,14 @@
 
 .contacto-input-group {
   position: relative;
-  margin-bottom: 2.2rem;
 }
 .contacto-input {
   font-size: 1.35rem;
   border-radius: 1.2rem;
   border: none;
   padding: 1.25rem 1.1rem 1.25rem 3.2rem;
+  padding-left:2.8rem !important;
+  margin-bottom: 1rem;
   background: rgba(184,193,236,0.13);
   color: #232946;
   box-shadow: 0 2px 18px #ffb34722;
@@ -806,11 +835,38 @@
   z-index: 2;
 }
 
+.contacto-input-group .input-icon {
+  position: absolute;
+  left: 0.9em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3em;
+  color: #f8c37a;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 2;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contacto-input::placeholder,
   textarea.contacto-input::placeholder {
   color: #f8c37a;
   opacity: 1;
-  padding-left: 1.2em;
+}
+
+@media (max-width: 600px) {
+  .contacto-input,
+  textarea.contacto-input {
+    padding-left: 2.3em !important;
+    font-size: 1.05rem;
+  }
+  .contacto-input-group .input-icon {
+    font-size: 1.1em;
+    left: 0.7em;
+  }
 }
 
 .contacto-input.error {
@@ -877,10 +933,14 @@
   box-shadow: 0 2px 12px #ffb34733;
   border: 2px solid #fff;
 }
+.contacto-input,
+textarea.contacto-input {
+  padding-left: 2.8em !important;
+}
 .contacto-input::placeholder {
   color: #b8c1ec;
   opacity: 1;
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 textarea.contacto-input::placeholder {
   color: #000000;
@@ -915,15 +975,16 @@ textarea.contacto-input::placeholder {
 </head>
 <body>
   <!-- Intro Video Overlay -->
-  <div id="intro-video-overlay"
-  style="position: fixed;z-index: 99999;top: 0; left: 0; width: 100vw; height: 100vh;background: #000;display: flex;align-items:center; justify-content: center;transition: opacity 0.5s;opacity: 1;pointer-events: auto;">
-  <video id="intro-video" muted autoplay playsinline preload="auto" style="width: 100vw; height: 100vh; object-fit: cover; background:#000; display: block; cursor:pointer" tabindex="0"></video>
-  <div id="tap-instruction" style="position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:flex-start;justify-content:center;pointer-events:none;">
-    <span style="color:#fff;font-size:1.4em;background:rgba(0,0,0,0.35);border-radius:1em;padding:1em 2em;margin-top:1.5rem;display:none;" id="tap-to-play-msg">
-      Pulsa para ver la bienvenida
-    </span>
+  <div id="intro-video-overlay" style="position: fixed;z-index: 99999;inset: 0;width:100vw;height:100vh;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity 0.5s;opacity:1;">
+    <div class="intro-video-wrapper">
+      <video id="intro-video" muted autoplay playsinline preload="auto" poster="/ruta/poster.jpg"></video>
+    </div>
+    <div id="tap-instruction" style="position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:flex-start;justify-content:center;pointer-events:none;">
+      <span style="color:#fff;font-size:1.4em;background:rgba(0,0,0,0.35);border-radius:1em;padding:1em 2em;margin-top:1.5rem;display:none;" id="tap-to-play-msg">
+        Pulsa para ver la bienvenida
+      </span>
+    </div>
   </div>
-</div>
   <!-- Barra de progreso scroll -->
   <div id="scroll-progress"></div>
   <main>
@@ -1093,7 +1154,9 @@ textarea.contacto-input::placeholder {
                 <div class="contacto-input-group">
                   <span class="input-icon"><i class="fas fa-comment-dots"></i></span>
                   <label for="mensaje" class="form-label contacto-label">Mensaje</label>
-                  <textarea class="form-control contacto-input" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                  <div style="position:relative;">
+                    <textarea class="form-control contacto-input" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required style="padding-left:2.8em;"></textarea>
+                  </div>
                   <span class="contacto-error-msg" id="error-mensaje"></span>
                 </div>
                 <button type="submit" class="btn btn-success contacto-btn w-100 fw-bold">Enviar mensaje</button>
@@ -1435,6 +1498,23 @@ textarea.contacto-input::placeholder {
   });
 });
   </script>
+
+  <script>  // Selecciona el video según orientación/dispositivo
+    window.addEventListener('DOMContentLoaded', function () {
+      var video = document.getElementById('intro-video');
+      if (!video) return;
+      // Detecta orientación (portrait = móvil)
+      var isPortrait = window.innerHeight > window.innerWidth;
+      if (isPortrait) {
+        video.src = '/pruebas_carlos/videos_para_git_html/movil-git.mp4';  // TU VIDEO VERTICAL PARA MÓVIL
+      } else {
+        video.src = '/pruebas_carlos/videos_para_git_html/VB-git.mp4';     // TU VIDEO HORIZONTAL PARA DESKTOP
+      }
+      // Opcional: reproducir automáticamente si se permite
+      video.load();
+      // Si quieres forzar play en dispositivos que lo permitan:
+      // video.play().catch(()=>{}); // Algunos navegadores requieren interacción
+    });</script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
