@@ -1657,8 +1657,7 @@
 
   <!-- Scripts optimizados -->
   <script>
-    // Lazy load de estilos diferidos para mejorar el rendimiento
-    var loadDeferredStyles = function () {
+        var loadDeferredStyles = function() {
       var addStylesNode = document.getElementById("deferred-styles");
       if (!addStylesNode) return;
       var replacement = document.createElement("div");
@@ -1667,12 +1666,12 @@
       addStylesNode.parentElement.removeChild(addStylesNode);
     };
     var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
+              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
     else window.addEventListener('load', loadDeferredStyles);
 
     // Barra de progreso de scroll
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -1690,29 +1689,20 @@
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
       if (!particlesContainer) return;
-
       particlesContainer.innerHTML = '';
-
       const particleCount = window.innerWidth < 600 ? 15 : 30;
-
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-
         const size = Math.random() * 10 + 5;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-
         particle.style.opacity = Math.random() * 0.3 + 0.1;
-
         const duration = Math.random() * 10 + 10;
         particle.style.animationDuration = `${duration}s`;
-
         particle.style.animationDelay = `${Math.random() * 5}s`;
-
         particlesContainer.appendChild(particle);
       }
     }
@@ -1742,8 +1732,8 @@
           showinfo: 0
         },
         events: {
-          onReady: function () {
-            var loader = document.getElementById(loader);
+          onReady: function() {
+            var loader = document.getElementById("loader");
             if (loader) {
               loader.style.display = 'none';
             }
@@ -1752,7 +1742,7 @@
       });
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       createParticles();
       const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
@@ -1769,214 +1759,107 @@
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 
-  <!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
+  <!-- VIDEO DE BIENVENIDA SOLO 1ra VEZ -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const overlay = document.getElementById('intro-video-overlay');
-      const video = document.getElementById('intro-video');
-      const tapMsg = document.getElementById('tap-to-play-msg');
-      const sessionKey = 'videoBienvenidaVisto-v3';
+  document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.getElementById('intro-video-overlay');
+    const video = document.getElementById('intro-video');
+    const tapMsg = document.getElementById('tap-to-play-msg');
+    const sessionKey = 'videoBienvenidaVisto-v3';
 
-      // Función para detectar si es un dispositivo móvil Apple
-      function esMovilApple() {
-        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      }
+    function esMovilApple() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    function quitarOverlay() {
+      overlay.style.opacity = 0;
+      overlay.style.pointerEvents = "none";
+      document.body.style.overflow = "";
+      document.body.classList.add('animaciones-activas');
+    }
+    if (!sessionStorage.getItem(sessionKey)) {
+      overlay.style.opacity = "1";
+      overlay.style.pointerEvents = "auto";
+      document.body.style.overflow = "hidden";
+      document.body.classList.remove('animaciones-activas');
 
-      // Función para ocultar el overlay
-      function quitarOverlay() {
-        overlay.style.opacity = 0;
-        overlay.style.pointerEvents = "none";
-        document.body.style.overflow = "";
-        document.body.classList.add('animaciones-activas');
-      }
-
-      // Solo mostrar overlay si no se ha visto antes
-      if (!sessionStorage.getItem(sessionKey)) {
-        overlay.style.opacity = "1";
-        overlay.style.pointerEvents = "auto";
-        document.body.style.overflow = "hidden";
-        document.body.classList.remove('animaciones-activas');
-
-        if (esMovilApple()) {
-          // Reemplazar el video por un GIF en dispositivos iPhone/iOS
-          const gif = document.createElement('img');
-          gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
-          gif.alt = "Bienvenida";
-          gif.style.width = "100vw";
-          gif.style.height = "100vh";
-          gif.style.objectFit = "cover";
-          gif.style.background = "#000";
-          gif.style.display = "block";
-          gif.style.cursor = "pointer";
-          // Reemplaza el video por el GIF
-          const wrapper = overlay.querySelector('.intro-video-wrapper');
-          if (wrapper) {
-            wrapper.innerHTML = '';
-            wrapper.appendChild(gif);
-          } else {
-            overlay.replaceChild(gif, video);
+      if (esMovilApple()) {
+        const gif = document.createElement('img');
+        gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
+        gif.alt = "Bienvenida";
+        gif.style.width = "100vw";
+        gif.style.height = "100vh";
+        gif.style.objectFit = "cover";
+        gif.style.background = "#000";
+        gif.style.display = "block";
+        gif.style.cursor = "pointer";
+        const wrapper = overlay.querySelector('.intro-video-wrapper');
+        if (wrapper) {
+          wrapper.innerHTML = '';
+          wrapper.appendChild(gif);
+        } else {
+          overlay.replaceChild(gif, video);
+        }
+        const gifTimeout = setTimeout(() => {
+          quitarOverlay();
+        }, 9000);
+        gif.addEventListener('click', function () {
+          clearTimeout(gifTimeout);
+          quitarOverlay();
+        });
+        gif.addEventListener('touchend', function () {
+          clearTimeout(gifTimeout);
+          quitarOverlay();
+        });
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) {
+            clearTimeout(gifTimeout);
+            quitarOverlay();
           }
-
-          // Ocultar el GIF después de 9 segundos (duración del GIF)
-          const gifTimeout = setTimeout(() => {
-            quitarOverlay();
-          }, 9000);
-
-          // Ocultar el overlay al hacer click/tap en el GIF
-          gif.addEventListener('click', function () {
-            clearTimeout(gifTimeout);
-            quitarOverlay();
-          });
-          gif.addEventListener('touchend', function () {
-            clearTimeout(gifTimeout);
-            quitarOverlay();
-          });
-
-          // También permitir cerrar tocando cualquier parte del overlay
-          overlay.addEventListener('click', function (e) {
-            if (e.target === overlay) {
-              clearTimeout(gifTimeout);
-              quitarOverlay();
-            }
-          });
-
-        } else {
-          // Para otros dispositivos: video normal
-          video.src = "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
-          video.currentTime = 0;
-          video.muted = true;
-          video.playsInline = true;
-          video.setAttribute('playsinline', '');
-          video.removeAttribute('controls');
-          let intento = video.play();
-          if (intento && intento.catch) intento.catch(() => { });
-
-          // Ocultar overlay al terminar el video
-          video.addEventListener('ended', quitarOverlay);
-
-          // Ocultar overlay al hacer click/tap en el video o overlay
-          video.addEventListener('click', quitarOverlay);
-          video.addEventListener('touchend', quitarOverlay);
-          overlay.addEventListener('click', function (e) {
-            // Solo si el click es fuera del video
-            if (e.target === overlay) quitarOverlay();
-          });
-
-          // Si el video no se reproduce automáticamente, mostrar mensaje
-          setTimeout(function () {
-            if (video.paused) {
-              tapMsg.style.display = "inline-block";
-              window.addEventListener("touchstart", function handler() {
-                video.play().catch(() => { });
-                window.removeEventListener("touchstart", handler);
-              }, { passive: true });
-              window.addEventListener("mousedown", function handler() {
-                video.play().catch(() => { });
-                window.removeEventListener("mousedown", handler);
-              }, { passive: true });
-            }
-          }, 500);
-
-          // Ocultar overlay tras 15s por si acaso
-          setTimeout(quitarOverlay, 15000);
-
-          // Permitir cerrar con Escape
-          document.addEventListener('keydown', function (e) {
-            if (e.key === "Escape" && overlay.style.opacity !== "0") {
-              quitarOverlay();
-            }
-          });
-        }
-
-        // Marcar como visto para no mostrar de nuevo
-        sessionStorage.setItem(sessionKey, "1");
+        });
       } else {
-        quitarOverlay();
-      }
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("formContacto");
-      const statusDiv = document.getElementById("form-status");
-      const nombre = document.getElementById("nombre");
-      const correo = document.getElementById("correo");
-      const mensaje = document.getElementById("mensaje");
-      const errorNombre = document.getElementById("error-nombre");
-      const errorCorreo = document.getElementById("error-correo");
-      const errorMensaje = document.getElementById("error-mensaje");
-
-      function validarNombre(valor) {
-        if (!valor.trim()) return "El nombre es obligatorio.";
-        if (valor.trim().length < 2) return "Introduce al menos 2 caracteres.";
-        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/.test(valor.trim())) return "Solo letras y espacios.";
-        return "";
-      }
-      function validarCorreo(valor) {
-        if (!valor.trim()) return "El correo es obligatorio.";
-        // Regex simple para email válido
-        if (!/^[\w\.-]+@[\w\.-]+\.\w{2,}$/.test(valor.trim())) return "Correo no válido.";
-        return "";
-      }
-      function validarMensaje(valor) {
-        if (!valor.trim()) return "El mensaje es obligatorio.";
-        if (valor.trim().length < 10) return "Escribe al menos 10 caracteres.";
-        return "";
-      }
-
-      function mostrarError(input, errorMsg, errorSpan) {
-        if (errorMsg) {
-          input.classList.add("error");
-          errorSpan.textContent = errorMsg;
-        } else {
-          input.classList.remove("error");
-          errorSpan.textContent = "";
-        }
-      }
-
-      // Validación en tiempo real
-      nombre.addEventListener("input", () => mostrarError(nombre, validarNombre(nombre.value), errorNombre));
-      correo.addEventListener("input", () => mostrarError(correo, validarCorreo(correo.value), errorCorreo));
-      mensaje.addEventListener("input", () => mostrarError(mensaje, validarMensaje(mensaje.value), errorMensaje));
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let valido = true;
-
-        const nombreError = validarNombre(nombre.value);
-        const correoError = validarCorreo(correo.value);
-        const mensajeError = validarMensaje(mensaje.value);
-
-        mostrarError(nombre, nombreError, errorNombre);
-        mostrarError(correo, correoError, errorCorreo);
-        mostrarError(mensaje, mensajeError, errorMensaje);
-
-        if (nombreError || correoError || mensajeError) {
-          valido = false;
-        }
-
-        if (!valido) {
-          statusDiv.style.display = "block";
-          statusDiv.textContent = "Corrige los errores antes de enviar.";
-          statusDiv.style.background = "linear-gradient(90deg, #e63946 60%, #0e369c 100%)";
-          setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
-          return;
-        }
-
-        statusDiv.style.display = "block";
-        statusDiv.textContent = "Enviando...";
-        statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
-        form.querySelector("button[type=submit]").disabled = true;
-
-        // Simular envío...
+        // Selección de video según orientación/dispositivo
+        var isPortrait = window.innerHeight > window.innerWidth;
+        video.src = isPortrait
+          ? '/pruebas_carlos/videos_para_git_html/movil-git.mp4'
+          : '/pruebas_carlos/videos_para_git_html/VB-git.mp4';
+        video.currentTime = 0;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.removeAttribute('controls');
+        let intento = video.play();
+        if (intento && intento.catch) intento.catch(() => {});
+        video.addEventListener('ended', quitarOverlay);
+        video.addEventListener('click', quitarOverlay);
+        video.addEventListener('touchend', quitarOverlay);
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) quitarOverlay();
+        });
         setTimeout(function () {
-          statusDiv.textContent = "¡Mensaje enviado! Pronto nos pondremos en contacto.";
-          statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
-          form.reset();
-          form.querySelector("button[type=submit]").disabled = false;
-          setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
-        }, 1200);
-      });
-    });
+          if (video.paused) {
+            tapMsg.style.display = "inline-block";
+            window.addEventListener("touchstart", function handler() {
+              video.play().catch(()=>{});
+              window.removeEventListener("touchstart", handler);
+            }, { passive: true });
+            window.addEventListener("mousedown", function handler() {
+              video.play().catch(()=>{});
+              window.removeEventListener("mousedown", handler);
+            }, { passive: true });
+          }
+        }, 500);
+        setTimeout(quitarOverlay, 15000);
+        document.addEventListener('keydown', function (e) {
+          if (e.key === "Escape" && overlay.style.opacity !== "0") {
+            quitarOverlay();
+          }
+        });
+      }
+      sessionStorage.setItem(sessionKey, "1");
+    } else {
+      quitarOverlay();
+    }
+  });
   </script>
 
   <script>  // Selecciona el video según orientación/dispositivo
