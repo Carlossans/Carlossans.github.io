@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "Carlossans.github.io"
+    "liveServer.settings.multiRootWorkspaceName": "Carlossans.github.io",
+    "codium.codeCompletion.enable": false
 }

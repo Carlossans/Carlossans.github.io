@@ -66,7 +66,6 @@
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      /* MÁS GRANDE: base para todo el texto */
       font-size: 1.65rem;
     }
 
@@ -80,7 +79,6 @@
       background: linear-gradient(90deg, var(--verde), var(--azul-oscuro)90%);
       color: var(--blanco);
       padding: 3rem 1rem 1.2rem 1rem;
-
       font-size: 1.32rem;
       font-weight: 600;
       text-align: center;
@@ -190,7 +188,6 @@
       0% {
         transform: translateY(0);
       }
-
       100% {
         transform: translateY(30px);
       }
@@ -221,11 +218,9 @@
         transform: translateY(0) rotate(0deg);
         opacity: 0.3;
       }
-
       50% {
         opacity: 0.15;
       }
-
       100% {
         transform: translateY(-100vh) rotate(360deg);
         opacity: 0.3;
@@ -271,7 +266,6 @@
       z-index: 1;
       overflow: hidden;
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.067);
-
     }
 
     .hero-section .btn-main::before {
@@ -300,30 +294,24 @@
         width: 44px;
         height: 44px;
       }
-
       .hero-section {
         padding-top: 1.3rem;
         min-height: 40vh;
       }
-
       .glow-orb {
         width: 250px;
         height: 250px;
         margin-left: -125px;
       }
-
       .hero-section h1 {
         font-size: 2.5rem;
       }
-
       .hero-section p {
         font-size: 1.25rem;
       }
-
       .hero-section .btn-main {
         font-size: 1.21rem;
       }
-
     }
 
     .carrusel-section {
@@ -377,13 +365,11 @@
         max-width: 95vw;
         margin: 2.5rem auto;
       }
-
       .carousel,
       .carousel-inner,
       .carousel-item {
         height: 250px;
       }
-
       .carousel-item img {
         aspect-ratio: 16/9;
       }
@@ -395,14 +381,12 @@
         margin: 1.2rem 0.2rem;
         border-radius: 0.7rem;
       }
-
       .carousel,
       .carousel-inner,
       .carousel-item {
         height: 220px;
         min-height: 150px;
       }
-
       .carousel-item img {
         aspect-ratio: 16/9;
         border-radius: 0.7rem;
@@ -438,15 +422,8 @@
     }
 
     @keyframes indicatorPulse {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 #02b60285;
-      }
-
-      60% {
-        box-shadow: 0 0 0 8px #02b60222;
-      }
+      0%, 100% { box-shadow: 0 0 0 0 #02b60285; }
+      60% { box-shadow: 0 0 0 8px #02b60222; }
     }
 
     /* Sección Servicios */
@@ -714,7 +691,6 @@
         opacity: 0;
         transform: translateY(-45px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -726,7 +702,6 @@
         opacity: 0;
         transform: translateY(45px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -737,7 +712,6 @@
       from {
         opacity: 0;
       }
-
       to {
         opacity: 1;
       }
@@ -747,38 +721,31 @@
       .hero-section {
         padding: 2.9rem 0.9rem 1.4rem 0.9rem;
       }
-
       .servicios-section,
       .about-section,
       .equipo-section {
         padding: 2.5rem 0.6rem 1.5rem 0.6rem;
         margin: 2.3rem 0.6rem;
       }
-
       .equipo-container {
         gap: 1.5rem;
       }
-
       .equipo-card {
         min-width: 130px;
         max-width: 180px;
         padding: 1.3rem 0.65rem;
         height: 240px;
       }
-
       .imagen-trabajador {
         width: 66px;
         height: 66px;
       }
-
       .servicios-title {
         font-size: 2rem;
       }
-
       .servicio-card h3 {
         font-size: 1.23rem;
       }
-
       .servicio-card p {
         font-size: 1rem;
       }
@@ -788,61 +755,49 @@
       .hero-section h1 {
         font-size: 3rem;
       }
-
       .hero-section p {
         font-size: 1.5rem;
       }
-
       .servicios-section,
       .about-section,
       .equipo-section {
         padding: 1.4rem 0.2rem;
       }
-
       .equipo-card {
         min-width: 105px;
         max-width: 130px;
         padding: 1rem 0.2rem;
         height: 210px;
       }
-
       .imagen-trabajador {
         width: 52px;
         height: 52px;
       }
-
       .footer {
         font-size: 1.14rem;
         padding: 1.7rem 0.2rem;
       }
-
       .footer .footer-social a {
         font-size: 1.36rem;
       }
-
       .servicio-icon {
         width: 62px;
         height: 62px;
         font-size: 2.1rem;
       }
-
       .servicio-card h3 {
         font-size: 2rem;
       }
-
       .servicio-card p {
         font-size: 1.405rem;
       }
-
       .servicios-title {
         font-size: 2.75rem;
       }
-
       .about-section h2,
       .equipo-title {
         font-size: 2.25rem;
       }
-
       .equipo-card p {
         font-size: 1.205rem;
       }
@@ -852,12 +807,10 @@
       width: 10px;
       background: transparent;
     }
-
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(to top, var(--verde), var(--azul-oscuro));
       border-radius: 5px;
     }
-
     ::selection {
       background: var(--verde);
       color: var(--blanco);
@@ -909,7 +862,6 @@
         min-height: 360px;
       }
     }
-
     @media (max-width: 600px) {
       .responsive-video-container {
         max-width: 100vw;
@@ -917,7 +869,6 @@
         border-radius: 0.7rem;
       }
     }
-
     @media (min-width: 768px) {
       .video-container iframe {
         height: 540px;
@@ -944,26 +895,15 @@
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
     }
-
     .whatsapp-float:hover {
       transform: scale(1.13);
       box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
     }
-
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-
-      70% {
-        box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);}
+      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);}
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);}
     }
-
     @media (max-width: 600px) {
       .whatsapp-float {
         width: 53px;
@@ -1022,7 +962,6 @@
       position: relative;
     }
 
-
     .intro-video-wrapper {
       width: 100vw;
       max-width: 100vw;
@@ -1033,16 +972,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .intro-video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      background: #000;
-      border: none;
-      outline: none;
     }
 
     .intro-video-wrapper video,
@@ -1062,10 +991,8 @@
     @media (max-width: 600px) {
       .intro-video-wrapper {
         aspect-ratio: 9/16;
-        /* Opcional: mejor para móviles verticales */
         min-height: 320px;
       }
-
       .intro-video-wrapper video,
       .intro-video-wrapper img {
         border-radius: 0;
@@ -1183,18 +1110,6 @@
 
     .contacto-input-group .input-icon {
       position: absolute;
-      left: 1.1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      color: #f8c37a;
-      opacity: 0.8;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .contacto-input-group .input-icon {
-      position: absolute;
       left: 0.9em;
       top: 50%;
       transform: translateY(-50%);
@@ -1216,13 +1131,11 @@
     }
 
     @media (max-width: 600px) {
-
       .contacto-input,
       textarea.contacto-input {
         padding-left: 2.3em !important;
         font-size: 1.05rem;
       }
-
       .contacto-input-group .input-icon {
         font-size: 1.1em;
         left: 0.7em;
@@ -1326,19 +1239,15 @@
         padding: 1.2rem 0 2.7rem 0;
         min-height: 86vh;
       }
-
       .contacto-form {
         max-width: 97vw;
       }
-
       .contacto-title {
         font-size: 2.7rem;
       }
-
       .contacto-label {
         font-size: 1.1rem;
       }
-
       .contacto-btn {
         font-size: 1.3rem;
       }
@@ -1349,33 +1258,26 @@
         padding: 0.7rem 0 1.7rem 0;
         min-height: 77vh;
       }
-
       .contacto-card {
         padding: 0.7rem 0.2rem 1.7rem 0.2rem;
       }
-
       .contacto-title {
         font-size: 2.1rem;
         margin-bottom: 0.7em;
       }
-
       .contacto-label {
         font-size: 1rem;
       }
-
       .contacto-btn {
         font-size: 1.1rem;
         padding: 0.9rem 0;
       }
-
       .contacto-desc {
         font-size: 1rem;
       }
-
       .contacto-form {
         max-width: 99vw;
       }
-
       .contacto-input {
         font-size: 1.1rem;
         padding: 1.05rem 1rem 1.05rem 2.7rem;
@@ -1393,7 +1295,6 @@
 
   <div id="intro-video-overlay">
     <div class="intro-video-wrapper">
-      <!-- Elimina el atributo poster que daba error 404 -->
       <video id="intro-video" muted autoplay playsinline preload="auto"></video>
     </div>
     <div id="tap-instruction" style="position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:flex-start;justify-content:center;pointer-events:none;">
@@ -1657,7 +1558,7 @@
 
   <!-- Scripts optimizados -->
   <script>
-        var loadDeferredStyles = function() {
+    var loadDeferredStyles = function() {
       var addStylesNode = document.getElementById("deferred-styles");
       if (!addStylesNode) return;
       var replacement = document.createElement("div");
@@ -1862,24 +1763,20 @@
   });
   </script>
 
-  <script>  // Selecciona el video según orientación/dispositivo
+  <script>
     window.addEventListener('DOMContentLoaded', function () {
       var video = document.getElementById('intro-video');
       if (!video) return;
-      // Detecta orientación (portrait = móvil)
       var isPortrait = window.innerHeight > window.innerWidth;
       if (isPortrait) {
-        video.src = '/pruebas_carlos/videos_para_git_html/movil-git.mp4';  // TU VIDEO VERTICAL PARA MÓVIL
+        video.src = '/pruebas_carlos/videos_para_git_html/movil-git.mp4';
       } else {
-        video.src = '/pruebas_carlos/videos_para_git_html/VB-git.mp4';     // TU VIDEO HORIZONTAL PARA DESKTOP
+        video.src = '/pruebas_carlos/videos_para_git_html/VB-git.mp4';
       }
-      // Opcional: reproducir automáticamente si se permite
       video.load();
-      // Si quieres forzar play en dispositivos que lo permitan:
-      // video.play().catch(()=>{}); // Algunos navegadores requieren interacción
-    });</script>
+    });
+  </script>
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
-
 </html>
