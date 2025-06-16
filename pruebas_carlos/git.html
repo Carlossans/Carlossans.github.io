@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Comunitega - Agencia de Marketing Digital</title>
-  <meta name="description" content="Comunitega - Impulsa tu empresa al siguiente nivel con servicios profesionales de marketing digital, desarrollo web y e-commerce.">
-  <meta name="keywords" content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Redes Sociales, Automatización, Chatbots, E-commerce">
+  <meta name="description"
+    content="Comunitega - Impulsa tu empresa al siguiente nivel con servicios profesionales de marketing digital, desarrollo web y e-commerce.">
+  <meta name="keywords"
+    content="marketing digital, agencia de marketing, presencia online, SEO, SEM, Desarrollo Web, Redes Sociales, Automatización, Chatbots, E-commerce">
   <meta name="theme-color" content="#02b602">
   <link rel="icon" href="/pruebas_carlos/imagenes para git.html/logo_circulo.webp" type="image/webp">
 
   <!-- Preload de recursos críticos -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Montserrat:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Montserrat:wght@500;700&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Preconnect a dominios externos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +32,7 @@
   <!-- CSS crítico inline (primera pantalla) -->
   <style>
     :root {
-      --verde-super-claro:#eafff3;
+      --verde-super-claro: #eafff3;
       --verde: #02b602;
       --verde-oscuro: #005e00;
       --blanco: #fff;
@@ -34,12 +41,14 @@
       --azul: #1e90ff;
       --azul-oscuro: #003161;
       --rojo: #e63946;
-      --transition: 0.25s cubic-bezier(.4,0,.2,1);
+      --transition: 0.25s cubic-bezier(.4, 0, .2, 1);
       --radius: 1.2rem;
-      --shadow: 0 4px 24px rgba(24,24,24,0.09);
+      --shadow: 0 4px 24px rgba(24, 24, 24, 0.09);
       --main-font: 'Inter', 'Montserrat', Arial, sans-serif;
     }
-    html, body {
+
+    html,
+    body {
       height: 100%;
       margin: 0;
       padding: 0;
@@ -51,6 +60,7 @@
       -webkit-tap-highlight-color: transparent;
       overscroll-behavior: contain;
     }
+
     body {
       min-height: 100vh;
       min-height: 100dvh;
@@ -59,11 +69,13 @@
       /* MÁS GRANDE: base para todo el texto */
       font-size: 1.65rem;
     }
+
     main {
       flex: 1 0 auto;
       display: flex;
       flex-direction: column;
     }
+
     .footer {
       background: linear-gradient(90deg, var(--verde), var(--azul-oscuro)90%);
       color: var(--blanco);
@@ -75,32 +87,37 @@
       box-shadow: 0 -2px 12px #02b60222;
       margin-top: auto;
     }
+
     .navbar {
       background: linear-gradient(90deg, #02b602, #003161 80%);
-      box-shadow: 0 4px 24px rgba(24,24,24,0.09);
+      box-shadow: 0 4px 24px rgba(24, 24, 24, 0.09);
       padding: 1.3rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.3s cubic-bezier(.4,0,.2,1);
+      transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
     }
+
     .navbar.scrolled {
       background: linear-gradient(90deg, var(--verde-oscuro), var(--azul-oscuro) 80%);
       padding: 0.9rem 0;
-      box-shadow: 0 4px 24px rgba(24,24,24,0.2);
+      box-shadow: 0 4px 24px rgba(24, 24, 24, 0.2);
     }
+
     .navbar-brand img {
       width: 62px;
       height: 62px;
       border-radius: 50%;
-      box-shadow: 0 2px 10px rgba(2,182,2,0.09);
+      box-shadow: 0 2px 10px rgba(2, 182, 2, 0.09);
       background: #fff;
       margin-right: 1.2rem;
       transition: transform 0.3s ease;
     }
+
     .navbar-brand:hover img {
       transform: rotate(15deg) scale(1.05);
     }
+
     .navbar-nav .nav-link {
       color: var(--blanco) !important;
       font-weight: 800;
@@ -111,6 +128,7 @@
       position: relative;
       font-size: 1.32rem;
     }
+
     .navbar-nav .nav-link.active,
     .navbar-nav .nav-link:focus,
     .navbar-nav .nav-link:hover {
@@ -119,19 +137,24 @@
       outline: none;
       font-weight: 900;
     }
-    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
       color: var(--blanco) !important;
       background: transparent;
     }
+
     .navbar-toggler {
       border: none;
       color: var(--blanco);
       font-size: 2.5rem;
       padding: 0.5rem;
     }
+
     .navbar-toggler:focus {
       box-shadow: none;
     }
+
     .hero-section {
       display: flex;
       flex-direction: column;
@@ -146,10 +169,13 @@
       z-index: 1;
       box-shadow: 0 2px 35px 0 #02b60213;
     }
+
     .glow-orb {
       position: absolute;
-      top: 0; left: 50%;
-      width: 600px; height: 600px;
+      top: 0;
+      left: 50%;
+      width: 600px;
+      height: 600px;
       margin-left: -300px;
       background: radial-gradient(circle at 50% 40%, #02b60280 0%, #02b60200 80%);
       z-index: 0;
@@ -159,11 +185,18 @@
       animation: orbFloat 8s ease-in-out infinite alternate;
       transition: opacity .3s;
     }
+
     @keyframes orbFloat {
-      0% { transform: translateY(0);}
-      100% { transform: translateY(30px);}
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(30px);
+      }
     }
-      .particles {
+
+    .particles {
       position: absolute;
       top: 0;
       left: 0;
@@ -173,7 +206,7 @@
       pointer-events: none;
       overflow: hidden;
     }
-    
+
     .particle {
       position: absolute;
       background: var(--verde);
@@ -182,20 +215,23 @@
       animation: float 15s infinite linear;
       will-change: transform, opacity;
     }
-    
+
     @keyframes float {
       0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0.3;
       }
+
       50% {
         opacity: 0.15;
       }
+
       100% {
         transform: translateY(-100vh) rotate(360deg);
         opacity: 0.3;
       }
     }
+
     .hero-section h1 {
       font-size: clamp(3.5rem, 9vw, 5.2rem);
       font-weight: 900;
@@ -207,6 +243,7 @@
       text-shadow: 0 2px 8px #02b60212;
       animation: fadeInDown 1s;
     }
+
     .hero-section p {
       font-size: clamp(1.8rem, 3.5vw, 2.3rem);
       color: #333;
@@ -218,6 +255,7 @@
       position: relative;
       z-index: 1;
     }
+
     .hero-section .btn-main {
       padding: 1.2rem 3rem;
       font-size: 1.65rem;
@@ -235,6 +273,7 @@
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.067);
 
     }
+
     .hero-section .btn-main::before {
       content: '';
       position: absolute;
@@ -242,24 +281,48 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: all 0.5s ease;
     }
+
     .hero-section .btn-main:hover {
       background: var(--azul-oscuro);
       transform: scale(1.04) translateY(-2px);
       color: var(--blanco);
     }
+
     .hero-section .btn-main:hover::before {
       left: 100%;
     }
+
     @media (max-width: 600px) {
-      .navbar-brand img { width: 44px; height: 44px;}
-      .hero-section { padding-top: 1.3rem; min-height: 40vh; }
-      .glow-orb { width: 250px; height: 250px; margin-left: -125px;}
-      .hero-section h1 { font-size: 2.5rem;}
-      .hero-section p { font-size: 1.25rem;}
-      .hero-section .btn-main { font-size: 1.21rem; }
+      .navbar-brand img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero-section {
+        padding-top: 1.3rem;
+        min-height: 40vh;
+      }
+
+      .glow-orb {
+        width: 250px;
+        height: 250px;
+        margin-left: -125px;
+      }
+
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-section p {
+        font-size: 1.25rem;
+      }
+
+      .hero-section .btn-main {
+        font-size: 1.21rem;
+      }
 
     }
 
@@ -272,8 +335,21 @@
       position: relative;
       background: #fff;
     }
-    .carousel, .carousel-inner, .carousel-item { height: 700px; min-height: 400px;}
-    .carousel-inner { width: 100%; height: 100%; display: flex; align-items: stretch;}
+
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+      height: 700px;
+      min-height: 400px;
+    }
+
+    .carousel-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+    }
+
     .carousel-item {
       display: flex;
       align-items: center;
@@ -281,9 +357,13 @@
       height: 100%;
       transition: transform 0.6s ease, opacity 0.6s ease;
     }
+
     .carousel-item img {
-      width: 100%; height: 100%; max-width: 100%;
-      object-fit: cover; object-position: center;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
       border-radius: var(--radius);
       box-shadow: 0 4px 16px rgba(24, 24, 24, 0.1);
       display: block;
@@ -291,35 +371,82 @@
       background: #f6f6f6;
       will-change: transform;
     }
+
     @media (max-width: 991px) {
-      .carrusel-section { max-width: 95vw; margin: 2.5rem auto;}
-      .carousel, .carousel-inner, .carousel-item { height: 250px;}
-      .carousel-item img { aspect-ratio: 16/9;}
+      .carrusel-section {
+        max-width: 95vw;
+        margin: 2.5rem auto;
+      }
+
+      .carousel,
+      .carousel-inner,
+      .carousel-item {
+        height: 250px;
+      }
+
+      .carousel-item img {
+        aspect-ratio: 16/9;
+      }
     }
+
     @media (max-width: 600px) {
-      .carrusel-section { max-width: 100vw; margin: 1.2rem 0.2rem; border-radius: 0.7rem;}
-      .carousel, .carousel-inner, .carousel-item { height: 220px; min-height: 150px;}
-      .carousel-item img { aspect-ratio: 16/9; border-radius: 0.7rem;}
+      .carrusel-section {
+        max-width: 100vw;
+        margin: 1.2rem 0.2rem;
+        border-radius: 0.7rem;
+      }
+
+      .carousel,
+      .carousel-inner,
+      .carousel-item {
+        height: 220px;
+        min-height: 150px;
+      }
+
+      .carousel-item img {
+        aspect-ratio: 16/9;
+        border-radius: 0.7rem;
+      }
     }
-    .carousel-control-prev-icon, .carousel-control-next-icon {
-      background-color: rgba(0,0,0,0.5);
-      border-radius: 50%; width: 40px; height: 40px;
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
       transition: all 0.3s ease;
     }
-    .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
       background-color: var(--verde);
       transform: scale(1.1);
     }
+
     .carousel-indicators [data-bs-target] {
       background-color: var(--verde);
-      width: 12px; height: 12px; border-radius: 50%; margin: 0 6px; border: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 6px;
+      border: none;
     }
+
     .carousel-indicators .active {
       animation: indicatorPulse 1.4s infinite;
     }
+
     @keyframes indicatorPulse {
-      0%,100% { box-shadow: 0 0 0 0 #02b60285;}
-      60% { box-shadow: 0 0 0 8px #02b60222;}
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 #02b60285;
+      }
+
+      60% {
+        box-shadow: 0 0 0 8px #02b60222;
+      }
     }
 
     /* Sección Servicios */
@@ -334,6 +461,7 @@
       position: relative;
       text-align: center;
     }
+
     .servicios-title {
       color: var(--azul-oscuro);
       font-size: 3rem;
@@ -347,6 +475,7 @@
       margin-right: auto;
       padding-bottom: 0.6rem;
     }
+
     .servicios-title::after {
       content: '';
       position: absolute;
@@ -358,6 +487,7 @@
       background: linear-gradient(90deg, var(--verde), var(--azul));
       border-radius: 2px;
     }
+
     .servicio-card {
       background: var(--gris);
       border-radius: var(--radius);
@@ -374,23 +504,35 @@
       position: relative;
       overflow: hidden;
     }
+
     .servicio-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 7px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
       background: linear-gradient(90deg, var(--verde), var(--azul));
       transition: all 0.3s ease;
     }
+
     .servicio-card:hover {
       background: var(--blanco);
       transform: translateY(-8px) scale(1.055);
       box-shadow: 0 8px 32px #005e0033;
     }
-    .servicio-card:hover::before { height: 10px;}
+
+    .servicio-card:hover::before {
+      height: 10px;
+    }
+
     .servicio-icon {
       font-size: 3.3rem;
-      width: 88px; height: 88px;
-      display: flex; align-items: center; justify-content: center;
+      width: 88px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, var(--verde), var(--azul));
       color: var(--blanco);
       border-radius: 50%;
@@ -398,11 +540,13 @@
       box-shadow: 0 2px 8px #02b60218;
       transition: all 0.3s ease;
     }
+
     .servicio-card:hover .servicio-icon {
       background: var(--azul-oscuro);
       color: var(--verde);
       transform: rotateY(180deg);
     }
+
     .servicio-card h3 {
       font-size: 1.75rem;
       font-weight: 900;
@@ -410,6 +554,7 @@
       margin-bottom: 1.1rem;
       letter-spacing: -0.5px;
     }
+
     .servicio-card p {
       color: #232323;
       font-size: 1.35rem;
@@ -417,8 +562,10 @@
       flex-grow: 1;
       font-weight: 500;
     }
+
     /* About/Equipo/Video */
-    .about-section, .equipo-section {
+    .about-section,
+    .equipo-section {
       background: var(--blanco);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -428,7 +575,9 @@
       text-align: center;
       animation: fadeInUp 1.2s;
     }
-    .about-section h2, .equipo-title {
+
+    .about-section h2,
+    .equipo-title {
       color: var(--azul-oscuro);
       font-size: 2.45rem;
       font-weight: 900;
@@ -437,7 +586,9 @@
       display: inline-block;
       padding-bottom: 0.7rem;
     }
-    .about-section h2::after, .equipo-title::after {
+
+    .about-section h2::after,
+    .equipo-title::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -448,7 +599,9 @@
       background: linear-gradient(90deg, var(--verde), var(--azul));
       border-radius: 2px;
     }
-    .about-section p, .equipo-card p {
+
+    .about-section p,
+    .equipo-card p {
       font-size: 1.42rem;
       color: #444;
       margin-bottom: 0.8rem;
@@ -457,6 +610,7 @@
       margin-right: auto;
       text-align: center;
     }
+
     .equipo-container {
       display: flex;
       flex-wrap: wrap;
@@ -464,6 +618,7 @@
       justify-content: center;
       align-items: stretch;
     }
+
     .equipo-card {
       flex: 1 1 200px;
       height: 340px;
@@ -482,46 +637,64 @@
       position: relative;
       overflow: hidden;
     }
+
     .equipo-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 7px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
       background: linear-gradient(90deg, var(--verde), var(--azul));
       transition: all 0.3s ease;
     }
+
     .equipo-card:hover {
       background: var(--verde-super-claro);
       transform: scale(1.09);
       box-shadow: 0 8px 32px var(--verde);
       color: var(--blanco);
     }
-    .equipo-card:hover::before { height: 13px;}
+
+    .equipo-card:hover::before {
+      height: 13px;
+    }
+
     .imagen-trabajador {
       position: relative;
-      width: 110px; height: 110px;
+      width: 110px;
+      height: 110px;
       margin-bottom: 1.2rem;
     }
+
     .imagen-trabajador img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 50%;
       border: 4px solid var(--azul-oscuro);
       box-shadow: 0 2px 8px #02b60210;
       background: var(--blanco);
       transition: all 0.3s ease;
     }
+
     .equipo-card:hover .imagen-trabajador img {
       border-color: var(--verde);
       transform: scale(1.13);
     }
+
     .equipo-card h3 {
-      font-size: 1.5rem; font-weight: 900;
-      color: var(--azul-oscuro); margin-bottom: 0.6rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--azul-oscuro);
+      margin-bottom: 0.6rem;
     }
 
     .footer .footer-social {
       margin-top: 1.5rem;
       margin-bottom: 2rem;
     }
+
     .footer .footer-social a {
       margin: 0 0.8rem;
       display: inline-block;
@@ -530,45 +703,166 @@
       transition: all 0.3s ease;
       position: relative;
     }
+
     .footer .footer-social a:hover {
       color: var(--azul);
       transform: scale(1.23) rotate(-7deg);
     }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-45px);} to { opacity: 1; transform: translateY(0);} }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(45px);} to { opacity: 1; transform: translateY(0);} }
-    @keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-45px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(45px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
     @media (max-width: 991px) {
-      .hero-section { padding: 2.9rem 0.9rem 1.4rem 0.9rem; }
-      .servicios-section, .about-section, .equipo-section {
+      .hero-section {
+        padding: 2.9rem 0.9rem 1.4rem 0.9rem;
+      }
+
+      .servicios-section,
+      .about-section,
+      .equipo-section {
         padding: 2.5rem 0.6rem 1.5rem 0.6rem;
         margin: 2.3rem 0.6rem;
       }
-      .equipo-container { gap: 1.5rem; }
-      .equipo-card { min-width: 130px; max-width: 180px; padding: 1.3rem 0.65rem; height: 240px; }
-      .imagen-trabajador { width: 66px; height: 66px;}
-      .servicios-title { font-size: 2rem;}
-      .servicio-card h3 { font-size: 1.23rem;}
-      .servicio-card p { font-size: 1rem;}
+
+      .equipo-container {
+        gap: 1.5rem;
+      }
+
+      .equipo-card {
+        min-width: 130px;
+        max-width: 180px;
+        padding: 1.3rem 0.65rem;
+        height: 240px;
+      }
+
+      .imagen-trabajador {
+        width: 66px;
+        height: 66px;
+      }
+
+      .servicios-title {
+        font-size: 2rem;
+      }
+
+      .servicio-card h3 {
+        font-size: 1.23rem;
+      }
+
+      .servicio-card p {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero-section h1 {font-size: 3rem;}
-      .hero-section p {font-size: 1.5rem;}
-      .servicios-section, .about-section, .equipo-section { padding: 1.4rem 0.2rem; }
-      .equipo-card { min-width: 105px; max-width: 130px; padding: 1rem 0.2rem; height: 210px; }
-      .imagen-trabajador { width: 52px; height: 52px; }
-      .footer { font-size: 1.14rem; padding: 1.7rem 0.2rem; }
-      .footer .footer-social a { font-size: 1.36rem; }
-      .servicio-icon { width: 62px; height: 62px; font-size: 2.1rem; }
-      .servicio-card h3 { font-size: 2rem;}
-      .servicio-card p { font-size: 1.405rem;}
-      .servicios-title { font-size: 2.75rem;}
-      .about-section h2, .equipo-title { font-size: 2.25rem;}
-      .equipo-card p {font-size: 1.205rem;}
+      .hero-section h1 {
+        font-size: 3rem;
+      }
+
+      .hero-section p {
+        font-size: 1.5rem;
+      }
+
+      .servicios-section,
+      .about-section,
+      .equipo-section {
+        padding: 1.4rem 0.2rem;
+      }
+
+      .equipo-card {
+        min-width: 105px;
+        max-width: 130px;
+        padding: 1rem 0.2rem;
+        height: 210px;
+      }
+
+      .imagen-trabajador {
+        width: 52px;
+        height: 52px;
+      }
+
+      .footer {
+        font-size: 1.14rem;
+        padding: 1.7rem 0.2rem;
+      }
+
+      .footer .footer-social a {
+        font-size: 1.36rem;
+      }
+
+      .servicio-icon {
+        width: 62px;
+        height: 62px;
+        font-size: 2.1rem;
+      }
+
+      .servicio-card h3 {
+        font-size: 2rem;
+      }
+
+      .servicio-card p {
+        font-size: 1.405rem;
+      }
+
+      .servicios-title {
+        font-size: 2.75rem;
+      }
+
+      .about-section h2,
+      .equipo-title {
+        font-size: 2.25rem;
+      }
+
+      .equipo-card p {
+        font-size: 1.205rem;
+      }
     }
-    ::-webkit-scrollbar { width: 10px; background: transparent;}
-    ::-webkit-scrollbar-thumb { background: linear-gradient(to top, var(--verde), var(--azul-oscuro)); border-radius: 5px;}
-    ::selection { background: var(--verde); color: var(--blanco);}
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to top, var(--verde), var(--azul-oscuro));
+      border-radius: 5px;
+    }
+
+    ::selection {
+      background: var(--verde);
+      color: var(--blanco);
+    }
+
     .video-container {
       max-width: 800px;
       margin: 2.4rem auto;
@@ -577,54 +871,66 @@
       box-shadow: var(--shadow);
       position: relative;
     }
+
     .video-container iframe {
       width: 100%;
       height: 390px;
     }
-  .responsive-video-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    border-radius: var(--radius, 1.2rem);
-    box-shadow: var(--shadow, 0 4px 24px rgba(24,24,24,0.09));
-    position: relative;
-    overflow: hidden;
-    min-height: 420px;
-    max-width: 1300px; 
-    margin: 2.2rem auto 2.4rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.responsive-video-container iframe,
-.responsive-video-container > div {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: 0;
-}
-@media (max-width: 991px) {
-  .responsive-video-container {
-    max-width: 98vw;
-    min-height: 360px;
-  }
-}
-@media (max-width: 600px) {
-  .responsive-video-container {
-    max-width: 100vw;
-    min-height: 320px;
-    border-radius: 0.7rem;
-  }
-}
+
+    .responsive-video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: var(--radius, 1.2rem);
+      box-shadow: var(--shadow, 0 4px 24px rgba(24, 24, 24, 0.09));
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      max-width: 1300px;
+      margin: 2.2rem auto 2.4rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .responsive-video-container iframe,
+    .responsive-video-container>div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 991px) {
+      .responsive-video-container {
+        max-width: 98vw;
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .responsive-video-container {
+        max-width: 100vw;
+        min-height: 320px;
+        border-radius: 0.7rem;
+      }
+    }
+
     @media (min-width: 768px) {
       .video-container iframe {
         height: 540px;
       }
     }
+
     /* Botón flotante de WhatsApp */
     .whatsapp-float {
-      position: fixed; bottom: 32px; right: 32px;
-      width: 66px; height: 66px;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 66px;
+      height: 66px;
       background-color: #25D366;
       color: #FFF;
       border-radius: 50%;
@@ -632,34 +938,55 @@
       font-size: 34px;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
       z-index: 100;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
     }
+
     .whatsapp-float:hover {
       transform: scale(1.13);
       box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
     }
+
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);}
-      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);}
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);}
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
     }
+
     @media (max-width: 600px) {
       .whatsapp-float {
-        width: 53px; height: 53px; font-size: 26px; bottom: 17px; right: 17px;
+        width: 53px;
+        height: 53px;
+        font-size: 26px;
+        bottom: 17px;
+        right: 17px;
       }
     }
 
     /* NUEVO: Barra de progreso de scroll */
     #scroll-progress {
       position: fixed;
-      top: 0; left: 0; z-index: 1200;
-      width: 0; height: 7px;
+      top: 0;
+      left: 0;
+      z-index: 1200;
+      width: 0;
+      height: 7px;
       background: linear-gradient(90deg, var(--verde), var(--azul));
-      transition: width 0.2s cubic-bezier(.4,0,.2,1);
+      transition: width 0.2s cubic-bezier(.4, 0, .2, 1);
       pointer-events: none;
     }
+
     #intro-video-overlay {
       position: fixed;
       z-index: 99999;
@@ -676,7 +1003,9 @@
       padding: 0;
       margin: 0;
     }
-    #intro-welcome-video, #intro-video {
+
+    #intro-welcome-video,
+    #intro-video {
       width: 100vw !important;
       height: 100vh !important;
       min-width: 100vw !important;
@@ -692,279 +1021,366 @@
       padding: 0;
       position: relative;
     }
+
+
+    .intro-video-wrapper {
+      width: 100vw;
+      max-width: 100vw;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .intro-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+      border: none;
+      outline: none;
+    }
+
+    .intro-video-wrapper video,
+    .intro-video-wrapper img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      background: #000;
+      display: block;
+      border: none;
+      outline: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      .intro-video-wrapper {
+        aspect-ratio: 9/16;
+        /* Opcional: mejor para móviles verticales */
+        min-height: 320px;
+      }
+
+      .intro-video-wrapper video,
+      .intro-video-wrapper img {
+        border-radius: 0;
+      }
+    }
+
     body.intro-blocked {
       overflow: hidden !important;
       height: 100vh !important;
       touch-action: none;
     }
+
+    .contacto-section {
+      background: linear-gradient(135deg, #232946 60%, #121629 100%);
+      padding: 2.2rem 0 5.5rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .contacto-card {
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 2.2rem;
+      box-shadow: 0 8px 32px 0 rgba(35, 41, 70, 0.18), 0 1.5px 8px #23294633;
+      padding: 2.2rem 1.5rem 2.8rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px) saturate(1.2);
+      border: 1.5px solid rgba(35, 41, 70, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contacto-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 40% 40%, #ffd70055 0%, transparent 80%);
+      z-index: 0;
+      filter: blur(12px);
+      opacity: .5;
+    }
+
+    .contacto-title {
+      color: #f8c37a;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      margin-top: 0.2em;
+      margin-bottom: 1.2em;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      text-shadow: 0 4px 24px #23294655, 0 1px 0 #f8c37a;
+      background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contacto-desc {
+      color: #b8c1ec;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      margin-bottom: 2.8rem;
+      font-weight: 500;
+      z-index: 1;
+      position: relative;
+    }
+
+    .contacto-form {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 700px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .contacto-label {
+      color: #f8c37a;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: left;
+      display: block;
+      margin-bottom: 0.2em;
+      letter-spacing: 0.01em;
+      margin-left: 0.3em;
+    }
+
+    .contacto-input-group {
+      position: relative;
+    }
+
+    .contacto-input {
+      font-size: 1.35rem;
+      border-radius: 1.2rem;
+      border: none;
+      padding: 1.25rem 1.1rem 1.25rem 3.2rem;
+      padding-left: 2.8rem !important;
+      margin-bottom: 1rem;
+      background: rgba(184, 193, 236, 0.13);
+      color: #232946;
+      box-shadow: 0 2px 18px #ffb34722;
+      transition: box-shadow 0.21s, border 0.21s, background 0.21s;
+      width: 100%;
+      border: 2.5px solid transparent;
+      outline: none;
+      font-weight: 500;
+    }
+
+    .contacto-input:focus {
+      box-shadow: 0 2px 28px #ffb34755;
+      border: 2.5px solid #f8c37a;
+      background: #fff;
+    }
+
+    .contacto-input-group .input-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: #f8c37a;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .contacto-input-group .input-icon {
+      position: absolute;
+      left: 0.9em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3em;
+      color: #f8c37a;
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: 2;
+      height: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contacto-input::placeholder,
+    textarea.contacto-input::placeholder {
+      color: #f8c37a;
+      opacity: 1;
+    }
+
     @media (max-width: 600px) {
-      #intro-welcome-video {
-        border-radius: 0;
+
+      .contacto-input,
+      textarea.contacto-input {
+        padding-left: 2.3em !important;
+        font-size: 1.05rem;
+      }
+
+      .contacto-input-group .input-icon {
+        font-size: 1.1em;
+        left: 0.7em;
       }
     }
 
-    /* Añade esto a tu CSS (ya tienes parte, pero asegúrate de que el overlay lo use) */
-.intro-video-wrapper {
-  width: 100vw;
-  max-width: 100vw;
-  aspect-ratio: 16/9;
-  position: relative;
-  overflow: hidden;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.intro-video-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  background: #000;
-  border: none;
-  outline: none;
-}
-@media (max-width: 600px) {
-  .intro-video-wrapper {
-    aspect-ratio: 9/16; /* Opcional: mejor para móviles verticales */
-    min-height: 320px;
-  }
-}
+    .contacto-input.error {
+      border: 2.5px solid #e63946;
+      background: #fff0f0;
+    }
 
-    .contacto-section {
-  background: linear-gradient(135deg, #232946 60%, #121629 100%);
-  padding: 2.2rem 0 5.5rem 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-.contacto-card {
-  background: rgba(255,255,255,0.10);
-  border-radius: 2.2rem;
-  box-shadow: 0 8px 32px 0 rgba(35,41,70,0.18), 0 1.5px 8px #23294633;
-  padding: 2.2rem 1.5rem 2.8rem 1.5rem;
-  text-align: center;
-  backdrop-filter: blur(10px) saturate(1.2);
-  border: 1.5px solid rgba(35,41,70,0.18);
-  position: relative;
-  overflow: hidden;
-}
-.contacto-card::before {
-  content: '';
-  position: absolute;
-  top: -60px; left: -60px;
-  width: 180px; height: 180px;
-  background: radial-gradient(circle at 40% 40%, #ffd70055 0%, transparent 80%);
-  z-index: 0;
-  filter: blur(12px);
-  opacity: .5;
-}
-.contacto-title {
-  color: #f8c37a;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 900;
-  margin-top: 0.2em;
-  margin-bottom: 1.2em;
-  letter-spacing: -1.2px;
-  line-height: 1.1;
-  text-shadow: 0 4px 24px #23294655, 0 1px 0 #f8c37a;
-  background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.contacto-desc {
-  color: #b8c1ec;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
-  margin-bottom: 2.8rem;
-  font-weight: 500;
-  z-index: 1;
-  position: relative;
-}
-.contacto-form {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 700px;
-  z-index: 1;
-  position: relative;
-}
-.contacto-label {
-  color: #f8c37a;
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-align: left;
-  display: block;
-  margin-bottom: 0.2em;
-  letter-spacing: 0.01em;
-  margin-left: 0.3em;
-}
+    .contacto-error-msg {
+      color: #e63946;
+      font-size: 1.05rem;
+      margin-top: 0.3em;
+      margin-left: 0.5em;
+      text-align: left;
+      min-height: 1.3em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      display: block;
+      transition: opacity 0.2s;
+    }
 
-.contacto-input-group {
-  position: relative;
-}
-.contacto-input {
-  font-size: 1.35rem;
-  border-radius: 1.2rem;
-  border: none;
-  padding: 1.25rem 1.1rem 1.25rem 3.2rem;
-  padding-left:2.8rem !important;
-  margin-bottom: 1rem;
-  background: rgba(184,193,236,0.13);
-  color: #232946;
-  box-shadow: 0 2px 18px #ffb34722;
-  transition: box-shadow 0.21s, border 0.21s, background 0.21s;
-  width: 100%;
-  border: 2.5px solid transparent;
-  outline: none;
-  font-weight: 500;
-}
-.contacto-input:focus {
-  box-shadow: 0 2px 28px #ffb34755;
-  border: 2.5px solid #f8c37a;
-  background: #fff;
-}
-.contacto-input-group .input-icon {
-  position: absolute;
-  left: 1.1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  color: #f8c37a;
-  opacity: 0.8;
-  pointer-events: none;
-  z-index: 2;
-}
+    .contacto-btn {
+      font-size: 2rem;
+      padding: 1.2rem 0;
+      border-radius: 1.2rem;
+      background: linear-gradient(90deg, #b8c1ec 60%, #f8c37a 100%) !important;
+      border: none;
+      color: #232946;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      margin-top: 0.3rem;
+      margin-bottom: 1.7rem;
+      box-shadow: 0 2px 18px #ffb34733, 0 1.5px 8px #23294633;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      position: relative;
+      overflow: hidden;
+    }
 
-.contacto-input-group .input-icon {
-  position: absolute;
-  left: 0.9em;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.3em;
-  color: #f8c37a;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 2;
-  height: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .contacto-btn:before {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #fff8 60%, transparent);
+      transition: left 0.5s;
+      z-index: 1;
+    }
 
-.contacto-input::placeholder,
-  textarea.contacto-input::placeholder {
-  color: #f8c37a;
-  opacity: 1;
-}
+    .contacto-btn:hover,
+    .contacto-btn:focus {
+      background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%) !important;
+      transform: scale(1.04) translateY(-2px);
+      color: #232946;
+      box-shadow: 0 4px 32px #ffb34755;
+    }
 
-@media (max-width: 600px) {
-  .contacto-input,
-  textarea.contacto-input {
-    padding-left: 2.3em !important;
-    font-size: 1.05rem;
-  }
-  .contacto-input-group .input-icon {
-    font-size: 1.1em;
-    left: 0.7em;
-  }
-}
+    .contacto-btn:hover:before,
+    .contacto-btn:focus:before {
+      left: 100%;
+    }
 
-.contacto-input.error {
-  border: 2.5px solid #e63946;
-  background: #fff0f0;
-}
-.contacto-error-msg {
-  color: #e63946;
-  font-size: 1.05rem;
-  margin-top: 0.3em;
-  margin-left: 0.5em;
-  text-align: left;
-  min-height: 1.3em;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  display: block;
-  transition: opacity 0.2s;
-}
-.contacto-btn {
-  font-size: 2rem;
-  padding: 1.2rem 0;
-  border-radius: 1.2rem;
-  background: linear-gradient(90deg, #b8c1ec 60%, #f8c37a 100%) !important;
-  border: none;
-  color: #232946;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  margin-top: 0.3rem;
-  margin-bottom: 1.7rem;
-  box-shadow: 0 2px 18px #ffb34733, 0 1.5px 8px #23294633;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  position: relative;
-  overflow: hidden;
-}
-.contacto-btn:before {
-  content: '';
-  position: absolute;
-  left: -100%;
-  top: 0; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, #fff8 60%, transparent);
-  transition: left 0.5s;
-  z-index: 1;
-}
-.contacto-btn:hover, .contacto-btn:focus {
-  background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%) !important;
-  transform: scale(1.04) translateY(-2px);
-  color: #232946;
-  box-shadow: 0 4px 32px #ffb34755;
-}
-.contacto-btn:hover:before, .contacto-btn:focus:before {
-  left: 100%;
-}
-#form-status {
-  font-size: 1.25rem;
-  font-weight: 700;
-  min-height: 1.5em;
-  color: #232946;
-  background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%);
-  border-radius: 0.7em;
-  padding: 0.8em 1.5em;
-  display: inline-block;
-  margin-top: 1.2em;
-  letter-spacing: 0.01em;
-  box-shadow: 0 2px 12px #ffb34733;
-  border: 2px solid #fff;
-}
-.contacto-input,
-textarea.contacto-input {
-  padding-left: 2.8em !important;
-}
-.contacto-input::placeholder {
-  color: #b8c1ec;
-  opacity: 1;
-  padding-left: 1rem;
-}
-textarea.contacto-input::placeholder {
-  color: #000000;
-  opacity: 1;
-  padding-left: 1rem;
-}
-@media (max-width: 991px) {
-  .contacto-section { padding: 1.2rem 0 2.7rem 0; min-height: 86vh;}
-  .contacto-form { max-width: 97vw; }
-  .contacto-title { font-size: 2.7rem;}
-  .contacto-label { font-size: 1.1rem;}
-  .contacto-btn { font-size: 1.3rem;}
-}
-@media (max-width: 600px) {
-  .contacto-section { padding: 0.7rem 0 1.7rem 0; min-height: 77vh;}
-  .contacto-card { padding: 0.7rem 0.2rem 1.7rem 0.2rem;}
-  .contacto-title { font-size: 2.1rem; margin-bottom: 0.7em;}
-  .contacto-label { font-size: 1rem;}
-  .contacto-btn { font-size: 1.1rem; padding: 0.9rem 0;}
-  .contacto-desc { font-size: 1rem;}
-  .contacto-form { max-width: 99vw;}
-  .contacto-input { font-size: 1.1rem; padding: 1.05rem 1rem 1.05rem 2.7rem;}
-}
+    #form-status {
+      font-size: 1.25rem;
+      font-weight: 700;
+      min-height: 1.5em;
+      color: #232946;
+      background: linear-gradient(90deg, #f8c37a 60%, #b8c1ec 100%);
+      border-radius: 0.7em;
+      padding: 0.8em 1.5em;
+      display: inline-block;
+      margin-top: 1.2em;
+      letter-spacing: 0.01em;
+      box-shadow: 0 2px 12px #ffb34733;
+      border: 2px solid #fff;
+    }
 
+    .contacto-input,
+    textarea.contacto-input {
+      padding-left: 2.8em !important;
+    }
+
+    .contacto-input::placeholder {
+      color: #b8c1ec;
+      opacity: 1;
+      padding-left: 1rem;
+    }
+
+    textarea.contacto-input::placeholder {
+      color: #000000;
+      opacity: 1;
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 991px) {
+      .contacto-section {
+        padding: 1.2rem 0 2.7rem 0;
+        min-height: 86vh;
+      }
+
+      .contacto-form {
+        max-width: 97vw;
+      }
+
+      .contacto-title {
+        font-size: 2.7rem;
+      }
+
+      .contacto-label {
+        font-size: 1.1rem;
+      }
+
+      .contacto-btn {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contacto-section {
+        padding: 0.7rem 0 1.7rem 0;
+        min-height: 77vh;
+      }
+
+      .contacto-card {
+        padding: 0.7rem 0.2rem 1.7rem 0.2rem;
+      }
+
+      .contacto-title {
+        font-size: 2.1rem;
+        margin-bottom: 0.7em;
+      }
+
+      .contacto-label {
+        font-size: 1rem;
+      }
+
+      .contacto-btn {
+        font-size: 1.1rem;
+        padding: 0.9rem 0;
+      }
+
+      .contacto-desc {
+        font-size: 1rem;
+      }
+
+      .contacto-form {
+        max-width: 99vw;
+      }
+
+      .contacto-input {
+        font-size: 1.1rem;
+        padding: 1.05rem 1rem 1.05rem 2.7rem;
+      }
+    }
   </style>
   <!-- CSS asíncrono para el resto -->
   <noscript id="deferred-styles">
@@ -974,10 +1390,11 @@ textarea.contacto-input::placeholder {
   </noscript>
 </head>
 <body>
-  <!-- Intro Video Overlay -->
-  <div id="intro-video-overlay" style="position: fixed;z-index: 99999;inset: 0;width:100vw;height:100vh;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity 0.5s;opacity:1;">
+
+  <div id="intro-video-overlay">
     <div class="intro-video-wrapper">
-      <video id="intro-video" muted autoplay playsinline preload="auto" poster="/ruta/poster.jpg"></video>
+      <!-- Elimina el atributo poster que daba error 404 -->
+      <video id="intro-video" muted autoplay playsinline preload="auto"></video>
     </div>
     <div id="tap-instruction" style="position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:flex-start;justify-content:center;pointer-events:none;">
       <span style="color:#fff;font-size:1.4em;background:rgba(0,0,0,0.35);border-radius:1em;padding:1em 2em;margin-top:1.5rem;display:none;" id="tap-to-play-msg">
@@ -992,10 +1409,12 @@ textarea.contacto-input::placeholder {
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="/pruebas_carlos/imagenes para git.html/logo_circulo.webp" alt="Logo Comunitega" width="56" height="56" loading="lazy" decoding="async">
+          <img src="/pruebas_carlos/imagenes para git.html/logo_circulo.webp" alt="Logo Comunitega" width="56"
+            height="56" loading="lazy" decoding="async">
           <span class="fw-bold ms-2">Comunitega</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menú">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Menú">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navMenu">
@@ -1015,7 +1434,8 @@ textarea.contacto-input::placeholder {
       <div class="particles" id="particles"></div>
       <h1>Impulsamos tu empresa al siguiente nivel</h1>
       <p>
-        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer, optimizar su presencia digital y generar más clientes con diseño, tecnología y creatividad.
+        Somos <strong>Comunitega</strong>, agencia de marketing digital y desarrollo web. Ayudamos a empresas a crecer,
+        optimizar su presencia digital y generar más clientes con diseño, tecnología y creatividad.
       </p>
       <a href="#contacto" class="btn btn-main shadow">Solicitar asesoría</a>
     </section>
@@ -1024,7 +1444,8 @@ textarea.contacto-input::placeholder {
       <div id="carruselImagenes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <!-- Indicadores -->
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
           <button type="button" data-bs-target="#carruselImagenes" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -1034,25 +1455,32 @@ textarea.contacto-input::placeholder {
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/pruebas_carlos/imagenes para git.html/redes.webp" class="d-block" alt="Imagen 1" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/redes.webp" class="d-block" alt="Imagen 1" loading="lazy"
+              decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/marketing-digital.webp" class="d-block" alt="Imagen 2" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/marketing-digital.webp" class="d-block" alt="Imagen 2"
+              loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/SEO.webp" class="d-block" alt="Imagen 3" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/SEO.webp" class="d-block" alt="Imagen 3" loading="lazy"
+              decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/em.webp" class="d-block" alt="Imagen 4" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/em.webp" class="d-block" alt="Imagen 4" loading="lazy"
+              decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/e-commerce.webp" class="d-block" alt="Imagen 5" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/e-commerce.webp" class="d-block" alt="Imagen 5"
+              loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/chatbot.webp" class="d-block" alt="Imagen 6" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/chatbot.webp" class="d-block" alt="Imagen 6" loading="lazy"
+              decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="/pruebas_carlos/imagenes para git.html/desarrollo web.webp" class="d-block" alt="Imagen 7" loading="lazy" decoding="async">
+            <img src="/pruebas_carlos/imagenes para git.html/desarrollo web.webp" class="d-block" alt="Imagen 7"
+              loading="lazy" decoding="async">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carruselImagenes" data-bs-slide="prev">
@@ -1073,14 +1501,16 @@ textarea.contacto-input::placeholder {
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-search"></i></div>
             <h3>SEO y Posicionamiento Web</h3>
-            <p>Mejoramos tu visibilidad en Google con estrategias SEO avanzadas, auditoría técnica y optimización de contenido.</p>
+            <p>Mejoramos tu visibilidad en Google con estrategias SEO avanzadas, auditoría técnica y optimización de
+              contenido.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-bullhorn"></i></div>
             <h3>Publicidad Digital</h3>
-            <p>Gestionamos campañas efectivas en Google Ads, Meta y más. Aumenta tus conversiones y el alcance de tu marca.</p>
+            <p>Gestionamos campañas efectivas en Google Ads, Meta y más. Aumenta tus conversiones y el alcance de tu
+              marca.</p>
           </div>
         </div>
         <div class="col d-flex">
@@ -1094,14 +1524,16 @@ textarea.contacto-input::placeholder {
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-share-alt"></i></div>
             <h3>Gestión de Redes Sociales</h3>
-            <p>Diseñamos tu estrategia de social media, creamos contenido y gestionamos tus perfiles para conectar con tu audiencia.</p>
+            <p>Diseñamos tu estrategia de social media, creamos contenido y gestionamos tus perfiles para conectar con
+              tu audiencia.</p>
           </div>
         </div>
         <div class="col d-flex">
           <div class="servicio-card w-100">
             <div class="servicio-icon"><i class="fas fa-robot"></i></div>
             <h3>Automatización y Chatbots</h3>
-            <p>Implementamos soluciones de automatización y chatbots inteligentes para mejorar la atención y la eficiencia.</p>
+            <p>Implementamos soluciones de automatización y chatbots inteligentes para mejorar la atención y la
+              eficiencia.</p>
           </div>
         </div>
         <div class="col d-flex">
@@ -1117,7 +1549,9 @@ textarea.contacto-input::placeholder {
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
       <p>
-        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad, tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia e innovación constante.
+        En <b>Comunitega</b> nos apasiona ayudar a empresas a crecer en el mundo digital. Combinamos creatividad,
+        tecnología y datos para ofrecer resultados tangibles. Nuestro equipo está comprometido con la excelencia e
+        innovación constante.
       </p>
       <div class="container-fluid mb-5">
         <div class="row justify-content-center">
@@ -1142,20 +1576,23 @@ textarea.contacto-input::placeholder {
                 <div class="contacto-input-group">
                   <span class="input-icon"><i class="fas fa-user"></i></span>
                   <label for="nombre" class="form-label contacto-label">Nombre</label>
-                  <input type="text" class="form-control contacto-input" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+                  <input type="text" class="form-control contacto-input" id="nombre" name="nombre"
+                    placeholder="Tu nombre" required autocomplete="name" />
                   <span class="contacto-error-msg" id="error-nombre"></span>
                 </div>
                 <div class="contacto-input-group">
                   <span class="input-icon"><i class="fas fa-envelope"></i></span>
                   <label for="correo" class="form-label contacto-label">Correo electrónico</label>
-                  <input type="email" class="form-control contacto-input" id="correo" name="correo" placeholder="Correo electrónico" required autocomplete="email" />
+                  <input type="email" class="form-control contacto-input" id="correo" name="correo"
+                    placeholder="Correo electrónico" required autocomplete="email" />
                   <span class="contacto-error-msg" id="error-correo"></span>
                 </div>
                 <div class="contacto-input-group">
                   <span class="input-icon"><i class="fas fa-comment-dots"></i></span>
                   <label for="mensaje" class="form-label contacto-label">Mensaje</label>
                   <div style="position:relative;">
-                    <textarea class="form-control contacto-input" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required style="padding-left:2.8em;"></textarea>
+                    <textarea class="form-control contacto-input" id="mensaje" name="mensaje" rows="4"
+                      placeholder="Escribe tu mensaje aquí..." required style="padding-left:2.8em;"></textarea>
                   </div>
                   <span class="contacto-error-msg" id="error-mensaje"></span>
                 </div>
@@ -1173,22 +1610,26 @@ textarea.contacto-input::placeholder {
       <h2 class="equipo-title">Nuestro equipo</h2>
       <div class="equipo-container">
         <div class="equipo-card">
-          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp" alt="Juan Pérez, CEO" loading="lazy" width="90" height="90" decoding="async"></div>
+          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp"
+              alt="Juan Pérez, CEO" loading="lazy" width="90" height="90" decoding="async"></div>
           <h3>Juan Pérez</h3>
-          <p>CEO  Estratega Digital</p>
+          <p>CEO Estratega Digital</p>
         </div>
         <div class="equipo-card">
-          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp" alt="Ana López, Desarrolladora" loading="lazy" width="90" height="90" decoding="async"></div>
+          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp"
+              alt="Ana López, Desarrolladora" loading="lazy" width="90" height="90" decoding="async"></div>
           <h3>Ana López</h3>
           <p>Desarrollo Web y E-commerce</p>
         </div>
         <div class="equipo-card">
-          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp" alt="Carlos Sánchez, Marketing" loading="lazy" width="90" height="90" decoding="async"></div>
+          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp"
+              alt="Carlos Sánchez, Marketing" loading="lazy" width="90" height="90" decoding="async"></div>
           <h3>Carlos Sánchez</h3>
           <p>Marketing y Social Media</p>
         </div>
         <div class="equipo-card">
-          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp" alt="Lucía Gómez, Diseño" loading="lazy" width="90" height="90" decoding="async"></div>
+          <div class="imagen-trabajador"><img src="/pruebas_carlos/imagenes para git.html/imagen-trabajador.webp"
+              alt="Lucía Gómez, Diseño" loading="lazy" width="90" height="90" decoding="async"></div>
           <h3>Lucía Gómez</h3>
           <p>Diseño y Branding</p>
         </div>
@@ -1199,21 +1640,25 @@ textarea.contacto-input::placeholder {
   <footer class="footer" id="contacto">
     <p class="mb-2">¿Listo para llevar tu negocio al próximo nivel?</p>
     <div class="footer-social">
-      <a href="https://facebook.com/" target="_blank" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/" target="_blank" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      <a href="https://facebook.com/" target="_blank" aria-label="Facebook" rel="noopener"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com/" target="_blank" aria-label="Instagram" rel="noopener"><i
+          class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn" rel="noopener"><i
+          class="fab fa-linkedin"></i></a>
     </div>
     <p class="mt-2 mb-0">&copy; 2025 Comunitega. Todos los derechos reservados.</p>
   </footer>
   <!-- Botón flotante de WhatsApp -->
-  <a style="text-decoration: none;" href="https://wa.me/" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <a style="text-decoration: none;" href="https://wa.me/" class="whatsapp-float" target="_blank" rel="noopener"
+    aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- Scripts optimizados -->
   <script>
     // Lazy load de estilos diferidos para mejorar el rendimiento
-    var loadDeferredStyles = function() {
+    var loadDeferredStyles = function () {
       var addStylesNode = document.getElementById("deferred-styles");
       if (!addStylesNode) return;
       var replacement = document.createElement("div");
@@ -1222,12 +1667,12 @@ textarea.contacto-input::placeholder {
       addStylesNode.parentElement.removeChild(addStylesNode);
     };
     var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
     else window.addEventListener('load', loadDeferredStyles);
 
     // Barra de progreso de scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -1242,32 +1687,32 @@ textarea.contacto-input::placeholder {
     });
 
     // Crear partículas para el efecto moderno
-        function createParticles() {
+    function createParticles() {
       const particlesContainer = document.getElementById('particles');
       if (!particlesContainer) return;
-    
-      particlesContainer.innerHTML = ''; 
-    
+
+      particlesContainer.innerHTML = '';
+
       const particleCount = window.innerWidth < 600 ? 15 : 30;
-    
+
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-    
+
         const size = Math.random() * 10 + 5;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-    
+
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-    
+
         particle.style.opacity = Math.random() * 0.3 + 0.1;
-    
+
         const duration = Math.random() * 10 + 10;
         particle.style.animationDuration = `${duration}s`;
-    
+
         particle.style.animationDelay = `${Math.random() * 5}s`;
-    
+
         particlesContainer.appendChild(particle);
       }
     }
@@ -1297,7 +1742,7 @@ textarea.contacto-input::placeholder {
           showinfo: 0
         },
         events: {
-          onReady: function() {
+          onReady: function () {
             var loader = document.getElementById(loader);
             if (loader) {
               loader.style.display = 'none';
@@ -1307,7 +1752,7 @@ textarea.contacto-input::placeholder {
       });
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       createParticles();
       const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
@@ -1324,24 +1769,19 @@ textarea.contacto-input::placeholder {
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 
-<!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
-<script>
+  <!---------- VIDEO DE BIENVENIDA SOLO 1ra VEZ ---------->
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const overlay = document.getElementById('intro-video-overlay');
       const video = document.getElementById('intro-video');
       const tapMsg = document.getElementById('tap-to-play-msg');
       const sessionKey = 'videoBienvenidaVisto-v3';
-    
-      // Función para detectar si es un dispositivo móvil
-      function esMovil() {
-        return /Android|webOS|BlackBerry|Windows Phone|Opera Mini|IEMobile/i.test(navigator.userAgent);
-      }
-    
-      // Función para detectar si es un dispositivo iOS
+
+      // Función para detectar si es un dispositivo móvil Apple
       function esMovilApple() {
         return /iPhone|iPad|iPod/i.test(navigator.userAgent);
       }
-    
+
       // Función para ocultar el overlay
       function quitarOverlay() {
         overlay.style.opacity = 0;
@@ -1349,66 +1789,106 @@ textarea.contacto-input::placeholder {
         document.body.style.overflow = "";
         document.body.classList.add('animaciones-activas');
       }
-    
-      // Reemplazar el video por un GIF en dispositivos iPhone/iOS
-      if (esMovilApple()) {
-        const gif = document.createElement('img');
-        gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
-        gif.alt = "Bienvenida";
-        gif.style = "width: 100vw; height: 100vh; object-fit: cover; background: #000; display: block; cursor: pointer;";
-        overlay.replaceChild(gif, video);
-    
-        // Ocultar el GIF después de 9 segundos
-        setTimeout(() => {
-          quitarOverlay();
-        }, 9000);
-    
-        // Agregar evento de clic para ocultar el GIF
-        gif.addEventListener('click', quitarOverlay);
-      } else {
 
-        // Haz esto:
-        video.src = "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
-    
-        // Agregar eventos para ocultar el video
-        video.addEventListener('click', quitarOverlay);
-        video.addEventListener('touchend', quitarOverlay);
-        overlay.addEventListener('click', quitarOverlay);
-      }
-    
-      function intentarPlay() {
-        if (!esMovilApple()) {
-          video.muted = true;
-          video.playsInline = true;
-          video.setAttribute('playsinline', '');
-          video.removeAttribute('controls');
-          let intento = video.play();
-          if (intento && intento.catch) intento.catch(() => {});
-        }
-      }
-    
+      // Solo mostrar overlay si no se ha visto antes
       if (!sessionStorage.getItem(sessionKey)) {
         overlay.style.opacity = "1";
         overlay.style.pointerEvents = "auto";
         document.body.style.overflow = "hidden";
         document.body.classList.remove('animaciones-activas');
-        if (!esMovilApple()) video.currentTime = 0;
-        intentarPlay();
-        setTimeout(function () {
-          if (!esMovilApple() && video.paused) {
-            tapMsg.style.display = "inline-block";
-            window.addEventListener("touchstart", intentarPlay, { once: true, passive: true });
-            window.addEventListener("mousedown", intentarPlay, { once: true, passive: true });
+
+        if (esMovilApple()) {
+          // Reemplazar el video por un GIF en dispositivos iPhone/iOS
+          const gif = document.createElement('img');
+          gif.src = "/pruebas_carlos/videos_para_git_html/movil-git.gif";
+          gif.alt = "Bienvenida";
+          gif.style.width = "100vw";
+          gif.style.height = "100vh";
+          gif.style.objectFit = "cover";
+          gif.style.background = "#000";
+          gif.style.display = "block";
+          gif.style.cursor = "pointer";
+          // Reemplaza el video por el GIF
+          const wrapper = overlay.querySelector('.intro-video-wrapper');
+          if (wrapper) {
+            wrapper.innerHTML = '';
+            wrapper.appendChild(gif);
+          } else {
+            overlay.replaceChild(gif, video);
           }
-        }, 500);
-        video.addEventListener('ended', quitarOverlay);
-        video.addEventListener('error', () => setTimeout(quitarOverlay, 4000));
-        document.addEventListener('keydown', function (e) {
-          if (e.key === "Escape" && overlay.style.opacity !== "0") {
+
+          // Ocultar el GIF después de 9 segundos (duración del GIF)
+          const gifTimeout = setTimeout(() => {
             quitarOverlay();
-          }
-        });
-        setTimeout(quitarOverlay, 15000);
+          }, 9000);
+
+          // Ocultar el overlay al hacer click/tap en el GIF
+          gif.addEventListener('click', function () {
+            clearTimeout(gifTimeout);
+            quitarOverlay();
+          });
+          gif.addEventListener('touchend', function () {
+            clearTimeout(gifTimeout);
+            quitarOverlay();
+          });
+
+          // También permitir cerrar tocando cualquier parte del overlay
+          overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) {
+              clearTimeout(gifTimeout);
+              quitarOverlay();
+            }
+          });
+
+        } else {
+          // Para otros dispositivos: video normal
+          video.src = "/pruebas_carlos/videos_para_git_html/VB-git.mp4";
+          video.currentTime = 0;
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute('playsinline', '');
+          video.removeAttribute('controls');
+          let intento = video.play();
+          if (intento && intento.catch) intento.catch(() => { });
+
+          // Ocultar overlay al terminar el video
+          video.addEventListener('ended', quitarOverlay);
+
+          // Ocultar overlay al hacer click/tap en el video o overlay
+          video.addEventListener('click', quitarOverlay);
+          video.addEventListener('touchend', quitarOverlay);
+          overlay.addEventListener('click', function (e) {
+            // Solo si el click es fuera del video
+            if (e.target === overlay) quitarOverlay();
+          });
+
+          // Si el video no se reproduce automáticamente, mostrar mensaje
+          setTimeout(function () {
+            if (video.paused) {
+              tapMsg.style.display = "inline-block";
+              window.addEventListener("touchstart", function handler() {
+                video.play().catch(() => { });
+                window.removeEventListener("touchstart", handler);
+              }, { passive: true });
+              window.addEventListener("mousedown", function handler() {
+                video.play().catch(() => { });
+                window.removeEventListener("mousedown", handler);
+              }, { passive: true });
+            }
+          }, 500);
+
+          // Ocultar overlay tras 15s por si acaso
+          setTimeout(quitarOverlay, 15000);
+
+          // Permitir cerrar con Escape
+          document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape" && overlay.style.opacity !== "0") {
+              quitarOverlay();
+            }
+          });
+        }
+
+        // Marcar como visto para no mostrar de nuevo
         sessionStorage.setItem(sessionKey, "1");
       } else {
         quitarOverlay();
@@ -1416,87 +1896,87 @@ textarea.contacto-input::placeholder {
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formContacto");
-  const statusDiv = document.getElementById("form-status");
-  const nombre = document.getElementById("nombre");
-  const correo = document.getElementById("correo");
-  const mensaje = document.getElementById("mensaje");
-  const errorNombre = document.getElementById("error-nombre");
-  const errorCorreo = document.getElementById("error-correo");
-  const errorMensaje = document.getElementById("error-mensaje");
+      const form = document.getElementById("formContacto");
+      const statusDiv = document.getElementById("form-status");
+      const nombre = document.getElementById("nombre");
+      const correo = document.getElementById("correo");
+      const mensaje = document.getElementById("mensaje");
+      const errorNombre = document.getElementById("error-nombre");
+      const errorCorreo = document.getElementById("error-correo");
+      const errorMensaje = document.getElementById("error-mensaje");
 
-  function validarNombre(valor) {
-    if (!valor.trim()) return "El nombre es obligatorio.";
-    if (valor.trim().length < 2) return "Introduce al menos 2 caracteres.";
-    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/.test(valor.trim())) return "Solo letras y espacios.";
-    return "";
-  }
-  function validarCorreo(valor) {
-    if (!valor.trim()) return "El correo es obligatorio.";
-    // Regex simple para email válido
-    if (!/^[\w\.-]+@[\w\.-]+\.\w{2,}$/.test(valor.trim())) return "Correo no válido.";
-    return "";
-  }
-  function validarMensaje(valor) {
-    if (!valor.trim()) return "El mensaje es obligatorio.";
-    if (valor.trim().length < 10) return "Escribe al menos 10 caracteres.";
-    return "";
-  }
+      function validarNombre(valor) {
+        if (!valor.trim()) return "El nombre es obligatorio.";
+        if (valor.trim().length < 2) return "Introduce al menos 2 caracteres.";
+        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/.test(valor.trim())) return "Solo letras y espacios.";
+        return "";
+      }
+      function validarCorreo(valor) {
+        if (!valor.trim()) return "El correo es obligatorio.";
+        // Regex simple para email válido
+        if (!/^[\w\.-]+@[\w\.-]+\.\w{2,}$/.test(valor.trim())) return "Correo no válido.";
+        return "";
+      }
+      function validarMensaje(valor) {
+        if (!valor.trim()) return "El mensaje es obligatorio.";
+        if (valor.trim().length < 10) return "Escribe al menos 10 caracteres.";
+        return "";
+      }
 
-  function mostrarError(input, errorMsg, errorSpan) {
-    if (errorMsg) {
-      input.classList.add("error");
-      errorSpan.textContent = errorMsg;
-    } else {
-      input.classList.remove("error");
-      errorSpan.textContent = "";
-    }
-  }
+      function mostrarError(input, errorMsg, errorSpan) {
+        if (errorMsg) {
+          input.classList.add("error");
+          errorSpan.textContent = errorMsg;
+        } else {
+          input.classList.remove("error");
+          errorSpan.textContent = "";
+        }
+      }
 
-  // Validación en tiempo real
-  nombre.addEventListener("input", () => mostrarError(nombre, validarNombre(nombre.value), errorNombre));
-  correo.addEventListener("input", () => mostrarError(correo, validarCorreo(correo.value), errorCorreo));
-  mensaje.addEventListener("input", () => mostrarError(mensaje, validarMensaje(mensaje.value), errorMensaje));
+      // Validación en tiempo real
+      nombre.addEventListener("input", () => mostrarError(nombre, validarNombre(nombre.value), errorNombre));
+      correo.addEventListener("input", () => mostrarError(correo, validarCorreo(correo.value), errorCorreo));
+      mensaje.addEventListener("input", () => mostrarError(mensaje, validarMensaje(mensaje.value), errorMensaje));
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    let valido = true;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let valido = true;
 
-    const nombreError = validarNombre(nombre.value);
-    const correoError = validarCorreo(correo.value);
-    const mensajeError = validarMensaje(mensaje.value);
+        const nombreError = validarNombre(nombre.value);
+        const correoError = validarCorreo(correo.value);
+        const mensajeError = validarMensaje(mensaje.value);
 
-    mostrarError(nombre, nombreError, errorNombre);
-    mostrarError(correo, correoError, errorCorreo);
-    mostrarError(mensaje, mensajeError, errorMensaje);
+        mostrarError(nombre, nombreError, errorNombre);
+        mostrarError(correo, correoError, errorCorreo);
+        mostrarError(mensaje, mensajeError, errorMensaje);
 
-    if (nombreError || correoError || mensajeError) {
-      valido = false;
-    }
+        if (nombreError || correoError || mensajeError) {
+          valido = false;
+        }
 
-    if (!valido) {
-      statusDiv.style.display = "block";
-      statusDiv.textContent = "Corrige los errores antes de enviar.";
-      statusDiv.style.background = "linear-gradient(90deg, #e63946 60%, #0e369c 100%)";
-      setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
-      return;
-    }
+        if (!valido) {
+          statusDiv.style.display = "block";
+          statusDiv.textContent = "Corrige los errores antes de enviar.";
+          statusDiv.style.background = "linear-gradient(90deg, #e63946 60%, #0e369c 100%)";
+          setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
+          return;
+        }
 
-    statusDiv.style.display = "block";
-    statusDiv.textContent = "Enviando...";
-    statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
-    form.querySelector("button[type=submit]").disabled = true;
+        statusDiv.style.display = "block";
+        statusDiv.textContent = "Enviando...";
+        statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
+        form.querySelector("button[type=submit]").disabled = true;
 
-    // Simular envío...
-    setTimeout(function () {
-      statusDiv.textContent = "¡Mensaje enviado! Pronto nos pondremos en contacto.";
-      statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
-      form.reset();
-      form.querySelector("button[type=submit]").disabled = false;
-      setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
-    }, 1200);
-  });
-});
+        // Simular envío...
+        setTimeout(function () {
+          statusDiv.textContent = "¡Mensaje enviado! Pronto nos pondremos en contacto.";
+          statusDiv.style.background = "linear-gradient(90deg, #02b602 60%, #0e369c 100%)";
+          form.reset();
+          form.querySelector("button[type=submit]").disabled = false;
+          setTimeout(() => { statusDiv.style.display = "none"; }, 3500);
+        }, 1200);
+      });
+    });
   </script>
 
   <script>  // Selecciona el video según orientación/dispositivo
@@ -1518,4 +1998,5 @@ textarea.contacto-input::placeholder {
   <!-- Bootstrap JS con defer -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
+
 </html>
