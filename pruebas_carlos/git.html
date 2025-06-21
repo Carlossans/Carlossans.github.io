@@ -1283,6 +1283,134 @@
         padding: 1.05rem 1rem 1.05rem 2.7rem;
       }
     }
+
+    .about-carousel-section {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4rem 2vw 2rem 2vw;
+  max-width: 1500px;
+  margin: 0 auto 3.2rem auto;
+  flex-wrap: wrap;
+}
+.about-text {
+  flex: 1 1 420px;
+  min-width: 320px;
+  max-width: 56%;
+  padding-right: 1vw;
+}
+.about-text h2 {
+  color: #25355b;
+  font-size: 2.9rem;
+  font-weight: 900;
+  margin-bottom: 2.2rem;
+  line-height: 1.1;
+  border-top: 4px solid #25355b;
+  padding-top: 1.2rem;
+  letter-spacing: -1px;
+  text-align: right;
+}
+.about-description p {
+  font-size: 1.25rem;
+  color: #232323;
+  margin-bottom: 1.3rem;
+  text-align: left;
+  line-height: 1.7;
+}
+.about-carousel {
+  flex: 1 1 410px;
+  min-width: 320px;
+  max-width: 44%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#aboutCarousel {
+  width: 100%;
+  background: #02b602;
+  border-radius: 2.2rem;
+  box-shadow: 0 8px 32px #02b60222;
+  padding: 0.7rem 0.5rem;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+}
+.carousel-slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+  width: 100%;
+  border-radius: 2rem;
+  background: rgba(255,255,255,0.04);
+}
+.carousel-slide-content h3 {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.carousel-control-prev, .carousel-control-next {
+  filter: invert(1);
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .about-carousel-section {
+    flex-direction: column;
+    gap: 2.2rem;
+    padding: 2.2rem 0.7rem;
+  }
+  .about-text, .about-carousel {
+    max-width: 100%;
+    min-width: 0;
+    padding-right: 0;
+  }
+  #aboutCarousel {
+    min-height: 210px;
+    border-radius: 1.2rem;
+  }
+  .carousel-slide-content {
+    height: 130px;
+    border-radius: 1rem;
+  }
+  .about-text h2 {
+    font-size: 2rem;
+    padding-top: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-carousel-section {
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 1.2rem 0.2rem;
+  }
+  #aboutCarousel {
+    min-height: 120px;
+    border-radius: 0.6rem;
+    padding: 0.1rem 0;
+  }
+  .carousel-slide-content {
+    height: 80px;
+    border-radius: 0.5rem;
+  }
+  .about-text h2 {
+    font-size: 1.3rem;
+    padding-top: 0.3rem;
+  }
+  .about-description p {
+    font-size: 1rem;
+  }
+}
+
   </style>
   <!-- CSS asíncrono para el resto -->
   <noscript id="deferred-styles">
@@ -1446,6 +1574,86 @@
         </div>
       </div>
     </section>
+
+ <!--sobre nosotros-->
+ <section class="about-carousel-section">
+  <div class="about-text">
+    <h2>Impulsamos tu negocio<br>como si fuera el nuestro</h2>
+    <div class="about-description">
+      <p>
+        En Comunitega, crecemos contigo. Nuestra misión es ayudarte a alcanzar tu máximo potencial conectando con tu público al 1000% a través de estrategias digitales personalizadas, creativas y enfocadas en resultados reales.
+      </p>
+      <p>
+        Somos un equipo de profesionales apasionados por lo que hacemos, con amplia experiencia en marketing, desarrollo web, diseño y comunicación digital. Nos especializamos en convertir ideas en acciones efectivas, adaptadas a las necesidades de cada cliente.
+      </p>
+      <p>
+        Somos un equipo comprometido y apasionado por nuestro trabajo. Colaboramos estrechamente con cada cliente para transformar sus objetivos en estrategias digitales sólidas, efectivas y alineadas con las exigencias digitales actuales.
+      </p>
+    </div>
+  </div>
+  <div class="about-carousel">
+    <!-- Aquí va tu carrusel. Puedes usar Bootstrap o Swiper.js, pero asegúrate de personalizar el fondo y los bordes -->
+    <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-slide-content">
+            <h3>Experiencia en distintos sectores</h3>
+          </div>
+        </div>
+      </div>
+<br>
+<!-- Imagen a la derecha -->
+
+<div id="carruselFrases" class="carousel slide" data-ride="carousel" data-interval="2500" style="margin: 3rem auto;">
+<div class="carousel-inner">
+
+<!-- Tarjeta 1 -->
+<div class="carousel-item active">
+  <div class="card text-white mx-auto shadow">
+    <img src="Carrousel-1.png" alt="Imagen 1">
+  </div>
+</div>
+
+<!-- Tarjeta 2 -->
+<div class="carousel-item">
+  <div class="card text-white mx-auto shadow">
+    <img src="Carrousel-2.png" alt="Imagen 2">
+  </div>
+</div>
+
+<!-- Tarjeta 3 -->
+<div class="carousel-item">
+  <div class="card text-white mx-auto shadow">
+    <img src="Carrousel-3.png" alt="Imagen 3">
+  </div>
+</div>
+
+<!-- Tarjeta 4 -->
+<div class="carousel-item">
+  <div class="card text-white mx-auto shadow">
+    <img src="Carrousel-4.png" alt="Imagen 4">
+  </div>
+</div>
+
+<!-- Tarjeta 5 -->
+<div class="carousel-item">
+  <div class="card text-white mx-auto shadow">
+    <img src="Carrousel-5.png" alt="Imagen 5">
+  </div>
+</div>
+
+</div>
+
+<!-- Flechas -->
+<button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+</div>
+</div>
+</section>
     <!-- ABOUT -->
     <section class="about-section" id="about">
       <h2>¿Por qué Comunitega?</h2>
