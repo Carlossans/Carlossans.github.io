@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Joyería - Tienda Online</title>
+    <meta name="description" content="Compra joyas únicas y elegantes en nuestra tienda online. Anillos, pendientes, collares y más en plata, oro y rosa. Pago seguro y envío rápido. Joyería hecha a mano en España.">
+    <meta name="keywords" content="joyería, joyas, tienda de joyas, anillos, collares, plata, oro, comprar joyas, joyeria online, joyas modernas">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Elegante fuente serif para joyería de lujo -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css"><!-- Aquí puedes seguir sobreescribiendo estilos -->
+    <style>
+        :root {
+            --beige: #f9f6f1;
+            --blanco: #fff;
+            --negro: #111;
+            --dorado: #d6af36;
+            --beige-med: #ede7dc;
+            --beige-hf:#d6cdbc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--beige);
+        }
+
+        .site-header {
+            background: var(--negro);
+            border-color: var(--dorado) !important;
+            box-shadow: 0 2px 16px 0 rgba(17,17,17,0.06);
+            color: var(--blanco);
+        }
+        
+        .brand-mark span {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--dorado), var(--negro) 70%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-section {
+            background: var(--beige-med);
+        }
+        .btn-dark {
+            background: var(--negro);
+            border-color: var(--dorado);
+            color: var(--dorado);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+        .btn-dark:hover {
+            background: var(--dorado);
+            color: var(--negro);
+            border-color: var(--negro);
+        }
+        
+        /* ----------- ELIMINADAS reglas para luxury-sidebar (aside) ------------ */
+
+        .site-footer {
+            background: var(--negro);
+            color: var(--blanco);
+            border-top: 2px solid var(--dorado,#d6af36)!important;
+            font-size: 0.98rem;
+            padding: 32px 0 32px 0; /* más alto */
+            min-height: 105px;
+            box-shadow: 0 -1px 16px 0 rgba(17,17,17,0.04);
+        }
+        .site-footer .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            min-height: unset !important;
+        }
+        .site-footer .social-img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            display: block;
+            border-radius: 4px;
+            background: #fff;
+            transition: transform 0.13s, box-shadow 0.13s;
+            filter: grayscale(0.25) brightness(0.92);
+        }
+        .site-footer .social-link:hover .social-img {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 1px 4px #d6af3644;
+        }
+        .imagen-anillo {
+            display: block;
+            margin: 65px auto;
+            max-width: 50%; 
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 15px; 
+        }
+        .hero-section {
+            padding-top: 6rem !important;
+            padding-bottom: 6rem !important;
+        }
+        .hero-section .lead {
+            margin-bottom: 2.5rem;
+        }
+        .hero-section .btn {
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            .hero-section .lead {
+                margin-bottom: 3rem;
+            }
+            .hero-section .btn {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+
+<script>
+    // Simulación de carrito (esto reemplaza el valor según la info real de tu app)
+    function actualizarCarrito(contador) {
+        const cartCountEl = document.getElementById('cartCount');
+        cartCountEl.textContent = contador;
+        cartCountEl.style.display = (contador > 0) ? 'inline-block' : 'none';
+    }
+    // Ejemplo: cada vez que se agrega un item al carrito, se llama así:
+    // actualizarCarrito(3);   // El número debe venir de tu lógica real
+
+    // Ejemplo de cómo iniciar el contador oculto si no hay artículos:
+    document.addEventListener('DOMContentLoaded', function() {
+        const cartCountEl = document.getElementById('cartCount');
+        if (parseInt(cartCountEl.textContent, 10) === 0) {
+            cartCountEl.style.display = 'none';
+        }
+    });
+
+    // Si tienes una función para agregar productos, usa "actualizarCarrito(nuevo_total)"
+</script>
+</head>
+<body>
+
+        
+    </style>
+    <header class="site-header border-bottom py-2">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center gx-0">
+                <!-- Logo extremo izquierdo SIEMPRE -->
+                <div class="col-12 col-lg-2 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0" style="min-width: 130px;">
+                    <img src="" alt="logo" style="width: 40px; height: 40px; margin-right:18px;">
+                    <span class="brand-mark"><span>joyeria</span></span>
+                </div>
+                <!-- Menú catálogo -->
+                <nav class="col-12 col-lg-6 d-flex justify-content-center order-3 order-lg-2 mb-2 mb-lg-0">
+                    <ul class="nav align-items-center justify-content-center w-100" style="gap:12px;">
+                        <li class="nav-item">
+                            <a href="/anillos.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--dorado);">
+                                    <path d="M12 1l3 4h-6l3-4zm-4 4h8l-2 3h-4l-2-3zm-1.5 3l1.5 2h7l1.5-2h-10z" />
+                                    <path d="M12 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z" />
+                                </svg>
+                                <span>Anillos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pendientes.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-earring" viewBox="0 0 16 16" style="color:var(--dorado);">
+                                    <path d="M8 0a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3 3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Zm0 8a4 4 0 0 0 4-4V3a4 4 0 0 0-8 0v1a4 4 0 0 0 4 4Zm0 1a2 2 0 0 1 2 2v3a2 2 0 0 1-4 0v-3a2 2 0 0 1 2-2Z"/>
+                                </svg>
+                                <span>Pendientes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Carrito/Login/Registro -->
+                <nav class="col-12 col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end order-2 order-lg-3">
+                    <button class="btn position-relative cart-toggle me-2" id="openCart" aria-label="Abrir carrito">
+                        <svg id="cartIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                            <path d="M7 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35-6.44C5.55 6.21 6.13 5 7 5h13"
+                                stroke="var(--dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount" 
+                            style="position: absolute; top: -6px; right: -6px; background: var(--dorado); color: var(--negro); border-radius: 12px; padding: 1px 6px; font-size: 0.95em; min-width: 20px; text-align: center;">0</span>
+                    </button>
+                    <a href="/login.php" class="btn btn-link nav-link login-link ms-2">Iniciar Sesión</a>
+                    <a href="/register.php" class="btn btn-dark ms-2">Registrarse</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+<main>
+    <section class="hero-section py-4 px-2 text-center">
+        <h1 class="fw-bold display-4" style="font-family:'Playfair Display',serif;">Joyas únicas y elegantes</h1>
+        <p class="lead text-muted mb-4">Descubre nuestra colección de joyas en plata, oro y tonos que marcan la diferencia. Pago 100% seguro y envío rápido.</p>
+        <a href="#products" class="btn btn-dark btn-lg">Ver colección</a>
+    </section>
+
+    <section id="about" class="mt-5 container">
+        <h2 style="font-family:'Playfair Display',serif; text-align:center;">Sobre nosotros</h2>
+        <p style="text-align: center; margin-top: 1.5rem;">En nuestra joyeria podrás encontrar aquellas piezas qeu encajan a la perfección con su persona y a un precio sorprendente.</p>
+        <img src="yellow.avif" alt="" class="imagen-anillo">
+    </section>
+    <!-- Contacto -->
+    <section id="contact" class="mt-5 mb-5 container">
+        <h2 style="font-family:'Playfair Display',serif;">Contacto</h2>
+        <p>Email: ventas@joyeria.com — Tel: +34 600 000 000</p>
+    </section>
+</main>
+<footer class="site-footer border-top">
+    <div class="container d-flex justify-content-between align-items-center py-1">
+        <div style="font-size:0.98rem;">© <span id="year"></span> Joyería</div>
+        <div class="socials" style="display: flex; gap: 10px;">
+            <a href="https://instagram.com/tujoyeria" target="_blank" aria-label="Instagram" class="social-link" style="display:inline-block;">
+                <img src="instagram.png" alt="Instagram" class="social-img">
+            </a>
+            <a href="https://facebook.com/tujoyeria" target="_blank" aria-label="Facebook" class="social-link" style="display:inline-block;">
+                <img src="facebook.webp" alt="Facebook" class="social-img">
+            </a>
+            <a href="https://twitter.com/tujoyeria" target="_blank" aria-label="Twitter" class="social-link" style="display:inline-block;">
+                <img src="twitter.png" alt="Twitter" class="social-img">
+            </a>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
