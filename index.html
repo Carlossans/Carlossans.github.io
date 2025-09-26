@@ -7,9 +7,8 @@
     <meta name="description" content="Compra joyas únicas y elegantes en nuestra tienda online. Anillos, pendientes, collares y más en plata, oro y rosa. Pago seguro y envío rápido. Joyería hecha a mano en España.">
     <meta name="keywords" content="joyería, joyas, tienda de joyas, anillos, collares, plata, oro, comprar joyas, joyeria online, joyas modernas">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <!-- Elegante fuente serif para joyería de lujo -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css"><!-- Aquí puedes seguir sobreescribiendo estilos -->
+    <link rel="stylesheet" href="/assets/style.css">
     <style>
         :root {
             --beige: #f9f6f1;
@@ -31,6 +30,24 @@
             color: var(--blanco);
         }
         
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 0.6rem 0.3rem 0.6rem 0.8rem;
+        }
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+        .brand-mark img {
+            width: 40px;
+            height: 40px;
+            margin-right: 2px;
+        }
+
         .brand-mark span {
             font-family: 'Playfair Display', serif;
             letter-spacing: 2px;
@@ -39,6 +56,8 @@
             -webkit-background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            font-size:1.22rem;
         }
         .hero-section {
             background: var(--beige-med);
@@ -56,14 +75,141 @@
             border-color: var(--negro);
         }
         
-        /* ----------- ELIMINADAS reglas para luxury-sidebar (aside) ------------ */
+        .header-nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 9px;
+            border-radius: 5px;
+        }
+        .hamburger:active,
+        .hamburger:focus {
+            background: var(--beige-hf);
+        }
+        .hamburger span,
+        .hamburger span:after,
+        .hamburger span:before {
+            display: block;
+            position: relative;
+            height: 3px;
+            width: 29px;
+            background: var(--dorado);
+            transition: 0.2s all;
+            border-radius: 7px;
+        }
+        .hamburger span:before,
+        .hamburger span:after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+        .hamburger span:before {
+            top: -9px;
+        }
+        .hamburger span:after {
+            top: 9px;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 75vw;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--negro);
+            color: var(--blanco);
+            box-shadow: 2px 0 18px 0 rgba(55,47,20,0.10);
+            z-index: 1004;
+            transform: translateX(-100%);
+            transition: transform 0.22s cubic-bezier(.86,0,.07,1);
+            display: flex;
+            flex-direction: column;
+            padding: 2.2rem 1.2rem;
+        }
+        .mobile-nav.open {
+            transform: translateX(0);
+        }
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 24px;
+        }
+        .mobile-nav a {
+            color: var(--dorado);
+            text-decoration: none;
+            font-size: 1.14rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            transition: color 0.09s;
+        }
+        .mobile-nav a:hover {
+            color: var(--blanco);
+        }
+        .mobile-nav .mobile-actions {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(34,33,27,.45);
+            z-index: 1003;
+        }
+        .mobile-overlay.active { display: block; }
+
+        @media (max-width: 991.98px) {
+            .header-nav,
+            .header-actions {
+                display: none !important;
+            }
+            .hamburger {
+                display: block;
+            }
+            .header-main {
+                justify-content: space-between;
+                padding-top: 2px;
+            }
+            .site-header {
+                padding: 0;
+            }
+        }
+        @media (min-width: 992px) {
+            .hamburger,
+            .mobile-nav,
+            .mobile-overlay {
+                display: none !important;
+            }
+        }
 
         .site-footer {
             background: var(--negro);
             color: var(--blanco);
             border-top: 2px solid var(--dorado,#d6af36)!important;
             font-size: 0.98rem;
-            padding: 32px 0 32px 0; /* más alto */
+            padding: 32px 0 32px 0; 
             min-height: 105px;
             box-shadow: 0 -1px 16px 0 rgba(17,17,17,0.04);
         }
@@ -120,10 +266,7 @@
         cartCountEl.textContent = contador;
         cartCountEl.style.display = (contador > 0) ? 'inline-block' : 'none';
     }
-    // Ejemplo: cada vez que se agrega un item al carrito, se llama así:
-    // actualizarCarrito(3);   // El número debe venir de tu lógica real
 
-    // Ejemplo de cómo iniciar el contador oculto si no hay artículos:
     document.addEventListener('DOMContentLoaded', function() {
         const cartCountEl = document.getElementById('cartCount');
         if (parseInt(cartCountEl.textContent, 10) === 0) {
@@ -131,70 +274,139 @@
         }
     });
 
-    // Si tienes una función para agregar productos, usa "actualizarCarrito(nuevo_total)"
 </script>
 </head>
 <body>
 
         
     </style>
-    <header class="site-header border-bottom py-2">
-        <div class="container-fluid px-0">
-            <div class="row align-items-center gx-0">
-                <div class="col-12 col-lg-2 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0" style="min-width: 130px;">
-                    <img src="" alt="logo" style="width: 40px; height: 40px; margin-right:28px; margin-left: 25px;">
-                    <span>joyeria</span>
-                </div>
-                <!-- Menú catálogo -->
-                <nav class="col-12 col-lg-6 d-flex justify-content-center order-3 order-lg-2 mb-2 mb-lg-0">
-                    <ul class="nav align-items-center justify-content-center w-100" style="gap:12px;">
-                        <li class="nav-item">
-                            <a href="/anillos.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--dorado);">
-                                    <path d="M12 1l3 4h-6l3-4zm-4 4h8l-2 3h-4l-2-3zm-1.5 3l1.5 2h7l1.5-2h-10z" />
-                                    <path d="M12 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z" />
-                                </svg>
-                                <span>Anillos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pendientes.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-earring" viewBox="0 0 16 16" style="color:var(--dorado);">
-                                    <path d="M8 0a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3 3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Zm0 8a4 4 0 0 0 4-4V3a4 4 0 0 0-8 0v1a4 4 0 0 0 4 4Zm0 1a2 2 0 0 1 2 2v3a2 2 0 0 1-4 0v-3a2 2 0 0 1 2-2Z"/>
-                                </svg>
-                                <span>Pendientes</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- Carrito/Login/Registro -->
-                <nav class="col-12 col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end order-2 order-lg-3">
-                    <button class="btn position-relative cart-toggle me-2" id="openCart" aria-label="Abrir carrito">
-                        <svg id="cartIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
-                            <path d="M7 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35-6.44C5.55 6.21 6.13 5 7 5h13"
-                                stroke="var(--dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="cart-count" id="cartCount" 
-                            style="position: absolute; top: -6px; right: -6px; background: var(--dorado); color: var(--negro); border-radius: 12px; padding: 1px 6px; font-size: 0.95em; min-width: 20px; text-align: center;">0</span>
-                    </button>
-                    <button class="btn btn-link nav-link login-link ms-2" style="margin-right: 20px;" id="openLogin" data-bs-toggle="modal" data-bs-target="#authModal">Iniciar sesión</button>
-                    <button class="btn btn-dark ms-2" style="margin-right: 25px;" id="openRegister" data-bs-toggle="modal" data-bs-target="#authModal">Registrarse</button>
-                    <div class="dropdown d-none ms-2" id="userMenu">
-                        <button class="btn user-icon-btn text-light d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Mi cuenta">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                <path fill-rule="evenodd" d="M14 14s-1-4-6-4-6 4-6 4 2 2 6 2 6-2 6-2z"/>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><h6 class="dropdown-header" id="userDisplayName">Mi cuenta</h6></li>
-                            <li><button class="dropdown-item" id="logoutBtn">Cerrar sesión</button></li>
-                        </ul>
-                    </div>
-                </nav>
+    <header class="site-header border-bottom">
+        <div class="header-main container-fluid px-0">
+            <div class="brand-mark">
+                <img src="logo.png" alt="logo">
+                <span>joyeria</span>
             </div>
+
+            <nav class="header-nav">
+                <a href="/anillos.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--dorado);">
+                        <path d="M12 1l3 4h-6l3-4zm-4 4h8l-2 3h-4l-2-3zm-1.5 3l1.5 2h7l1.5-2h-10z" />
+                        <path d="M12 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z" />
+                    </svg>
+                    <span>Anillos</span>
+                </a>
+                <a href="/pendientes.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-earring" viewBox="0 0 16 16" style="color:var(--dorado);">
+                        <path d="M8 0a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3 3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Zm0 8a4 4 0 0 0 4-4V3a4 4 0 0 0-8 0v1a4 4 0 0 0 4 4Zm0 1a2 2 0 0 1 2 2v3a2 2 0 0 1-4 0v-3a2 2 0 0 1 2-2Z"/>
+                    </svg>
+                    <span>Pendientes</span>
+                </a>
+            </nav>
+           
+            <div class="header-actions">
+                <button class="btn position-relative cart-toggle me-2" id="openCart" aria-label="Abrir carrito">
+                    <svg id="cartIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                        <path d="M7 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35-6.44C5.55 6.21 6.13 5 7 5h13"
+                            stroke="var(--dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-count" id="cartCount"
+                        style="position: absolute; top: -6px; right: -6px; background: var(--dorado); color: var(--negro); border-radius: 12px; padding: 1px 6px; font-size: 0.95em; min-width: 20px; text-align: center;">0</span>
+                </button>
+                <button class="btn btn-link nav-link login-link ms-2" style="margin-right: 11px;" id="openLogin" data-bs-toggle="modal" data-bs-target="#authModal">Iniciar sesión</button>
+                <button class="btn btn-dark ms-2" id="openRegister" data-bs-toggle="modal" data-bs-target="#authModal">Registrarse</button>
+                <div class="dropdown d-none ms-2" id="userMenu">
+                    <button class="btn user-icon-btn text-light d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Mi cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M14 14s-1-4-6-4-6 4-6 4 2 2 6 2 6-2 6-2z"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header" id="userDisplayName">Mi cuenta</h6></li>
+                        <li><button class="dropdown-item" id="logoutBtn">Cerrar sesión</button></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
+                <span></span>
+            </button>
         </div>
+       
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+            <div class="brand-mark" style="margin-bottom: 0.7rem;">
+                <img src="logo.png" alt="logo">
+                <span>joyeria</span>
+            </div>
+            <ul>
+                <li><a href="/anillos.html">Anillos</a></li>
+                <li><a href="/pendientes.html">Pendientes</a></li>
+            </ul>
+            <div class="mobile-actions">
+                <button class="btn position-relative cart-toggle mb-2" id="openCartMobile" aria-label="Abrir carrito" style="text-align:left">
+                    <svg width="26" height="26" fill="none" viewBox="0 0 24 24">
+                        <path d="M7 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35-6.44C5.55 6.21 6.13 5 7 5h13"
+                            stroke="var(--dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-count" id="cartCountMobile"
+                        style="position: absolute; top: -6px; right: -6px; background: var(--dorado); color: var(--negro); border-radius: 12px; padding: 1px 6px; font-size: 0.95em; min-width: 20px; text-align: center;">0</span>
+                </button>
+                <button class="btn btn-link nav-link login-link" id="openLoginMobile" data-bs-toggle="modal" data-bs-target="#authModal">Iniciar sesión</button>
+                <button class="btn btn-dark" id="openRegisterMobile" data-bs-toggle="modal" data-bs-target="#authModal">Registrarse</button>
+            </div>
+        </nav>
     </header>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('mobileOverlay');
+        menuBtn.addEventListener('click', function () {
+            mobileNav.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+        overlay.addEventListener('click', function () {
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+
+        function actualizarCarrito(contador) {
+            const cartCountElDesktop = document.getElementById('cartCount');
+            const cartCountElMobile = document.getElementById('cartCountMobile');
+            if(cartCountElDesktop) {
+                cartCountElDesktop.textContent = contador;
+                cartCountElDesktop.style.display = (contador > 0) ? 'inline-block' : 'none';
+            }
+            if(cartCountElMobile) {
+                cartCountElMobile.textContent = contador;
+                cartCountElMobile.style.display = (contador > 0) ? 'inline-block' : 'none';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            ['cartCount','cartCountMobile'].forEach(function(id){
+                const el = document.getElementById(id);
+                if(el && parseInt(el.textContent, 10) === 0) {
+                    el.style.display = 'none';
+                }
+            });
+        });
+        document.getElementById('openCartMobile').addEventListener('click', function(){
+            document.getElementById('openCart').click();
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+        document.getElementById('openLoginMobile').addEventListener('click', function(){
+            document.getElementById('openLogin').click();
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+        document.getElementById('openRegisterMobile').addEventListener('click', function(){
+            document.getElementById('openRegister').click();
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    </script>
 <main>
     <section class="hero-section py-4 px-2 text-center">
         <h1 class="fw-bold display-4" style="font-family:'Playfair Display',serif;">Joyas únicas y elegantes</h1>
@@ -207,14 +419,12 @@
         <p style="text-align: center; margin-top: 1.5rem;">En nuestra joyeria podrás encontrar aquellas piezas qeu encajan a la perfección con su persona y a un precio sorprendente.</p>
         <img src="yellow.avif" alt="" class="imagen-anillo">
     </section>
-    <!-- Contacto -->
     <section id="contact" class="mt-5 mb-5 container">
         <h2 style="font-family:'Playfair Display',serif;">Contacto</h2>
         <p>Email: ventas@joyeria.com — Tel: +34 600 000 000</p>
     </section>
 </main>
 
-<!-- Modal de Autenticación -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
