@@ -22,32 +22,42 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--beige);
         }
-
         .site-header {
             background: var(--negro);
             border-color: var(--dorado) !important;
             box-shadow: 0 2px 16px 0 rgba(17,17,17,0.06);
             color: var(--blanco);
         }
-        
+        /* Header main layout */
         .header-main {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            padding: 0.6rem 0.3rem 0.6rem 0.8rem;
+            gap: 18px;
+            padding: 0.6rem 2.7rem 0.6rem 2.7rem;
         }
+        @media (min-width: 1200px) {
+            .header-main {
+                padding: 0.6rem 4.2rem 0.6rem 4.2rem;
+            }
+        }
+        /* Logo y nombre */
         .brand-mark {
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 13px;
+            margin-left: 0.9rem;
+        }
+        @media (min-width: 1200px) {
+            .brand-mark {
+                margin-left: 1.7rem;
+            }
         }
         .brand-mark img {
             width: 40px;
             height: 40px;
-            margin-right: 2px;
+            margin-right: 3px;
         }
-
         .brand-mark span {
             font-family: 'Playfair Display', serif;
             letter-spacing: 2px;
@@ -59,34 +69,37 @@
             font-weight: 600;
             font-size:1.22rem;
         }
-        .hero-section {
-            background: var(--beige-med);
-        }
-        .btn-dark {
-            background: var(--negro);
-            border-color: var(--dorado);
-            color: var(--dorado);
-            font-weight: 600;
-            letter-spacing: 0.8px;
-        }
-        .btn-dark:hover {
-            background: var(--dorado);
-            color: var(--negro);
-            border-color: var(--negro);
-        }
-        
+        /* Nav en desktop/tablet */
         .header-nav {
             display: flex;
-            gap: 18px;
+            gap: 24px;
         }
-
+        .header-nav a {
+            font-size: 1.08rem;
+        }
+        /* Actions, login/register/carrito */
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 17px;
+            margin-right: 1.1rem;
+        }
+        @media (min-width: 1200px) {
+            .header-actions {
+                gap: 28px;
+                margin-right: 2.5rem;
+            }
+        }
+        /* Aumentar clickable área para btns */
+        .header-actions .btn, 
+        .header-actions .btn-link {
+            min-width: 44px;
+            min-height: 38px;
+            padding-left: 12px;
+            padding-right: 12px;
         }
 
-
+        /* Hamburguesa sólo en móvil */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -122,7 +135,7 @@
         .hamburger span:after {
             top: 9px;
         }
-
+        /* Mobile nav */
         .mobile-nav {
             position: fixed;
             top: 0;
@@ -142,6 +155,9 @@
         }
         .mobile-nav.open {
             transform: translateX(0);
+        }
+        .mobile-nav .brand-mark {
+            margin-left: 0 !important;
         }
         .mobile-nav ul {
             list-style: none;
@@ -169,7 +185,7 @@
             flex-direction: column;
             gap: 15px;
         }
-
+        /* Overlay */
         .mobile-overlay {
             display: none;
             position: fixed;
@@ -180,6 +196,7 @@
         }
         .mobile-overlay.active { display: block; }
 
+        /* Responsive rules */
         @media (max-width: 991.98px) {
             .header-nav,
             .header-actions {
@@ -190,10 +207,10 @@
             }
             .header-main {
                 justify-content: space-between;
-                padding-top: 2px;
+                padding: 0.6rem 1.1rem 0.6rem 1.1rem;
             }
-            .site-header {
-                padding: 0;
+            .brand-mark {
+                margin-left: 0 !important;
             }
         }
         @media (min-width: 992px) {
@@ -238,6 +255,19 @@
         .hero-section {
             padding-top: 6rem !important;
             padding-bottom: 6rem !important;
+            background: var(--beige-med);
+        }
+        .btn-dark {
+            background: var(--negro);
+            border-color: var(--dorado);
+            color: var(--dorado);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+        .btn-dark:hover {
+            background: var(--dorado);
+            color: var(--negro);
+            border-color: var(--negro);
         }
         .hero-section .lead {
             margin-bottom: 2.5rem;
@@ -256,37 +286,31 @@
             .hero-section .btn {
                 margin-top: 2rem;
             }
+            .brand-mark {
+                margin-left: 1.2rem;
+            }
+        }
+        @media (min-width: 1200px) {
+            .header-actions {
+                gap: 28px;
+                margin-right: 2.5rem;
+            }
+            .brand-mark {
+                margin-left: 1.75rem;
+            }
+            .header-main {
+                padding: 0.6rem 4.2rem 0.6rem 4.2rem;
+            }
         }
     </style>
-
-<script>
-    // Simulación de carrito (esto reemplaza el valor según la info real de tu app)
-    function actualizarCarrito(contador) {
-        const cartCountEl = document.getElementById('cartCount');
-        cartCountEl.textContent = contador;
-        cartCountEl.style.display = (contador > 0) ? 'inline-block' : 'none';
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const cartCountEl = document.getElementById('cartCount');
-        if (parseInt(cartCountEl.textContent, 10) === 0) {
-            cartCountEl.style.display = 'none';
-        }
-    });
-
-</script>
 </head>
 <body>
-
-        
-    </style>
     <header class="site-header border-bottom">
         <div class="header-main container-fluid px-0">
             <div class="brand-mark">
                 <img src="logo.png" alt="logo">
                 <span>joyeria</span>
             </div>
-
             <nav class="header-nav">
                 <a href="/anillos.html" class="nav-link d-flex align-items-center text-light" style="gap:4px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--dorado);">
@@ -302,7 +326,6 @@
                     <span>Pendientes</span>
                 </a>
             </nav>
-           
             <div class="header-actions">
                 <button class="btn position-relative cart-toggle me-2" id="openCart" aria-label="Abrir carrito">
                     <svg id="cartIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
@@ -327,12 +350,10 @@
                     </ul>
                 </div>
             </div>
-           
             <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
                 <span></span>
             </button>
         </div>
-       
         <div class="mobile-overlay" id="mobileOverlay"></div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
             <div class="brand-mark" style="margin-bottom: 0.7rem;">
@@ -358,6 +379,7 @@
         </nav>
     </header>
     <script>
+        // Hamburguesa & menú lateral mobile
         const menuBtn = document.getElementById('menuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const overlay = document.getElementById('mobileOverlay');
@@ -370,7 +392,7 @@
             overlay.classList.remove('active');
         });
 
-
+        // Sincroniza contador del carrito
         function actualizarCarrito(contador) {
             const cartCountElDesktop = document.getElementById('cartCount');
             const cartCountElMobile = document.getElementById('cartCountMobile');
