@@ -73,6 +73,7 @@
             -webkit-text-fill-color: transparent;
             font-weight: 600;
             font-size:1.22rem;
+            margin-left: 55px;
         }
         .header-nav {
             display: flex;
@@ -103,7 +104,6 @@
             padding-right: 12px;
         }
     
-        /* Hamburguesa sólo en móvil */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -139,8 +139,7 @@
         .hamburger span:after {
             top: 9px;
         }
-    
-        /* Mobile nav */
+
         .mobile-nav {
             position: fixed;
             top: 0;
@@ -190,7 +189,7 @@
             flex-direction: column;
             gap: 15px;
         }
-        /* Overlay */
+
         .mobile-overlay {
             display: none;
             position: fixed;
@@ -201,11 +200,24 @@
         }
         .mobile-overlay.active { display: block; }
     
-        /* ###################### RESPONSIVE REGLAS ###################### */
-        /* Móvil: mostrar logo y nombre junto a hamburguesa */
+
         .mobile-header-brand {
             display: none;
         }
+
+        .mobile-header-brand span {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--dorado), var(--negro) 70%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            font-size: 1.13rem;
+            margin-left: 32px;
+        }
+
         @media (max-width: 991.98px) {
             .header-nav,
             .header-actions,
@@ -218,9 +230,8 @@
             .mobile-header-brand {
                 display: flex !important;
                 align-items: center;
-                gap: 8px;
+                /* gap: 8px; quitamos gap y usamos margin-left en span */
                 margin-left: 0.15rem;
-                /* gap para separar logo y nombre cuando es solo mobile */
             }
             .header-main {
                 padding: 0.6rem 1.1rem 0.6rem 1.1rem;
@@ -228,7 +239,6 @@
             .brand-mark {
                 margin-left: 0 !important;
             }
-            /* Posicionamiento mejorado del header: logo a la izquierda, hamburguesa a la derecha */
             .header-main {
                 flex-direction: row;
                 justify-content: space-between;
@@ -335,7 +345,6 @@
     <header class="site-header border-bottom">
         <div class="header-main container-fluid px-0">
     
-            <!-- Logo/nombre especial SOLO para móvil -->
             <div class="mobile-header-brand">
                 <img src="logo.png" alt="logo" style="width:36px; height:36px;">
                 <span style="
@@ -348,7 +357,6 @@
                 ">joyeria</span>
             </div>
     
-            <!-- Logo & navegación (desktop/tablet) -->
             <div class="header-left d-flex align-items-center" style="gap:32px;">
                 <div class="brand-mark">
                     <img src="logo.png" alt="logo">
@@ -397,7 +405,6 @@
                 </div>
             </div>
     
-            <!-- Hamburguesa siempre a la derecha (se muestra solo en móvil vía CSS) -->
             <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
                 <span></span>
             </button>
