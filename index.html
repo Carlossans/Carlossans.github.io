@@ -52,6 +52,7 @@
             margin-left: 32px;
             display: flex;
             align-items: center;
+            margin-right: 45px;
         }
         @media (min-width: 1200px) {
             .brand-mark {
@@ -230,7 +231,6 @@
             .mobile-header-brand {
                 display: flex !important;
                 align-items: center;
-                /* gap: 8px; quitamos gap y usamos margin-left en span */
                 margin-left: 0.15rem;
             }
             .header-main {
@@ -257,7 +257,6 @@
             }
         }
     
-        /* Footer y Resto igual */
         .site-footer {
             background: var(--negro);
             color: var(--blanco);
@@ -379,7 +378,6 @@
                 </nav>
             </div>
     
-            <!-- Acciones a la derecha -->
             <div class="header-actions">
                 <button class="btn position-relative cart-toggle me-2" id="openCart" aria-label="Abrir carrito">
                     <svg id="cartIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
@@ -418,7 +416,6 @@
             <ul>
                 <li>
                     <a href="/anillos.html" class="d-flex align-items-center" style="gap:5px;">
-                        <!-- Icono anillos -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--dorado);">
                             <path d="M12 1l3 4h-6l3-4zm-4 4h8l-2 3h-4l-2-3zm-1.5 3l1.5 2h7l1.5-2h-10z" />
                             <path d="M12 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z" />
@@ -428,7 +425,6 @@
                 </li>
                 <li>
                     <a href="/pendientes.html" class="d-flex align-items-center" style="gap:5px;">
-                        <!-- Icono pendientes -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-earring" viewBox="0 0 16 16" style="color:var(--dorado);">
                             <path d="M8 0a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3 3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Zm0 8a4 4 0 0 0 4-4V3a4 4 0 0 0-8 0v1a4 4 0 0 0 4 4Zm0 1a2 2 0 0 1 2 2v3a2 2 0 0 1-4 0v-3a2 2 0 0 1 2-2Z"/>
                         </svg>
@@ -451,7 +447,6 @@
         </nav>
     </header>
     <script>
-        // Hamburguesa & menú lateral mobile
         const menuBtn = document.getElementById('menuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const overlay = document.getElementById('mobileOverlay');
@@ -464,7 +459,6 @@
             overlay.classList.remove('active');
         });
 
-        // Sincroniza contador del carrito
         function actualizarCarrito(contador) {
             const cartCountElDesktop = document.getElementById('cartCount');
             const cartCountElMobile = document.getElementById('cartCountMobile');
